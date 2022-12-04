@@ -1,37 +1,20 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import {View, Text} from 'react-native';
+// import {Provider} from 'react-redux';
+import GeneralStatusBarColor from './src/core/statusBar';
+import MainStack from './src/navigation';
+import LogIn from './src/modules/logIn/ui/screens';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-
-const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+export default function App() {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <View>
-          <Text>RRRRR</Text>
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    // <Provider store={store}>
+    // <View>
+    //   <GeneralStatusBarColor
+    //     backgroundColor="#000a15"
+    //     barStyle="light-content"
+    //   />
+    <MainStack />
+    // </View>
+    // </Provider>
   );
-};
-
-export default App;
+}
