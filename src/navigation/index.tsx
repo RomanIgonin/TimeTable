@@ -3,8 +3,8 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {RootStackParamList} from './types';
 
-import Login from '../modules/logIn/ui/screens/index';
-import SignUp from '../modules/signUp/ui/screens';
+import Login from '../auth/ui/screens/login/ui/screens/index';
+import SignUp from '../auth/ui/screens/signUp/ui/screens';
 import Home from '../modules/home/ui/screens';
 import Lessons from '../modules/lessons/ui/screens';
 import Profile from '../modules/menu/profile/ui/screens';

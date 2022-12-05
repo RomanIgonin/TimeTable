@@ -11,9 +11,12 @@ export type RootStackParamList = {
 };
 
 export type LoginType = NativeStackScreenProps<RootStackParamList, 'Login'>;
-export type SignUp = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
-export type Home = NativeStackScreenProps<RootStackParamList, 'Home'>;
-export type Lessons = NativeStackScreenProps<RootStackParamList, 'Lessons'>;
-export type Profile = NativeStackScreenProps<RootStackParamList, 'Profile'>;
-export type Salary = NativeStackScreenProps<RootStackParamList, 'Salary'>;
-export type Settings = NativeStackScreenProps<RootStackParamList, 'Settings'>;
+export type SignUpType = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
+export type HomeType = NativeStackScreenProps<RootStackParamList, 'Home'>;
+export type LessonsType = NativeStackScreenProps<RootStackParamList, 'Lessons'>;
+export type ProfileType = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+export type SalaryType = NativeStackScreenProps<RootStackParamList, 'Salary'>;
+export type SettingsType = NativeStackScreenProps<
+  RootStackParamList,
+  'Settings'
+>;

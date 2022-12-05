@@ -1,15 +1,12 @@
 import {StyleSheet} from 'react-native';
 
-export const LogInStyle = StyleSheet.create({
+export const AuthFormStyle = StyleSheet.create({
   main: {
     flex: 1,
     alignItems: 'stretch',
     justifyContent: 'center',
-    margin: 30,
+    marginHorizontal: 30,
     backgroundColor: 'silver',
-  },
-  topPadding: {
-    flex: 2,
   },
   email: {
     flex: 1,
@@ -36,22 +33,12 @@ export const LogInStyle = StyleSheet.create({
     paddingLeft: '7%',
     borderRadius: 15,
   },
-  logInButton: {
+  Button: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'grey',
     marginVertical: 10,
     borderRadius: 10,
-  },
-  signUpButton: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'grey',
-    marginHorizontal: '35%',
-  },
-  bottomPadding: {
-    flex: 2,
   },
 });
