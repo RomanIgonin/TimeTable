@@ -1,34 +1,34 @@
 import {Pressable, Text, View} from 'react-native';
-// import {LoginType} from '../../../../../../navigation/types';
-import {AuthForm} from '../../../../components/authForm';
+// import {LoginType} from 'navigation/types';
+import {AuthForm} from '@src/auth/ui/components/authForm';
 // import {useAppDispatch} from '../../../../../../hooks';
 // import {postUser} from '../../../../../../users/store/action';
-import auth from '@react-native-firebase/auth';
-import {LoginType} from '../../../../../../navigation/types';
-import {
-  AuthScreenStyle,
-  LoginAndSignUpStyle,
-} from '../../../../../styles/style';
+import {LoginType} from '@src/navigation/types';
+import {LoginAndSignUpStyle} from '@src/auth/styles/style';
+import authServices from '@src/auth/services/authServices';
+import {usersActions, UserType} from '@src/users/store';
+import {useAppDispatch} from '@src/hooks';
+import auth, {firebase} from '@react-native-firebase/auth';
+import {postCurrentUserOnServer} from '@src/users/store/action';
 
 export default function Login({navigation}: LoginType) {
+  const dispatch = useAppDispatch();
   const onPressSignUp = () => navigation.navigate('SignUp');
 
-  const authLogin = (email, password) => {
-    auth()
-      .signInWithEmailAndPassword(email, password)
-      .then(() => {
-        console.log(email + ': sign in!');
-        navigation.navigate('Home');
-      })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          console.error('That email address is already in use!');
-        }
-        if (error.code === 'auth/invalid-email') {
-          console.error('That email address is invalid!');
-        }
-        console.error(error);
-      });
+  const onPressLogin = async (email, password) => {
+    await authServices.loginAuthService(email, password);
+    const user = auth().currentUser;
+    const idToken = await user?.getIdToken();
+    const currentUser: UserType = {
+      id: idToken,
+      email: user?.email,
+      password: password,
+      firstName: '',
+      lastName: '',
+    };
+    // console.log('CurrentUser: ' + currentUser.token);
+    dispatch(postCurrentUserOnServer(currentUser));
+    navigation.navigate('Home');
   };
 
   return (
@@ -36,7 +36,7 @@ export default function Login({navigation}: LoginType) {
       <View style={LoginAndSignUpStyle.topPadding}></View>
 
       <View style={LoginAndSignUpStyle.authForm}>
-        <AuthForm textInButton={'Login'} onPressButton={authLogin} />
+        <AuthForm textInButton={'Login'} onPressButton={onPressLogin} />
       </View>
 
       <View style={LoginAndSignUpStyle.bottomPadding}>

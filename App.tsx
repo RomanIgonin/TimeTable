@@ -10,13 +10,11 @@ import {store} from './src/core/store';
 export default function App() {
   return (
     <Provider store={store}>
-      {/*<View>*/}
-      {/*  <GeneralStatusBarColor*/}
-      {/*    backgroundColor="#000a15"*/}
-      {/*    barStyle="light-content"*/}
-      {/*  />*/}
+      <GeneralStatusBarColor
+        backgroundColor="#000a15"
+        barStyle="light-content"
+      />
       <MainStack />
-      {/*</View>*/}
     </Provider>
   );
 }

@@ -1,5 +1,5 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
-import usersServices from '../services/usersService';
+import usersServices from '@src/users/services/usersServices';
 import {UserType} from './index';
 
 const PREFIX = 'users';
@@ -8,9 +8,23 @@ const PREFIX = 'users';
 //   return await usersServices.getUsersService();
 // });
 
-export const postUser = createAsyncThunk<undefined, UserType>(
-  `${PREFIX}/postUser`,
+export const postUserOnServer = createAsyncThunk<undefined, UserType>(
+  `${PREFIX}/postUserOnServer`,
   async newUser => {
     return await usersServices.postUserService(newUser);
+  },
+);
+
+export const postCurrentUserOnServer = createAsyncThunk<undefined, UserType>(
+  `${PREFIX}/postCurrentUserOnServer`,
+  async currentUser => {
+    return await usersServices.postCurrentUserService(currentUser);
+  },
+);
+
+export const deleteCurrentUserOnServer = createAsyncThunk<undefined, UserType>(
+  `${PREFIX}/postCurrentUserOnServer`,
+  async currentUser => {
+    return await usersServices.deleteCurrentUserService(currentUser);
   },
 );

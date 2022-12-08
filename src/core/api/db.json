@@ -1,4 +1,26 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "VP9UyguyhbUBmNhZl0ZrAc4DDmZ2",
+      "email": "4@test.ru",
+      "password": "12345678",
+      "firstName": "",
+      "lastName": ""
+    },
+    {
+      "id": "sirdZTygTzT31n21ncGDccLbXyY2",
+      "email": "5@test.ru",
+      "password": "12345678"
+    },
+    {
+      "id": "jBcqmWWknXN3Vt2LFEOKbbFntT03",
+      "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijk1MWMwOGM1MTZhZTM1MmI4OWU0ZDJlMGUxNDA5NmY3MzQ5NDJhODciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGltZXRhYmxlLTFjYzE5IiwiYXVkIjoidGltZXRhYmxlLTFjYzE5IiwiYXV0aF90aW1lIjoxNjcwNDIxNDQzLCJ1c2VyX2lkIjoiakJjcW1XV2tuWE4zVnQyTEZFT0tiYkZudFQwMyIsInN1YiI6ImpCY3FtV1drblhOM1Z0MkxGRU9LYmJGbnRUMDMiLCJpYXQiOjE2NzA0MjE0NDMsImV4cCI6MTY3MDQyNTA0MywiZW1haWwiOiI2QHRlc3QucnUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiNkB0ZXN0LnJ1Il19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.NwOHfTxfz-ugj90xzi9MDdc2KyRr7PLys3Z9K3WJ7F27HvJfLwf655SjMjCfUEPx758UlpaNaUlHntqsaQAHMlGNaTShKIIr54GGZBcGl7xx3reju-K0aaWS60aKxVH72MSKgjUS7wHdof9G8P2q6BIpXbG5-q-fEY3aMfZfDwQkmImGZXlCYJQUAO4hhtRbplWrSH6UKJOmc335mz-xB2bi8j76kuBbLulBAoRFoFC2WAR0r8yPEmMHovfinTK45aEfay_V7xFw67c-j_jmd9lBk7Rls_VRsVcvy184aX9br0Pl8sM5RhB5_0nG01dHAA9jq_NEd5vikQJb8asK-Q",
+      "email": "6@test.ru",
+      "password": "12345678",
+      "firstName": "",
+      "lastName": ""
+    }
+  ],
+  "currentUser": [],
   "lessons": []
 }

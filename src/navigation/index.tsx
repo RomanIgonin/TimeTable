@@ -29,9 +29,9 @@ export default function Navigate() {
       //   headerShown: false,
       // }}>
       >
+        <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="Home" component={Home} options={{title: ''}} />
         {/*<RootStack.Screen*/}
         {/*  name="Lessons"*/}
         {/*  component={Lessons}*/}

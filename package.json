@@ -5,7 +5,7 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator='iPhone 6 (12.4)'",
-    "server": "json-server --host 192.168.8.112 -p 3002 src/modules/core/api/db.json",
+    "server": "json-server --host 192.168.8.112 -p 3002 src/core/api/db.json",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint sys --ext .js,.jsx,.ts,.tsx"
@@ -38,6 +38,7 @@
     "@typescript-eslint/eslint-plugin": "^5.37.0",
     "@typescript-eslint/parser": "^5.37.0",
     "babel-jest": "^26.6.3",
+    "babel-plugin-module-resolver": "^4.1.0",
     "eslint": "^7.32.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "0.72.3",

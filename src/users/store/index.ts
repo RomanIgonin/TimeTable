@@ -1,22 +1,22 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {postUser} from './action';
+import {postCurrentUserOnServer, postUserOnServer} from './action';
 
 export type UserType = {
-  id: string;
-  email: string;
+  id: string | undefined;
+  email: string | null | undefined;
   password: string;
   firstName: undefined | string;
   lastName: undefined | string;
 };
 
 type initialStateType = {
-  // users: UserType[];
+  users: UserType[];
   currentUser: undefined | UserType;
   isUsersLoading: boolean;
 };
 
 const initialState: initialStateType = {
-  // users: [],
+  users: [],
   currentUser: undefined,
   isUsersLoading: false,
 };
@@ -27,16 +27,25 @@ const usersSlice = createSlice({
   reducers: {
     setCurrentUser: (state: initialStateType, {payload}) => {
       state.currentUser = payload;
-      console.log(state.currentUser);
+    },
+    setNewUser: (state: initialStateType, {payload}) => {
+      state.users = payload;
     },
   },
   extraReducers: builder => {
-    builder.addCase(postUser.pending, state => {
+    builder.addCase(postUserOnServer.pending, state => {
       state.isUsersLoading = true;
     });
-    builder.addCase(postUser.fulfilled, (state, {payload}) => {
+    builder.addCase(postUserOnServer.fulfilled, (state, {payload}) => {
       state.currentUser = payload;
       state.isUsersLoading = false;
+    });
+    builder.addCase(postCurrentUserOnServer.fulfilled, (state, {payload}) => {
+      state.currentUser = payload;
+      console.log(state.currentUser);
+    });
+    builder.addCase(deleteCurrentUserOnServer.fulfilled, state => {
+      state.currentUser = undefined;
     });
   },
 });

@@ -1,44 +1,37 @@
 import {Pressable, View, Text} from 'react-native';
-import {AuthForm} from '../../../../components/authForm';
-import auth from '@react-native-firebase/auth';
+import {AuthForm} from '@src/auth/ui/components/authForm';
+import auth, {firebase} from '@react-native-firebase/auth';
 import React from 'react';
-import {LoginAndSignUpStyle} from '../../../../../styles/style';
-import {SignUpType} from '../../../../../../navigation/types';
-import {useAppDispatch} from '../../../../../../hooks';
-import {usersActions, UserType} from '../../../../../../users/store';
-import {postUser} from '../../../../../../users/store/action';
+import {LoginAndSignUpStyle} from '@src/auth/styles/style';
+import {SignUpType} from '@src/navigation/types';
+import {useAppDispatch} from '@src/hooks';
+import {usersActions, UserType} from '@src/users/store';
+import {
+  postCurrentUserOnServer,
+  postUserOnServer,
+} from '@src/users/store/action';
+import authServices from '@src/auth/services/authServices';
 
 export default function SignUp({navigation}: SignUpType) {
   const dispatch = useAppDispatch();
 
   const onPressLogin = () => navigation.navigate('Login');
 
-  const authSignUp = (email: string, password: string) => {
-    auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(response => {
-        console.log(response);
-        const newUser: UserType = {
-          id: response.user.uid,
-          email: response.user.email,
-          password: password,
-          firstName: undefined,
-          lastName: undefined,
-        };
-        dispatch(usersActions.setCurrentUser(newUser));
-        dispatch(postUser(newUser));
-        console.log(email + ': login!');
-        navigation.navigate('Home');
-      })
-      .catch(error => {
-        if (error.code === 'auth/email-already-in-use') {
-          console.error('That email address is already in use!');
-        }
-        if (error.code === 'auth/invalid-email') {
-          console.error('That email address is invalid!');
-        }
-        console.error(error);
-      });
+  const onPressSignUp = async (email: string, password: string) => {
+    await authServices.signUpAuthService(email, password);
+    const user = auth().currentUser;
+    const idToken = await user?.getIdToken();
+    const newUser: UserType = {
+      id: idToken,
+      email: user?.email,
+      password: password,
+      firstName: '',
+      lastName: '',
+    };
+    dispatch(postUserOnServer(newUser));
+    dispatch(usersActions.setNewUser(newUser));
+    dispatch(postCurrentUserOnServer(newUser));
+    navigation.navigate('Home');
   };
 
   return (
@@ -46,7 +39,7 @@ export default function SignUp({navigation}: SignUpType) {
       <View style={LoginAndSignUpStyle.topPadding}></View>
 
       <View style={LoginAndSignUpStyle.authForm}>
-        <AuthForm textInButton={'Sign Up'} onPressButton={authSignUp} />
+        <AuthForm textInButton={'Sign Up'} onPressButton={onPressSignUp} />
       </View>
 
       <View style={LoginAndSignUpStyle.bottomPadding}>
