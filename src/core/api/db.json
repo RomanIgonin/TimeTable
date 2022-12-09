@@ -1,26 +1,20 @@
 {
   "users": [
     {
-      "id": "VP9UyguyhbUBmNhZl0ZrAc4DDmZ2",
-      "email": "4@test.ru",
-      "password": "12345678",
-      "firstName": "",
-      "lastName": ""
-    },
-    {
-      "id": "sirdZTygTzT31n21ncGDccLbXyY2",
-      "email": "5@test.ru",
-      "password": "12345678"
-    },
-    {
-      "id": "jBcqmWWknXN3Vt2LFEOKbbFntT03",
-      "token": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijk1MWMwOGM1MTZhZTM1MmI4OWU0ZDJlMGUxNDA5NmY3MzQ5NDJhODciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGltZXRhYmxlLTFjYzE5IiwiYXVkIjoidGltZXRhYmxlLTFjYzE5IiwiYXV0aF90aW1lIjoxNjcwNDIxNDQzLCJ1c2VyX2lkIjoiakJjcW1XV2tuWE4zVnQyTEZFT0tiYkZudFQwMyIsInN1YiI6ImpCY3FtV1drblhOM1Z0MkxGRU9LYmJGbnRUMDMiLCJpYXQiOjE2NzA0MjE0NDMsImV4cCI6MTY3MDQyNTA0MywiZW1haWwiOiI2QHRlc3QucnUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiNkB0ZXN0LnJ1Il19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.NwOHfTxfz-ugj90xzi9MDdc2KyRr7PLys3Z9K3WJ7F27HvJfLwf655SjMjCfUEPx758UlpaNaUlHntqsaQAHMlGNaTShKIIr54GGZBcGl7xx3reju-K0aaWS60aKxVH72MSKgjUS7wHdof9G8P2q6BIpXbG5-q-fEY3aMfZfDwQkmImGZXlCYJQUAO4hhtRbplWrSH6UKJOmc335mz-xB2bi8j76kuBbLulBAoRFoFC2WAR0r8yPEmMHovfinTK45aEfay_V7xFw67c-j_jmd9lBk7Rls_VRsVcvy184aX9br0Pl8sM5RhB5_0nG01dHAA9jq_NEd5vikQJb8asK-Q",
-      "email": "6@test.ru",
-      "password": "12345678",
+      "id": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijk1MWMwOGM1MTZhZTM1MmI4OWU0ZDJlMGUxNDA5NmY3MzQ5NDJhODciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGltZXRhYmxlLTFjYzE5IiwiYXVkIjoidGltZXRhYmxlLTFjYzE5IiwiYXV0aF90aW1lIjoxNjcwNTc5MDQwLCJ1c2VyX2lkIjoiOUhhcjNrbFJ5UmJvaGh6eGdDNkhkUXdPWWFQMiIsInN1YiI6IjlIYXIza2xSeVJib2hoenhnQzZIZFF3T1lhUDIiLCJpYXQiOjE2NzA1NzkwNDAsImV4cCI6MTY3MDU4MjY0MCwiZW1haWwiOiIxQG1haWwucnUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiMUBtYWlsLnJ1Il19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.mRVvodFx4ZzqBhBgdmtjCELxDZn5B9nM-acd-xB8LGcCSqCArNPd4sGdg2fsjY-OzpZH4O_8oUmkP4wq2Z6uqfK7O56WVkoRJwq37RTq8VeEHyH0EBf2JnI98-WuSfe7neKgU3-9vRD9KOk7_6eNNERRuZGDBUKDgu8qG59xD6ZrgRYlH5qpbIHga6TucN8DTgX77gUgmbuhdaJg03kQ1WGVQzQSN3pa52D-tcPNS7h1dqsuXL0j28JZp1o0Lyt5CJlQeGg_k9CDGpsZDQ9MjiGib9X6kB9sNL_4ZBF53AKIUFREgwgeyB3eMsVVKx8aTx3aXTrN2y2ekFD3MWHJ4w",
+      "email": "1@mail.ru",
+      "password": "123qwe",
       "firstName": "",
       "lastName": ""
     }
   ],
-  "currentUser": [],
-  "lessons": []
+  "currentUser": [
+    {
+      "id": "eyJhbGciOiJSUzI1NiIsImtpZCI6Ijk1MWMwOGM1MTZhZTM1MmI4OWU0ZDJlMGUxNDA5NmY3MzQ5NDJhODciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGltZXRhYmxlLTFjYzE5IiwiYXVkIjoidGltZXRhYmxlLTFjYzE5IiwiYXV0aF90aW1lIjoxNjcwNjAzMDY5LCJ1c2VyX2lkIjoiOUhhcjNrbFJ5UmJvaGh6eGdDNkhkUXdPWWFQMiIsInN1YiI6IjlIYXIza2xSeVJib2hoenhnQzZIZFF3T1lhUDIiLCJpYXQiOjE2NzA2MDMwNjksImV4cCI6MTY3MDYwNjY2OSwiZW1haWwiOiIxQG1haWwucnUiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiMUBtYWlsLnJ1Il19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.Wr9FyQ40jayP5yKyUEcrnkkuf6i5MQVej0qTkos7vDD7WFivvQuvHSgnv62xojyQq9opMop6CoRqYd3ioZGMIQKcQzg6kbdnIQRpOF9iBOaTAAKFu7F4fxFKWdkcu9NnnO_xfZlGvMnYNA72n3SRVuzrCujnrhAazuUtsqLC0auYcZmQ8a_wMVbVR9wILwUsmC4HY_JbYhBtTyNtpOL46cqGP5w6Zo9g59KGpvxttBXMTV4HNQdgMDLxM9p6Y6BXsVlinRqt0EVP1Dgu4LriShLlfOeOZsvemHwZg5vaUr9b04MyJ_aD0n6PUxWniJQ4bpPQ5h0phkKijzGDOsZfJQ",
+      "email": "1@mail.ru",
+      "password": "123qwe",
+      "firstName": "",
+      "lastName": ""
+    }
+  ]
 }

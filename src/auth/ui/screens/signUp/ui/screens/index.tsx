@@ -3,10 +3,11 @@ import {AuthForm} from '@src/auth/ui/components/authForm';
 import auth, {firebase} from '@react-native-firebase/auth';
 import React from 'react';
 import {LoginAndSignUpStyle} from '@src/auth/styles/style';
-import {SignUpType} from '@src/navigation/types';
+import {SignUpType} from '@src/navigation/stackNavigator/types';
 import {useAppDispatch} from '@src/hooks';
 import {usersActions, UserType} from '@src/users/store';
 import {
+  deleteCurrentUserOnServer,
   postCurrentUserOnServer,
   postUserOnServer,
 } from '@src/users/store/action';
@@ -18,20 +19,24 @@ export default function SignUp({navigation}: SignUpType) {
   const onPressLogin = () => navigation.navigate('Login');
 
   const onPressSignUp = async (email: string, password: string) => {
-    await authServices.signUpAuthService(email, password);
-    const user = auth().currentUser;
-    const idToken = await user?.getIdToken();
-    const newUser: UserType = {
-      id: idToken,
-      email: user?.email,
-      password: password,
-      firstName: '',
-      lastName: '',
-    };
-    dispatch(postUserOnServer(newUser));
-    dispatch(usersActions.setNewUser(newUser));
-    dispatch(postCurrentUserOnServer(newUser));
-    navigation.navigate('Home');
+    await authServices
+      .signUpAuthService(email, password)
+      .then(async () => {
+        const newUser: UserType = {
+          id: await auth().currentUser?.getIdToken(),
+          email: email,
+          password: password,
+          firstName: '',
+          lastName: '',
+          lessons: undefined,
+        };
+        dispatch(postUserOnServer(newUser));
+        dispatch(postCurrentUserOnServer(newUser));
+        navigation.navigate('HomeTabs');
+      })
+      .catch(error => {
+        console.log(error);
+      });
   };
 
   return (

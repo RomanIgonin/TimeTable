@@ -23,7 +23,7 @@ class UsersServices {
   }
   public async deleteCurrentUserService(currentUser: UserType) {
     return axios
-      .delete(`${IP_CURRENT_USER}/${currentUser.id}`)
+      .delete(IP_CURRENT_USER + '/' + `${currentUser.id}`)
       .then(response => response.data)
       .catch(error => console.error('deleteCurrentUsersService: ' + error));
   }

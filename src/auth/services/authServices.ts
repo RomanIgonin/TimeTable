@@ -22,6 +22,12 @@ class AuthServices {
       })
       .catch(error => {
         console.error(error);
+        if (
+          error ===
+          '[Error: [auth/email-already-in-use] The email address is already in use by another account.]'
+        ) {
+          return undefined;
+        }
       });
   }
 }

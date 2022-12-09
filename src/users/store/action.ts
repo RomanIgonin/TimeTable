@@ -23,7 +23,7 @@ export const postCurrentUserOnServer = createAsyncThunk<undefined, UserType>(
 );
 
 export const deleteCurrentUserOnServer = createAsyncThunk<undefined, UserType>(
-  `${PREFIX}/postCurrentUserOnServer`,
+  `${PREFIX}/deleteCurrentUserOnServer`,
   async currentUser => {
     return await usersServices.deleteCurrentUserService(currentUser);
   },

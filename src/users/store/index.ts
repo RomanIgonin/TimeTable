@@ -1,12 +1,28 @@
 import {createSlice} from '@reduxjs/toolkit';
-import {postCurrentUserOnServer, postUserOnServer} from './action';
+import {
+  deleteCurrentUserOnServer,
+  postCurrentUserOnServer,
+  postUserOnServer,
+} from './action';
+
+export type LessonsListType = {
+  time: string;
+  language: string;
+  price: number;
+};
+
+export type LessonsType = {
+  date: string;
+  lessonsList: LessonsListType[];
+};
 
 export type UserType = {
   id: string | undefined;
-  email: string | null | undefined;
+  email: string | undefined;
   password: string;
   firstName: undefined | string;
   lastName: undefined | string;
+  lessons: undefined | LessonsType[];
 };
 
 type initialStateType = {
