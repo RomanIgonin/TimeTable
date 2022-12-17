@@ -1,19 +1,19 @@
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 
-// export type SelectDayType = {
-//   day: number;
-//   month: number;
-//   year: number;
-//   timestamp: number;
-//   dateString: string;
-// };
+export type SelectDayType = {
+  day: number;
+  month: number;
+  year: number;
+  timestamp: number;
+  dateString: string;
+};
 
 export type RootStackParamList = {
   Login: undefined;
   SignUp: undefined;
   Home: undefined;
   HomeTabs: undefined;
-  Lessons: {selectDay: string};
+  Lessons: {selectDay: SelectDayType};
   Profile: undefined;
   Salary: undefined;
   Settings: undefined;

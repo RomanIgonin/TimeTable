@@ -11,10 +11,16 @@ export const AuthForm: React.FC<Props> = ({textInButton, onPressButton}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const onPress = (email, password) => {
+    onPressButton(email, password);
+    setEmail('');
+    setPassword('');
+  };
+
   return (
     <View style={AuthFormStyle.main}>
       <View style={AuthFormStyle.email}>
-        <Text>Email</Text>
+        <Text style={AuthFormStyle.emailText}>Email:</Text>
       </View>
 
       <TextInput
@@ -22,13 +28,13 @@ export const AuthForm: React.FC<Props> = ({textInButton, onPressButton}) => {
         onChangeText={setEmail}
         style={AuthFormStyle.inputEmail}
         keyboardAppearance={'dark'}
-        selectionColor={'silver'}
-        cursorColor={'black'}
+        keyboardType={'email-address'}
         returnKeyType={'done'}
+        clearButtonMode={'while-editing'}
       />
 
       <View style={AuthFormStyle.password}>
-        <Text>Password</Text>
+        <Text style={AuthFormStyle.passwordText}>Password:</Text>
       </View>
 
       <TextInput
@@ -36,15 +42,18 @@ export const AuthForm: React.FC<Props> = ({textInButton, onPressButton}) => {
         onChangeText={setPassword}
         style={AuthFormStyle.inputPassword}
         keyboardAppearance={'dark'}
-        selectionColor={'silver'}
         returnKeyType={'done'}
+        secureTextEntry={true}
+        clearButtonMode={'while-editing'}
       />
 
-      <Pressable
-        style={AuthFormStyle.Button}
-        onPress={() => onPressButton(email, password)}>
-        <Text>{textInButton}</Text>
-      </Pressable>
+      <View style={AuthFormStyle.buttonField}>
+        <Pressable
+          style={AuthFormStyle.Button}
+          onPress={() => onPress(email, password)}>
+          <Text style={AuthFormStyle.ButtonText}>{textInButton}</Text>
+        </Pressable>
+      </View>
     </View>
   );
 };

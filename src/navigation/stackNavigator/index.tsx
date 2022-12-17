@@ -5,12 +5,12 @@ import {RootStackParamList} from './types';
 
 import Login from '../../auth/ui/screens/login/ui/screens';
 import SignUp from '../../auth/ui/screens/signUp/ui/screens';
-import Home from '../../modules/home/ui/screens';
+import Home from '../../modules/home/screens';
 import Lessons from '../../modules/lessons/ui/screens';
 import Profile from '../../modules/profile/ui/screens';
 import Salary from '../../modules/salary/ui/screens';
 import Settings from '../../modules/settings/ui/screens';
-import {View, Text, Pressable, Image} from 'react-native';
+import {View, Image} from 'react-native';
 import {NavigationStyle} from '@src/navigation/stackNavigator/style';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 

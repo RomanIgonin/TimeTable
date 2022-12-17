@@ -1,4 +1,10 @@
 import {StyleSheet} from 'react-native';
+import {
+  BLUE,
+  BORDER_RADIUS_BTN,
+  FONT_SIZE_MID,
+  FONT_SIZE_MIN,
+} from '@src/core/constants';
 
 export const AuthFormStyle = StyleSheet.create({
   main: {
@@ -6,39 +12,59 @@ export const AuthFormStyle = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'center',
     marginHorizontal: 30,
-    backgroundColor: 'silver',
   },
   email: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingLeft: '10%',
-    backgroundColor: 'grey',
+    flex: 2,
+    justifyContent: 'flex-end',
+    paddingBottom: '2%',
+    paddingLeft: '7%',
+  },
+  emailText: {
+    fontWeight: 'bold',
+    fontSize: FONT_SIZE_MID,
   },
   inputEmail: {
-    flex: 1,
+    flex: 3,
     paddingLeft: '7%',
-    borderWidth: 2,
-    borderRadius: 15,
+    paddingRight: '2%',
+    borderWidth: 1,
+    borderRadius: BORDER_RADIUS_BTN,
+    fontSize: FONT_SIZE_MIN,
   },
   password: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingLeft: '10%',
-    backgroundColor: 'grey',
+    flex: 2,
+    justifyContent: 'flex-end',
+    paddingBottom: '2%',
+    paddingLeft: '7%',
+  },
+  passwordText: {
+    fontWeight: 'bold',
+    fontSize: FONT_SIZE_MID,
   },
   inputPassword: {
-    flex: 1,
+    flex: 3,
     justifyContent: 'center',
-    borderWidth: 2,
+    borderWidth: 1,
     paddingLeft: '7%',
-    borderRadius: 15,
+    borderRadius: BORDER_RADIUS_BTN,
+    fontSize: FONT_SIZE_MIN,
+  },
+  buttonField: {
+    flex: 5,
+    alignItems: 'center',
   },
   Button: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'grey',
-    marginVertical: 10,
-    borderRadius: 10,
+    width: '50%',
+    backgroundColor: BLUE,
+    marginTop: 15,
+    borderRadius: BORDER_RADIUS_BTN,
+  },
+  ButtonText: {
+    fontWeight: 'bold',
+    color: 'white',
+    fontSize: FONT_SIZE_MID,
   },
 });

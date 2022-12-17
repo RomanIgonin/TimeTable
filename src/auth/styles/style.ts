@@ -6,28 +6,30 @@ export const LoginAndSignUpStyle = StyleSheet.create({
     flex: 1,
   },
   topPadding: {
-    flex: 8,
+    flex: 1,
   },
   authForm: {
-    flex: 10,
+    flex: 1,
   },
   bottomPadding: {
-    flex: 8,
+    flex: 1,
     alignItems: 'center',
   },
   question: {
     flex: 1,
-    backgroundColor: 'silver',
     justifyContent: 'center',
+    marginTop: 5,
   },
   signUpLink: {
-    flex: 2,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     width: '20%',
-    backgroundColor: 'silver',
+    // backgroundColor: 'silver',
   },
   signUpText: {
+    fontSize: 16,
+    // fontWeight: 'bold',
     color: 'blue',
     textDecorationLine: 'underline',
   },

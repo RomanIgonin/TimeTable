@@ -2,7 +2,7 @@ import React from 'react';
 import GeneralStatusBarColor from './src/core/statusBar';
 import MainStack from '@src/navigation/stackNavigator';
 import {Provider} from 'react-redux';
-import {store} from './src/core/store';
+import {store} from './src/core/store/index';
 
 export default function App() {
   return (

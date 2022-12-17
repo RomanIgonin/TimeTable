@@ -5,7 +5,8 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios --simulator='iPhone 6 (12.4)'",
-    "server": "json-server --host 192.168.8.112 -p 3002 src/core/api/db.json",
+    "server": "json-server --host 192.168.8.112 -p 3002 --routes src/core/api/routes.json --watch src/core/api/db.json",
+    "server_simulator": "json-server -p 3002 --routes src/core/api/routes.json --watch src/core/api/db.json",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint sys --ext .js,.jsx,.ts,.tsx"
@@ -25,6 +26,7 @@
     "react-native": "0.70.6",
     "react-native-calendars": "^1.1292.0",
     "react-native-safe-area-context": "^4.4.1",
+    "react-native-sass-transformer": "^2.0.0",
     "react-native-screens": "^3.18.2",
     "react-redux": "^8.0.5"
   },

@@ -1,63 +1,58 @@
-import {Pressable, Text, View} from 'react-native';
-// import {LoginType} from 'navigation/types';
+import {
+  Keyboard,
+  Pressable,
+  Text,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import {AuthForm} from '@src/auth/ui/components/authForm';
-// import {useAppDispatch} from '../../../../../../hooks';
-// import {postUser} from '../../../../../../users/store/action';
 import {LoginType} from '@src/navigation/stackNavigator/types';
 import {LoginAndSignUpStyle} from '@src/auth/styles/style';
 import authServices from '@src/auth/services/authServices';
-import {usersActions, UserType} from '@src/users/store';
-import {useAppDispatch, useAppSelector} from '@src/hooks';
-import auth, {firebase} from '@react-native-firebase/auth';
-import {
-  deleteCurrentUserOnServer,
-  postCurrentUserOnServer,
-} from '@src/users/store/action';
-import {useNavigation} from '@react-navigation/native';
-import {
-  currentUserLessonsSelector,
-  currentUserSelector,
-  usersSelector,
-} from '@src/users/store/selectors';
+import {useAppDispatch} from '@src/hooks';
+import auth from '@react-native-firebase/auth';
+import {getUser} from '@src/users/store/action';
+import {useEffect} from 'react';
+
+const DismissKeyboard = ({children}: any) => (
+  <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+    {children}
+  </TouchableWithoutFeedback>
+);
 
 export default function Login({navigation}: LoginType) {
-  const isAuth = auth().currentUser ? true : false;
   const dispatch = useAppDispatch();
-
-  const goHomeTabs = () => navigation.navigate('HomeTabs');
-
-  if (isAuth) goHomeTabs();
 
   const onPressSignUp = () => {
     navigation.navigate('SignUp');
   };
 
-  const users = useAppSelector(usersSelector);
+  useEffect(() => {
+    const currentUserId = auth().currentUser?.uid;
+    if (currentUserId) {
+      dispatch(getUser(currentUserId));
+      navigation.navigate('HomeTabs');
+    }
+  }, []);
 
   const onPressLogin = async (email, password) => {
-    await authServices
-      .loginAuthService(email, password)
-      .then(async () => {
-        const user = users.find(item => item.email === email);
-        const idToken = await auth().currentUser?.getIdToken();
-        const currentUser: UserType = {
-          id: idToken,
-          email: email,
-          password: password,
-          firstName: '',
-          lastName: '',
-          lessons: user?.lessons,
-        };
-        dispatch(postCurrentUserOnServer(currentUser));
-        goHomeTabs();
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    // console.log(
+    //   'authUser uid before login: ' + (await auth().currentUser?.uid),
+    // );
+    await authServices.loginAuthService(email, password);
+    const authUser = await auth().currentUser;
+    // console.log('authUser uid after login: ' + authUser?.uid);
+    if (authUser?.uid) {
+      // console.log('Login response OK');
+      // Достаем юзера с сервера и пихаем в редакс через экстра редусер
+      // console.log('login user id: ' + authUser.uid);
+      dispatch(getUser(authUser.uid));
+      navigation.navigate('HomeTabs');
+    }
   };
 
-  if (!isAuth)
-    return (
+  return (
+    <DismissKeyboard>
       <View style={LoginAndSignUpStyle.main}>
         <View style={LoginAndSignUpStyle.topPadding}></View>
 
@@ -77,5 +72,6 @@ export default function Login({navigation}: LoginType) {
           <View style={LoginAndSignUpStyle.bottom}></View>
         </View>
       </View>
-    );
+    </DismissKeyboard>
+  );
 }

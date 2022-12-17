@@ -1,70 +1,63 @@
-import {createSlice} from '@reduxjs/toolkit';
+import {AnyAction, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {
-  deleteCurrentUserOnServer,
-  postCurrentUserOnServer,
-  postUserOnServer,
+  deleteLesson,
+  getDates,
+  getUser,
+  postDateAndLesson,
+  postLesson,
+  postUser,
 } from './action';
+import {usersInitialStateType} from '@src/core/store/globalTypes';
 
-export type LessonsListType = {
-  time: string;
-  language: string;
-  price: number;
-};
-
-export type LessonsType = {
-  date: string;
-  lessonsList: LessonsListType[];
-};
-
-export type UserType = {
-  id: string | undefined;
-  email: string | undefined;
-  password: string;
-  firstName: undefined | string;
-  lastName: undefined | string;
-  lessons: undefined | LessonsType[];
-};
-
-type initialStateType = {
-  users: UserType[];
-  currentUser: undefined | UserType;
-  isUsersLoading: boolean;
-};
-
-const initialState: initialStateType = {
-  users: [],
+const initialState: usersInitialStateType = {
   currentUser: undefined,
+  dates: [],
   isUsersLoading: false,
 };
 
 const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {
-    setCurrentUser: (state: initialStateType, {payload}) => {
-      state.currentUser = payload;
-    },
-    setNewUser: (state: initialStateType, {payload}) => {
-      state.users = payload;
-    },
-  },
+  reducers: {},
   extraReducers: builder => {
-    builder.addCase(postUserOnServer.pending, state => {
+    builder.addCase(getUser.pending, state => {
       state.isUsersLoading = true;
     });
-    builder.addCase(postUserOnServer.fulfilled, (state, {payload}) => {
+    builder.addCase(getUser.fulfilled, (state, {payload}) => {
       state.currentUser = payload;
       state.isUsersLoading = false;
+      console.log('currentUser in state: ' + state.currentUser?.email);
     });
-    builder.addCase(postCurrentUserOnServer.fulfilled, (state, {payload}) => {
+    builder.addCase(getDates.fulfilled, (state, {payload}) => {
+      state.dates = payload;
+      console.log('getDates done');
+    });
+    builder.addCase(postUser.fulfilled, (state, {payload}) => {
       state.currentUser = payload;
-      console.log(state.currentUser);
+      console.log('postUser done: ' + state.currentUser);
     });
-    builder.addCase(deleteCurrentUserOnServer.fulfilled, state => {
-      state.currentUser = undefined;
+    builder.addCase(postLesson.fulfilled, (state, {payload}) => {
+      state.dates?.filter(date => date.id !== payload.id);
+      state.dates?.push(payload);
+    });
+    builder.addCase(postDateAndLesson.fulfilled, (state, {payload}) => {
+      state.dates?.push(payload);
+      console.log('postDateAndLesson done');
+    });
+    builder.addCase(deleteLesson.fulfilled, (state, {payload}) => {
+      console.log('Payload: ' + payload.id);
+      state.dates?.filter(date => date.id !== payload.id);
+      state.dates?.push(payload);
+    });
+    builder.addMatcher(isError, (state, action: PayloadAction<string>) => {
+      console.log(action.payload);
     });
   },
 });
 
 export default usersSlice.reducer;
 export const usersActions = usersSlice.actions;
+
+function isError(action: AnyAction) {
+  return action.type.endsWith('rejected');
+}
