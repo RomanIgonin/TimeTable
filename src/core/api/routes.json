@@ -1,3 +1,4 @@
 {
-  "/users/:userId/dates/:dateId": "/dates/:dateId"
+  "/users/:userId/dates/:dateId": "/dates/:dateId",
+  "/users/:userId/profileImage": "/profileImage"
 }

@@ -11,11 +11,6 @@ export type DatesType = {
   date: string;
   lessons: LessonsType[];
 };
-// export type LessonsType = {
-//   id: string;
-//   date: string;
-//   lessonsList: LessonsListType[];
-// };
 
 export type UserType = {
   id: string;
@@ -23,11 +18,11 @@ export type UserType = {
   password: string;
   firstName: string;
   lastName: string;
-  profileImage: string;
+  phoneNumber: string;
+  profileImage: {};
 };
 
 export type usersInitialStateType = {
-  // users: UserType[];
   currentUser: undefined | UserType;
   dates: DatesType[];
   isUsersLoading: boolean;

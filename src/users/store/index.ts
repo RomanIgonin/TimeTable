@@ -3,8 +3,10 @@ import {
   deleteLesson,
   getDates,
   getUser,
+  patchUser,
   postDateAndLesson,
   postLesson,
+  postProfileImage,
   postUser,
 } from './action';
 import {usersInitialStateType} from '@src/core/store/globalTypes';
@@ -49,6 +51,11 @@ const usersSlice = createSlice({
       state.dates?.filter(date => date.id !== payload.id);
       state.dates?.push(payload);
     });
+    builder.addCase(patchUser.fulfilled, (state, {payload}) => {
+      state.currentUser = payload;
+      console.log('State profileImage: ' + state.currentUser);
+    });
+
     builder.addMatcher(isError, (state, action: PayloadAction<string>) => {
       console.log(action.payload);
     });

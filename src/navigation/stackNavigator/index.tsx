@@ -7,12 +7,13 @@ import Login from '../../auth/ui/screens/login/ui/screens';
 import SignUp from '../../auth/ui/screens/signUp/ui/screens';
 import Home from '../../modules/home/screens';
 import Lessons from '../../modules/lessons/ui/screens';
-import Profile from '../../modules/profile/ui/screens';
+import Profile from '../../modules/profile/screens/profile';
 import Salary from '../../modules/salary/ui/screens';
 import Settings from '../../modules/settings/ui/screens';
 import {View, Image} from 'react-native';
 import {NavigationStyle} from '@src/navigation/stackNavigator/style';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import EditProfile from '@src/modules/profile/screens/editProfile';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -81,6 +82,7 @@ export default function Navigate() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="HomeTabs" component={HomeTabs} />
+        <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="Lessons" component={Lessons} />
         <Stack.Screen name="Salary" component={Salary} />
       </Stack.Navigator>

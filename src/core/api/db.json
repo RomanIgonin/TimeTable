@@ -6,15 +6,17 @@
       "password": "123qwe",
       "firstName": "",
       "lastName": "",
+      "phoneNumber": "",
       "profileImage": ""
     },
     {
       "id": "URpAApFO5lOA4EZNezaFgrrjRf92",
       "email": "2@mail.ru",
       "password": "123qwe",
-      "firstName": "",
-      "lastName": "",
-      "profileImage": ""
+      "firstName": "Roman",
+      "lastName": "Igonin",
+      "phoneNumber": "+77059131498",
+      "profileImage": "file:///Users/a123/Library/Developer/CoreSimulator/Devices/FE8A00A1-BC85-490D-9DD5-51A314883266/data/Containers/Data/Application/F33C4A15-BB53-42AA-826B-DBE7A7A6EF83/tmp/220F2BE4-C09A-47BA-8D6B-207D0B9CCE1E.jpg"
     },
     {
       "id": "7nvAC80hXAfhbK953E1ehV8oxar2",
@@ -22,6 +24,7 @@
       "password": "123qwe",
       "firstName": "",
       "lastName": "",
+      "phoneNumber": "",
       "profileImage": ""
     },
     {
@@ -30,6 +33,7 @@
       "password": "66zetflix",
       "firstName": "",
       "lastName": "",
+      "phoneNumber": "",
       "profileImage": ""
     }
   ],
@@ -216,6 +220,19 @@
           "time": "10:10",
           "language": "Rrrrrrrrr",
           "price": "1000"
+        }
+      ]
+    },
+    {
+      "id": "wehlEedP7-Fdm_iTTdsBC",
+      "userId": "URpAApFO5lOA4EZNezaFgrrjRf92",
+      "date": "17.12.2022",
+      "lessons": [
+        {
+          "id": "41knDHVL5ydUcpPhpYu15",
+          "time": "w",
+          "language": "W",
+          "price": "w"
         }
       ]
     }

@@ -15,6 +15,7 @@ export type RootStackParamList = {
   HomeTabs: undefined;
   Lessons: {selectDay: SelectDayType};
   Profile: undefined;
+  EditProfile: undefined;
   Salary: undefined;
   Settings: undefined;
 };
@@ -24,6 +25,10 @@ export type SignUpType = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
 export type HomeType = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export type LessonsType = NativeStackScreenProps<RootStackParamList, 'Lessons'>;
 export type ProfileType = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+export type EditProfileType = NativeStackScreenProps<
+  RootStackParamList,
+  'EditProfile'
+>;
 export type SalaryType = NativeStackScreenProps<RootStackParamList, 'Salary'>;
 export type SettingsType = NativeStackScreenProps<
   RootStackParamList,

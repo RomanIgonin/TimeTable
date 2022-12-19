@@ -1,12 +1,6 @@
 import {createAsyncThunk} from '@reduxjs/toolkit';
 import usersServices from '@src/users/services/usersServices';
-import {
-  DatesType,
-  LessonsListType,
-  LessonsType,
-  postLessonType,
-  UserType,
-} from '@src/core/store/globalTypes';
+import {DatesType, UserType} from '@src/core/store/globalTypes';
 
 const PREFIX = 'users';
 
@@ -56,6 +50,12 @@ export const deleteDateAndLesson = createAsyncThunk<undefined, DatesType>(
   `${PREFIX}/deleteDateAndLesson`,
   async patchDate => {
     return await usersServices.deleteDateAndLessonService(patchDate);
+  },
+);
+export const patchUser = createAsyncThunk<UserType, UserType>(
+  `${PREFIX}/patchUser`,
+  async currentUser => {
+    return await usersServices.patchUserService(currentUser);
   },
 );
 //

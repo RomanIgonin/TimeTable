@@ -1,19 +1,6 @@
 import axios from 'axios';
-import {
-  IP_USERS,
-  IP_CURRENT_USER,
-  IP_LESSONS,
-  IP_DATES,
-} from '../../core/constants';
-import {UserType} from '../store';
-import {
-  DatesType,
-  LessonsListType,
-  LessonsType,
-  postLessonType,
-} from '@src/core/store/globalTypes';
-import {useAppSelector} from '@src/hooks';
-import {currentUserSelector} from '@src/users/store/selectors';
+import {IP_USERS, IP_DATES} from '../../core/constants';
+import {UserType, DatesType} from '@src/core/store/globalTypes';
 
 class UsersServices {
   public async getUserService(id: string) {
@@ -60,6 +47,21 @@ class UsersServices {
       .delete(IP_DATES + `/${patchDate.id}`)
       .then(response => response.data)
       .catch(error => console.error('deleteDateAndLessonService: ' + error));
+  }
+  public async patchUserService(currentUser: UserType) {
+    console.log('4: ' + currentUser.profileImage);
+    // return axios({
+    //   method: 'patch',
+    //   url: IP_USERS + `/${currentUser.id}`,
+    //   data: currentUser,
+    //   headers: {
+    //     ContentType: 'multipart/form-data',
+    //   },
+    // });
+    return axios
+      .patch(IP_USERS + `/${currentUser.id}`, currentUser)
+      .then(response => response.data)
+      .catch(error => console.error('patchUserService: ' + error));
   }
   // public async postCurrentUserService(currentUser: UserType) {
   //   return axios
