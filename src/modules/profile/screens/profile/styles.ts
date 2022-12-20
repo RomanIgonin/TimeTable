@@ -2,6 +2,7 @@ import {StyleSheet} from 'react-native';
 import {
   BLUE,
   BORDER_RADIUS_BTN,
+  FONT_SIZE_MAX,
   FONT_SIZE_MID,
   FONT_SIZE_MIN,
 } from '@src/core/constants';
@@ -25,7 +26,7 @@ export const ProfileStyle = StyleSheet.create({
   },
   TitleText: {
     fontWeight: 'bold',
-    fontSize: 30,
+    fontSize: FONT_SIZE_MAX,
   },
   edit: {
     flex: 1,
@@ -34,8 +35,8 @@ export const ProfileStyle = StyleSheet.create({
   },
   editImage: {
     // flex: 1,
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
   },
 
   mainMiddle: {
@@ -45,29 +46,34 @@ export const ProfileStyle = StyleSheet.create({
     flex: 2,
     flexDirection: 'row',
     // alignItems: 'center',
-    backgroundColor: 'grey',
+    // backgroundColor: 'grey',
+  },
+  ImageProfile: {
+    flex: 1,
+    margin: 20,
   },
   Image: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 10,
     borderRadius: 100,
-    // backgroundColor: 'green',
+    backgroundColor: 'silver',
   },
   DownloadImageField: {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  DownloadImageText: {
-    // fontSize: 12,
+  photoDownload: {
+    width: 35,
+    height: 35,
+    opacity: 0.5,
   },
   NameField: {
     flex: 2,
     // alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
   },
   NameText: {
     padding: '5%',
@@ -84,21 +90,28 @@ export const ProfileStyle = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     // justifyContent: 'center',
-    backgroundColor: 'pink',
+    // backgroundColor: 'pink',
   },
   infoElementTitle: {
-    flex: 1,
+    flex: 2,
     // paddingLeft: 10,
-    marginRight: 10,
+    paddingRight: 10,
     alignItems: 'flex-end',
+    // backgroundColor: 'grey',
   },
   infoElementTitleText: {
     fontSize: FONT_SIZE_MIN,
     fontWeight: 'bold',
   },
   infoElementTextRight: {
-    flex: 2,
-    // backgroundColor: 'purple',
+    flex: 3,
+    // backgroundColor: 'silver',
+  },
+  monthSalary: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    // backgroundColor: 'pink',
   },
   infoBottom: {
     flex: 4,

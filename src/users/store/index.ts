@@ -48,8 +48,8 @@ const usersSlice = createSlice({
     });
     builder.addCase(deleteLesson.fulfilled, (state, {payload}) => {
       console.log('Payload: ' + payload.id);
-      state.dates?.filter(date => date.id !== payload.id);
-      state.dates?.push(payload);
+      // state.dates?.filter(date => date.id !== payload.id);
+      // state.dates?.push(payload);
     });
     builder.addCase(patchUser.fulfilled, (state, {payload}) => {
       state.currentUser = payload;

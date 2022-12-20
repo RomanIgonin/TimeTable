@@ -1,4 +1,4 @@
-import {Text, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import {ProfileStyle} from '@src/modules/profile/screens/profile/styles';
 
 export default function ImageView() {
@@ -8,9 +8,13 @@ export default function ImageView() {
   //   );
   // } else {
   return (
-    <View style={ProfileStyle.DownloadImageField}>
-      <Text style={ProfileStyle.DownloadImageText}>Download</Text>
-      <Text style={ProfileStyle.DownloadImageText}>image</Text>
+    <View style={ProfileStyle.Image}>
+      <View style={ProfileStyle.DownloadImageField}>
+        <Image
+          style={ProfileStyle.photoDownload}
+          source={require('@src/assets/icons/photoDownload.png')}
+        />
+      </View>
     </View>
   );
   // }

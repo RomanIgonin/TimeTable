@@ -15,3 +15,19 @@ export const BORDER_RADIUS_BTN = 10;
 export const FONT_SIZE_MAX = 25;
 export const FONT_SIZE_MID = 20;
 export const FONT_SIZE_MIN = 15;
+
+export const MONTHS = [
+  '',
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];

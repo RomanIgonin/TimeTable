@@ -13,13 +13,40 @@ import {useNavigation} from '@react-navigation/native';
 import {ProfileStyle} from '@src/modules/profile/screens/profile/styles';
 import ImageView from '@src/modules/profile/components/imageView';
 import {useEffect, useState} from 'react';
+import MonthSalary from '@src/modules/profile/components/monthSalary';
+import {MonthSalaryStyle} from '@src/modules/profile/components/monthSalary/style';
+import {MONTHS} from '@src/core/constants';
+import {getDates} from '@src/users/store/action';
 
 export default function Profile() {
   const currentUser = useAppSelector(currentUserSelector);
   const dates = useAppSelector(datesSelector);
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
-  const [salary, setSalary] = useState<number | undefined>(undefined);
+
+  const day = new Date().toISOString().slice(8, 10);
+  const month = new Date().toISOString().slice(5, 7);
+  const currentMonth = MONTHS[parseInt(month)];
+
+  useEffect(() => {
+    dispatch(getDates(currentUser?.id));
+  }, []);
+
+  let salaryMoney = 0;
+  let AllSalaryMoney = 0;
+  dates.forEach(item => {
+    const arrayMonth = item.date.split('.');
+    console.log('day: ' + arrayMonth[0] + '.' + arrayMonth[1]);
+    item.lessons.forEach(lesson => {
+      let buff = Number(lesson.price);
+      if (month === arrayMonth[1]) {
+        AllSalaryMoney += buff;
+        if (parseInt(day) >= parseInt(arrayMonth[0])) {
+          salaryMoney += buff;
+        }
+      }
+    });
+  });
 
   const onPressSignOut = () => {
     auth()
@@ -39,25 +66,6 @@ export default function Profile() {
     navigation.navigate('EditProfile');
   };
 
-  useEffect(() => {
-    setSalary(monthSalary());
-  });
-  const monthSalary = () => {
-    let res = 0;
-    dates.map(date => {
-      date.lessons.forEach(lesson => {
-        console.log('3');
-
-        let buff = Number(lesson.price);
-        console.log('buff: ' + buff);
-        res += buff;
-        console.log('res: ' + res);
-      });
-    });
-    console.log('res after: ' + res);
-    return res;
-  };
-
   return (
     <View style={ProfileStyle.main}>
       <View style={ProfileStyle.mainTop}>
@@ -74,7 +82,7 @@ export default function Profile() {
 
       <View style={ProfileStyle.mainMiddle}>
         <View style={ProfileStyle.ImageField}>
-          <View style={ProfileStyle.Image}>
+          <View style={ProfileStyle.ImageProfile}>
             <ImageView />
           </View>
           <View style={ProfileStyle.NameField}>
@@ -104,11 +112,21 @@ export default function Profile() {
           <View style={ProfileStyle.infoElement}>
             <View style={ProfileStyle.infoElementTitle}>
               <Text style={ProfileStyle.infoElementTitleText}>
-                Month salary:
+                {currentMonth} salary:
               </Text>
             </View>
             <View style={ProfileStyle.infoElementTextRight}>
-              <Text>{salary}</Text>
+              <Text>{salaryMoney} rubles</Text>
+            </View>
+          </View>
+          <View style={ProfileStyle.infoElement}>
+            <View style={ProfileStyle.infoElementTitle}>
+              <Text style={ProfileStyle.infoElementTitleText}>
+                All salary for {currentMonth} :
+              </Text>
+            </View>
+            <View style={ProfileStyle.infoElementTextRight}>
+              <Text>{AllSalaryMoney} rubles</Text>
             </View>
           </View>
           <View style={ProfileStyle.infoBottom}></View>

@@ -19,11 +19,6 @@ export const LessonsList: React.FC<Props> = ({date}) => {
   const dates = useAppSelector(datesSelector);
   const currentUser = useAppSelector(currentUserSelector);
 
-  // сделать что бы срабатывала после удаления всей даты
-  useEffect(() => {
-    dispatch(getDates(currentUser?.id));
-  }, []);
-
   const patchDate = dates?.find(item => item.date === date);
 
   const onPressDelete = (itemId: string) => {
@@ -33,6 +28,7 @@ export const LessonsList: React.FC<Props> = ({date}) => {
           item => item.id !== itemId,
         );
         dispatch(deleteLesson(patchDate));
+        dispatch(getDates(currentUser?.id));
       } else {
         dispatch(deleteDateAndLesson(patchDate));
         dispatch(getDates(currentUser?.id));
@@ -55,6 +51,11 @@ export const LessonsList: React.FC<Props> = ({date}) => {
       },
     ]);
   };
+
+  // сделать что бы срабатывала после удаления всей даты
+  useEffect(() => {
+    dispatch(getDates(currentUser?.id));
+  }, []);
 
   const keyExtractor = (item: LessonsType) => item.id;
 
