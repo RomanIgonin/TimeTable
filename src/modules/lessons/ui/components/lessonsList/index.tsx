@@ -1,5 +1,5 @@
 import {View, Text, FlatList, Pressable, Alert} from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
 import {currentUserSelector, datesSelector} from '@src/users/store/selectors';
 import {
@@ -28,7 +28,6 @@ export const LessonsList: React.FC<Props> = ({date}) => {
           item => item.id !== itemId,
         );
         dispatch(deleteLesson(patchDate));
-        dispatch(getDates(currentUser?.id));
       } else {
         dispatch(deleteDateAndLesson(patchDate));
         dispatch(getDates(currentUser?.id));

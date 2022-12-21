@@ -8,7 +8,7 @@ import SignUp from '../../auth/ui/screens/signUp/ui/screens';
 import Home from '../../modules/home/screens';
 import Lessons from '../../modules/lessons/ui/screens';
 import Profile from '../../modules/profile/screens/profile';
-import Salary from '../../modules/salary/ui/screens';
+// import Salary from '../../modules/monthSalary/ui/screens';
 import Settings from '../../modules/settings/ui/screens';
 import {View, Image} from 'react-native';
 import {NavigationStyle} from '@src/navigation/stackNavigator/style';
@@ -84,7 +84,7 @@ export default function Navigate() {
         <Stack.Screen name="HomeTabs" component={HomeTabs} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="Lessons" component={Lessons} />
-        <Stack.Screen name="Salary" component={Salary} />
+        {/*<Stack.Screen name="Salary" component={Salary} />*/}
       </Stack.Navigator>
     </NavigationContainer>
   );

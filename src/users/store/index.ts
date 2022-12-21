@@ -1,12 +1,12 @@
 import {AnyAction, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {
+  deleteDateAndLesson,
   deleteLesson,
   getDates,
   getUser,
   patchUser,
   postDateAndLesson,
   postLesson,
-  postProfileImage,
   postUser,
 } from './action';
 import {usersInitialStateType} from '@src/core/store/globalTypes';
@@ -39,16 +39,28 @@ const usersSlice = createSlice({
       console.log('postUser done: ' + state.currentUser);
     });
     builder.addCase(postLesson.fulfilled, (state, {payload}) => {
-      state.dates?.filter(date => date.id !== payload.id);
+      // console.log('state.dates before: ' + JSON.stringify(state.dates));
+      // console.log('Payload: ' + JSON.stringify(payload));
+      state.dates = state.dates?.filter(date => date.id !== payload.id);
       state.dates?.push(payload);
+      console.log('postLesson done');
+      // console.log('state.dates after: ' + JSON.stringify(state.dates));
     });
     builder.addCase(postDateAndLesson.fulfilled, (state, {payload}) => {
+      // console.log('state.dates before: ' + JSON.stringify(state.dates));
       state.dates?.push(payload);
       console.log('postDateAndLesson done');
+      // console.log('state.dates: ' + JSON.stringify(state.dates));
     });
     builder.addCase(deleteLesson.fulfilled, (state, {payload}) => {
-      console.log('Payload: ' + payload.id);
+      // console.log('state.dates before: ' + JSON.stringify(state.dates));
+      // console.log('Payload: ' + JSON.stringify(payload));
+      state.dates = state.dates?.filter(date => date.id !== payload.id);
+      state.dates?.push(payload);
+      // console.log('state.dates: ' + JSON.stringify(state.dates));
+      // console.log('state.dates before: ' + JSON.stringify(state.dates));
       // state.dates?.filter(date => date.id !== payload.id);
+      // console.log('state.dates after: ' + JSON.stringify(state.dates));
       // state.dates?.push(payload);
     });
     builder.addCase(patchUser.fulfilled, (state, {payload}) => {

@@ -1,52 +1,46 @@
-import {
-  Alert,
-  Image,
-  Pressable,
-  Text,
-  View,
-  VirtualizedList,
-} from 'react-native';
+import {Image, Pressable, Text, View} from 'react-native';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
 import {currentUserSelector, datesSelector} from '@src/users/store/selectors';
 import auth from '@react-native-firebase/auth';
 import {useNavigation} from '@react-navigation/native';
 import {ProfileStyle} from '@src/modules/profile/screens/profile/styles';
 import ImageView from '@src/modules/profile/components/imageView';
-import {useEffect, useState} from 'react';
-import MonthSalary from '@src/modules/profile/components/monthSalary';
-import {MonthSalaryStyle} from '@src/modules/profile/components/monthSalary/style';
+import {useEffect} from 'react';
 import {MONTHS} from '@src/core/constants';
 import {getDates} from '@src/users/store/action';
+import MonthSalary from '@src/modules/profile/components/monthSalary';
 
 export default function Profile() {
   const currentUser = useAppSelector(currentUserSelector);
-  const dates = useAppSelector(datesSelector);
+  // const dates = useAppSelector(datesSelector);
   const navigation = useNavigation();
-  const dispatch = useAppDispatch();
-
-  const day = new Date().toISOString().slice(8, 10);
+  // const dispatch = useAppDispatch();
+  //
+  // const day = new Date().toISOString().slice(8, 10);
   const month = new Date().toISOString().slice(5, 7);
   const currentMonth = MONTHS[parseInt(month)];
-
-  useEffect(() => {
-    dispatch(getDates(currentUser?.id));
-  }, []);
-
-  let salaryMoney = 0;
-  let AllSalaryMoney = 0;
-  dates.forEach(item => {
-    const arrayMonth = item.date.split('.');
-    console.log('day: ' + arrayMonth[0] + '.' + arrayMonth[1]);
-    item.lessons.forEach(lesson => {
-      let buff = Number(lesson.price);
-      if (month === arrayMonth[1]) {
-        AllSalaryMoney += buff;
-        if (parseInt(day) >= parseInt(arrayMonth[0])) {
-          salaryMoney += buff;
-        }
-      }
-    });
-  });
+  const monthSalary = MonthSalary();
+  const salaryMoney = monthSalary[0];
+  const allSalaryMoney = monthSalary[1];
+  // useEffect(() => {
+  //   dispatch(getDates(currentUser?.id));
+  // }, []);
+  //
+  // let salaryMoney = 0;
+  // let allSalaryMoney = 0;
+  // dates.forEach(item => {
+  //   const arrayMonth = item.date.split('.');
+  //   // console.log('day: ' + arrayMonth[0] + '.' + arrayMonth[1]);
+  //   item.lessons.forEach(lesson => {
+  //     let buff = Number(lesson.price);
+  //     if (month === arrayMonth[1]) {
+  //       allSalaryMoney += buff;
+  //       if (parseInt(day) >= parseInt(arrayMonth[0])) {
+  //         salaryMoney += buff;
+  //       }
+  //     }
+  //   });
+  // });
 
   const onPressSignOut = () => {
     auth()
@@ -109,6 +103,9 @@ export default function Profile() {
               <Text>{currentUser.phoneNumber}</Text>
             </View>
           </View>
+          {/*<View style={ProfileStyle.monthSalary}>*/}
+          {/*  <MonthSalary />*/}
+          {/*</View>*/}
           <View style={ProfileStyle.infoElement}>
             <View style={ProfileStyle.infoElementTitle}>
               <Text style={ProfileStyle.infoElementTitleText}>
@@ -126,16 +123,12 @@ export default function Profile() {
               </Text>
             </View>
             <View style={ProfileStyle.infoElementTextRight}>
-              <Text>{AllSalaryMoney} rubles</Text>
+              <Text>{allSalaryMoney} rubles</Text>
             </View>
           </View>
           <View style={ProfileStyle.infoBottom}></View>
         </View>
       </View>
-
-      {/*<View style={{backgroundColor: '#c44f4f'}}>*/}
-      {/*  <Image style={{width: 200, height: 200}} source={require('')} />*/}
-      {/*</View>*/}
 
       <View style={ProfileStyle.mainBottom}>
         <Pressable onPress={onPressSignOut} style={ProfileStyle.bottomSignOut}>

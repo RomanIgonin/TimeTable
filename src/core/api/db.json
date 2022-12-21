@@ -39,25 +39,6 @@
   ],
   "dates": [
     {
-      "id": "123qwe123",
-      "userId": "NK0JVedKZAWYi87vwKJr5JChIeg1",
-      "date": "10.12.2022",
-      "lessons": [
-        {
-          "id": "qweqwe123",
-          "time": "11:00",
-          "language": "Turkish",
-          "price": "700"
-        },
-        {
-          "id": "qweqwe124",
-          "time": "14:00",
-          "language": "English",
-          "price": "700"
-        }
-      ]
-    },
-    {
       "id": "127qwe127",
       "userId": "URpAApFO5lOA4EZNezaFgrrjRf92",
       "date": "10.12.2022",
@@ -73,91 +54,6 @@
           "time": "21:00",
           "language": "English",
           "price": "700"
-        }
-      ]
-    },
-    {
-      "id": "123qwe125",
-      "userId": "NK0JVedKZAWYi87vwKJr5JChIeg1",
-      "date": "11.12.2022",
-      "lessons": [
-        {
-          "id": "qweqwe125",
-          "time": "15:00",
-          "language": "English",
-          "price": "500"
-        },
-        {
-          "id": "qweqwe126",
-          "time": "15:00",
-          "language": "Turkish",
-          "price": "500"
-        }
-      ]
-    },
-    {
-      "id": "-nfU0m2xbF43IpaHhRsrW",
-      "date": "15.12.2022",
-      "lessons": [
-        {
-          "id": "0glEQg-Q8kR8fePv6Emfa",
-          "time": "13:00",
-          "language": "Turkish",
-          "price": "525"
-        }
-      ]
-    },
-    {
-      "id": "PRtR9NVsYfd4xYgv9FUoy",
-      "date": "14.12.2022",
-      "lessons": [
-        {
-          "id": "GjTTM2rsjmwSAfVtIaK8K",
-          "time": "1",
-          "language": "1",
-          "price": "1"
-        }
-      ]
-    },
-    {
-      "id": "KXdzeD2AjFrj3h7hx76Kf",
-      "date": "14.12.2022",
-      "lessons": [
-        {
-          "id": "1r77684XDtYMhHyVp_BJ6",
-          "time": "5",
-          "language": "5",
-          "price": "5"
-        }
-      ]
-    },
-    {
-      "id": "KLCalAm_A4yvkYtRdWCJs",
-      "date": "14.12.2022",
-      "lessons": [
-        {
-          "id": "46a98Gkj3-QnMsyqnIJFQ",
-          "time": "6",
-          "language": "6",
-          "price": "6"
-        }
-      ]
-    },
-    {
-      "id": "24pgTMfLb4cIUh5y8zeCa",
-      "date": "17.12.2022",
-      "lessons": [
-        {
-          "id": "vbqj6ULPwDQV_nFROcLS9",
-          "time": "1",
-          "language": "1",
-          "price": "1"
-        },
-        {
-          "id": "4py_-XGFhohGuVYlZFnRj",
-          "time": "2",
-          "language": "2",
-          "price": "2"
         }
       ]
     },
@@ -704,6 +600,31 @@
           "time": "16:00",
           "language": "Turkish",
           "price": "700"
+        }
+      ]
+    },
+    {
+      "id": "ST0yBvR-kXLlFkduqjg3I",
+      "userId": "NK0JVedKZAWYi87vwKJr5JChIeg1",
+      "date": "21.12.2022",
+      "lessons": [
+        {
+          "id": "diArWQSABUC0qRLpkrr0t",
+          "time": "1",
+          "language": "1",
+          "price": "1"
+        },
+        {
+          "id": "4ByBNvN4BOVwCN7Dkj7Zw",
+          "time": "2",
+          "language": "2",
+          "price": "2"
+        },
+        {
+          "id": "60n5Ne_9Oejrw_Plu15A7",
+          "time": "3",
+          "language": "3",
+          "price": "3"
         }
       ]
     }
