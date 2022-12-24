@@ -40,7 +40,7 @@ export const ProfileStyle = StyleSheet.create({
   },
 
   mainMiddle: {
-    flex: 7,
+    flex: 8,
   },
   ImageField: {
     flex: 2,
@@ -52,26 +52,20 @@ export const ProfileStyle = StyleSheet.create({
     flex: 1,
     margin: 20,
   },
-  Image: {
+  imageProfile: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 100,
     backgroundColor: 'silver',
   },
-  DownloadImageField: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  photoDownload: {
+  noImageProfile: {
     width: 35,
     height: 35,
-    opacity: 0.5,
+    // opacity: 0.5,
   },
   NameField: {
     flex: 2,
-    // alignItems: 'center',
     justifyContent: 'center',
     // backgroundColor: 'red',
   },
@@ -107,14 +101,8 @@ export const ProfileStyle = StyleSheet.create({
     flex: 3,
     // backgroundColor: 'silver',
   },
-  monthSalary: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    // backgroundColor: 'pink',
-  },
   infoBottom: {
-    flex: 4,
+    flex: 6,
   },
 
   mainBottom: {

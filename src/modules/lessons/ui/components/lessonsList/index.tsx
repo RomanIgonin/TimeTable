@@ -1,5 +1,5 @@
 import {View, Text, FlatList, Pressable, Alert} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
 import {currentUserSelector, datesSelector} from '@src/users/store/selectors';
 import {
@@ -16,20 +16,20 @@ interface Props {
 
 export const LessonsList: React.FC<Props> = ({date}) => {
   const dispatch = useAppDispatch();
-  const dates = useAppSelector(datesSelector);
   const currentUser = useAppSelector(currentUserSelector);
-
-  const patchDate = dates?.find(item => item.date === date);
+  const currentDate = useAppSelector(datesSelector).find(
+    item => item.date === date,
+  );
 
   const onPressDelete = (itemId: string) => {
-    if (patchDate) {
-      if (patchDate.lessons[1]) {
-        patchDate.lessons = patchDate.lessons.filter(
+    if (currentDate) {
+      if (currentDate.lessons[1]) {
+        currentDate.lessons = currentDate.lessons.filter(
           item => item.id !== itemId,
         );
-        dispatch(deleteLesson(patchDate));
+        dispatch(deleteLesson(currentDate));
       } else {
-        dispatch(deleteDateAndLesson(patchDate));
+        dispatch(deleteDateAndLesson(currentDate));
         dispatch(getDates(currentUser?.id));
       }
     }
@@ -82,7 +82,7 @@ export const LessonsList: React.FC<Props> = ({date}) => {
   return (
     <View style={LessonsListStyle.main}>
       <FlatList
-        data={patchDate?.lessons}
+        data={currentDate?.lessons}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
       />

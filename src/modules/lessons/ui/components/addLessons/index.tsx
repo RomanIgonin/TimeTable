@@ -5,8 +5,8 @@ import {nanoid} from '@reduxjs/toolkit';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
 import {datesSelector} from '@src/users/store/selectors';
 import {currentUserSelector} from '@src/users/store/selectors';
-import {getDates, postDateAndLesson, postLesson} from '@src/users/store/action';
-import {DatesType, LessonsType} from '@src/core/store/globalTypes';
+import {postDateAndLesson, postLesson} from '@src/users/store/action';
+import {LessonsType} from '@src/core/store/globalTypes';
 
 interface Props {
   date: string;
@@ -19,24 +19,22 @@ export const AddLessons: React.FC<Props> = ({date}) => {
   const dispatch = useAppDispatch();
 
   const currentUser = useAppSelector(currentUserSelector);
-  const dates = useAppSelector(datesSelector);
-  const patchDate = dates?.find(item => item.date === date);
-  // const patchDate = useAppSelector(datesSelector).find(
-  //   item => item.date === date,
-  // );
+  const currentDate = useAppSelector(datesSelector).find(
+    item => item.date === date,
+  );
 
   const onPressAddLessonButton = () => {
     if (currentUser) {
-      if (patchDate) {
+      if (currentDate) {
         const newLesson: LessonsType = {
           id: nanoid(),
           time: time,
           language: language,
           price: price,
         };
-        patchDate.lessons = [...patchDate.lessons, newLesson];
-        dispatch(postLesson(patchDate));
-      } else if (!patchDate) {
+        currentDate.lessons = [...currentDate.lessons, newLesson];
+        dispatch(postLesson(currentDate));
+      } else if (!currentDate) {
         const newDateAndLesson = {
           id: nanoid(),
           userId: currentUser.id,

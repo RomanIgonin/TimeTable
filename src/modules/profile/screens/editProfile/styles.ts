@@ -4,6 +4,7 @@ import {
   BORDER_RADIUS_BTN,
   FONT_SIZE_MID,
   FONT_SIZE_MIN,
+  GRAY,
 } from '@src/core/constants';
 
 export const EditProfileStyle = StyleSheet.create({
@@ -14,33 +15,47 @@ export const EditProfileStyle = StyleSheet.create({
   },
 
   top: {
-    flex: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'grey',
+    flex: 3,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    // backgroundColor: 'green',
   },
   topImage: {
     flex: 1,
     justifyContent: 'center',
-    width: '40%',
-    // height: 30,
-    margin: 10,
-    borderRadius: 1000,
-    backgroundColor: 'red',
+    alignItems: 'center',
+    // backgroundColor: 'red',
+    // margin: 20,
+  },
+  imageBackground: {
+    flex: 1,
+    // alignContent: 'center',
+    // justifyContent: 'center',
+    borderRadius: 50,
+  },
+  photoDownload: {
+    // flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    alignSelf: 'center',
+    marginVertical: 35,
+    width: 30,
+    height: 30,
+    opacity: 0.7,
   },
 
   mid: {
-    flex: 5,
+    flex: 7,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'blue',
+    // backgroundColor: 'blue',
   },
   midFirstNameField: {
     flex: 1,
     alignItems: 'center',
     paddingLeft: 15,
     flexDirection: 'row',
-    backgroundColor: 'silver',
+    // backgroundColor: 'silver',
   },
   midFirstNameText: {
     flex: 2,
@@ -52,7 +67,7 @@ export const EditProfileStyle = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingLeft: 15,
-    backgroundColor: 'pink',
+    // backgroundColor: 'pink',
   },
   midLastNameText: {
     flex: 2,
@@ -64,7 +79,7 @@ export const EditProfileStyle = StyleSheet.create({
     alignItems: 'center',
     paddingLeft: 15,
     flexDirection: 'row',
-    backgroundColor: 'silver',
+    // backgroundColor: 'silver',
   },
   midPhoneText: {
     flex: 2,
@@ -87,7 +102,7 @@ export const EditProfileStyle = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'green',
+    backgroundColor: GRAY,
   },
   bottomSaveChanges: {
     flex: 1,
