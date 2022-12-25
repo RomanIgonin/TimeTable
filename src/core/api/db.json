@@ -13,18 +13,18 @@
       "id": "URpAApFO5lOA4EZNezaFgrrjRf92",
       "email": "2@mail.ru",
       "password": "123qwe",
-      "firstName": "Roman",
+      "firstName": "Roma",
       "lastName": "Igonin",
       "phoneNumber": "+77059131498",
       "profileImage": {
         "assets": [
           {
-            "fileSize": 2505426,
-            "height": 2002,
-            "uri": "file:///Users/a123/Library/Developer/CoreSimulator/Devices/FE8A00A1-BC85-490D-9DD5-51A314883266/data/Containers/Data/Application/CE874F05-F385-45D9-917C-E671746284F6/tmp/D761700D-D189-4D3C-B298-71ADE47707A4.jpg",
+            "fileSize": 5129941,
+            "height": 3024,
+            "uri": "file:///Users/a123/Library/Developer/CoreSimulator/Devices/FE8A00A1-BC85-490D-9DD5-51A314883266/data/Containers/Data/Application/CE874F05-F385-45D9-917C-E671746284F6/tmp/43A488F3-CF1F-42FF-939F-90D2E45EA02A.jpg",
             "type": "image/jpg",
-            "fileName": "D761700D-D189-4D3C-B298-71ADE47707A4.jpg",
-            "width": 3000
+            "fileName": "43A488F3-CF1F-42FF-939F-90D2E45EA02A.jpg",
+            "width": 4032
           }
         ]
       }

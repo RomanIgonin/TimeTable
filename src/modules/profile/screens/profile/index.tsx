@@ -45,16 +45,27 @@ export default function Profile() {
     ) : (
       <Image
         style={ProfileStyle.noImageProfile}
-        source={require('@src/assets/icons/photoDownload.png')}
+        source={require('@src/assets/icons/profileImageUndefined.png')}
       />
     );
   };
 
   return (
     <View style={ProfileStyle.main}>
+      <View style={ProfileStyle.upTop}>
+        <Text style={ProfileStyle.upTopText}>PROFILE</Text>
+      </View>
+
       <View style={ProfileStyle.mainTop}>
-        <View style={ProfileStyle.Title}>
-          <Text style={ProfileStyle.TitleText}>Profile</Text>
+        <View style={ProfileStyle.leftIndent}></View>
+        <View style={ProfileStyle.photoAndName}>
+          <View style={ProfileStyle.ImageProfile}>
+            <ProfileImage />
+          </View>
+          <View style={ProfileStyle.NameField}>
+            <Text style={ProfileStyle.NameText}>{name}</Text>
+            <Text style={ProfileStyle.emailText}>{currentUser?.email}</Text>
+          </View>
         </View>
         <Pressable onPress={onPressEdit} style={ProfileStyle.edit}>
           <Image
@@ -65,60 +76,47 @@ export default function Profile() {
       </View>
 
       <View style={ProfileStyle.mainMiddle}>
-        <View style={ProfileStyle.ImageField}>
-          <View style={ProfileStyle.ImageProfile}>
-            <ProfileImage />
+        {/*<View style={ProfileStyle.infoElement}>*/}
+        {/*  <View style={ProfileStyle.infoElementTitle}>*/}
+        {/*    <Text style={ProfileStyle.infoElementTitleText}>Email: </Text>*/}
+        {/*  </View>*/}
+        {/*  <View style={ProfileStyle.infoElementTextRight}>*/}
+        {/*    <Text>{currentUser?.email}</Text>*/}
+        {/*  </View>*/}
+        {/*</View>*/}
+        <View style={ProfileStyle.infoElement}>
+          <View style={ProfileStyle.infoElementTitle}>
+            <Text style={ProfileStyle.infoElementTitleText}>Phone number:</Text>
           </View>
-          <View style={ProfileStyle.NameField}>
-            <Text style={ProfileStyle.NameText}>{name}</Text>
+          <View style={ProfileStyle.infoElementTextRight}>
+            <Text>{currentUser?.phoneNumber}</Text>
           </View>
         </View>
-
-        <View style={ProfileStyle.InfoField}>
-          <View style={ProfileStyle.infoElement}>
-            <View style={ProfileStyle.infoElementTitle}>
-              <Text style={ProfileStyle.infoElementTitleText}>Email: </Text>
-            </View>
-            <View style={ProfileStyle.infoElementTextRight}>
-              <Text>{currentUser?.email}</Text>
-            </View>
-          </View>
-          <View style={ProfileStyle.infoElement}>
-            <View style={ProfileStyle.infoElementTitle}>
-              <Text style={ProfileStyle.infoElementTitleText}>
-                Phone number:
-              </Text>
-            </View>
-            <View style={ProfileStyle.infoElementTextRight}>
-              <Text>{currentUser?.phoneNumber}</Text>
-            </View>
-          </View>
-          {/*<View*/}
-          {/*  style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>*/}
-          {/*  <MonthSalary />*/}
-          {/*</View>*/}
-          {/*<View style={ProfileStyle.infoElement}>*/}
-          {/*  <View style={ProfileStyle.infoElementTitle}>*/}
-          {/*    <Text style={ProfileStyle.infoElementTitleText}>*/}
-          {/*      {currentMonth} salary:*/}
-          {/*    </Text>*/}
-          {/*  </View>*/}
-          {/*  <View style={ProfileStyle.infoElementTextRight}>*/}
-          {/*    <Text>{salaryMoney} rubles</Text>*/}
-          {/*  </View>*/}
-          {/*</View>*/}
-          {/*<View style={ProfileStyle.infoElement}>*/}
-          {/*  <View style={ProfileStyle.infoElementTitle}>*/}
-          {/*    <Text style={ProfileStyle.infoElementTitleText}>*/}
-          {/*      All salary for {currentMonth} :*/}
-          {/*    </Text>*/}
-          {/*  </View>*/}
-          {/*  <View style={ProfileStyle.infoElementTextRight}>*/}
-          {/*    <Text>{allSalaryMoney} rubles</Text>*/}
-          {/*  </View>*/}
-          {/*</View>*/}
-          <View style={ProfileStyle.infoBottom}></View>
-        </View>
+        {/*<View*/}
+        {/*  style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>*/}
+        {/*  <MonthSalary />*/}
+        {/*</View>*/}
+        {/*<View style={ProfileStyle.infoElement}>*/}
+        {/*  <View style={ProfileStyle.infoElementTitle}>*/}
+        {/*    <Text style={ProfileStyle.infoElementTitleText}>*/}
+        {/*      {currentMonth} salary:*/}
+        {/*    </Text>*/}
+        {/*  </View>*/}
+        {/*  <View style={ProfileStyle.infoElementTextRight}>*/}
+        {/*    <Text>{salaryMoney} rubles</Text>*/}
+        {/*  </View>*/}
+        {/*</View>*/}
+        {/*<View style={ProfileStyle.infoElement}>*/}
+        {/*  <View style={ProfileStyle.infoElementTitle}>*/}
+        {/*    <Text style={ProfileStyle.infoElementTitleText}>*/}
+        {/*      All salary for {currentMonth} :*/}
+        {/*    </Text>*/}
+        {/*  </View>*/}
+        {/*  <View style={ProfileStyle.infoElementTextRight}>*/}
+        {/*    <Text>{allSalaryMoney} rubles</Text>*/}
+        {/*  </View>*/}
+        {/*</View>*/}
+        <View style={ProfileStyle.infoBottom}></View>
       </View>
 
       <View style={ProfileStyle.mainBottom}>

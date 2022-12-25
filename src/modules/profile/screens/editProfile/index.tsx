@@ -76,52 +76,49 @@ export default function EditProfile({navigation}: EditProfileType) {
       currentUser.firstName = firstName;
       currentUser.lastName = lastName;
       currentUser.phoneNumber = phoneNumber;
-      currentUser.profileImage = imageResponse;
+      imageResponse
+        ? (currentUser.profileImage = imageResponse)
+        : (currentUser.profileImage = '');
       dispatch(patchUser(currentUser));
     }
     navigation.goBack();
   };
 
-  // const PhotoView = () => {
-  //   return imageResponse ? (
-  //     <View style={EditProfileStyle.imageBackground}>
-  //       <ImageBackground style={EditProfileStyle.photoProfile} source={{uri}}>
-  //         <Image
-  //           style={EditProfileStyle.photoDownload}
-  //           source={require('@src/assets/icons/photoDownloadWhite.png')}
-  //         />
-  //       </ImageBackground>
-  //     </View>
-  //   ) : (
-  //     <Image
-  //       style={EditProfileStyle.photoDownload}
-  //       source={require('@src/assets/icons/photoDownload.png')}
-  //     />
-  //   );
-  // };
   const ProfileImage = () => {
+    // console.log('imageResponse: ' + JSON.stringify(imageResponse));
     return imageResponse ? (
       <ImageBackground
         style={{width: 100, height: 100}}
         imageStyle={EditProfileStyle.imageBackground}
         source={{uri}}>
-        <Image
-          style={EditProfileStyle.photoDownload}
-          imageStyle={EditProfileStyle.photoDownloadWhite}
-          source={require('@src/assets/icons/photoDownloadWhite.png')}
-        />
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <Image
+            style={EditProfileStyle.photoDownload}
+            source={require('@src/assets/icons/photoDownloadWhite.png')}
+          />
+        </View>
       </ImageBackground>
     ) : (
-      <Image
-        style={EditProfileStyle.photoDownload}
-        source={require('@src/assets/icons/photoDownload.png')}
-      />
+      <ImageBackground
+        style={{width: 100, height: 100}}
+        imageStyle={EditProfileStyle.imageBackground}
+        source={require('@src/assets/icons/profileImageUndefined.png')}>
+        <View style={{flex: 1, justifyContent: 'center'}}>
+          <Image
+            style={EditProfileStyle.photoDownload}
+            source={require('@src/assets/icons/photoDownloadWhite.png')}
+          />
+        </View>
+      </ImageBackground>
     );
   };
 
   return (
     <View style={EditProfileStyle.main}>
       <View style={EditProfileStyle.top}>
+        <View style={EditProfileStyle.topTextView}>
+          <Text style={EditProfileStyle.topText}>EDIT PROFILE</Text>
+        </View>
         <Pressable
           style={EditProfileStyle.topImage}
           onPress={onPressDownloadImage}>
@@ -130,8 +127,11 @@ export default function EditProfile({navigation}: EditProfileType) {
       </View>
 
       <View style={EditProfileStyle.mid}>
-        <View style={EditProfileStyle.midFirstNameField}>
-          <Text style={EditProfileStyle.midFirstNameText}>First Name:</Text>
+        <View style={EditProfileStyle.midTitleField}>
+          <View style={EditProfileStyle.midTitleTextField}>
+            <Text style={EditProfileStyle.midTitleText}>First Name:</Text>
+          </View>
+
           <TextInput
             style={EditProfileStyle.textInput}
             value={firstName}
@@ -139,8 +139,10 @@ export default function EditProfile({navigation}: EditProfileType) {
             clearButtonMode={'while-editing'}
           />
         </View>
-        <View style={EditProfileStyle.midLastNameField}>
-          <Text style={EditProfileStyle.midLastNameText}>Last Name:</Text>
+        <View style={EditProfileStyle.midTitleField}>
+          <View style={EditProfileStyle.midTitleTextField}>
+            <Text style={EditProfileStyle.midTitleText}>Last Name:</Text>
+          </View>
           <TextInput
             style={EditProfileStyle.textInput}
             value={lastName}
@@ -148,8 +150,10 @@ export default function EditProfile({navigation}: EditProfileType) {
             clearButtonMode={'while-editing'}
           />
         </View>
-        <View style={EditProfileStyle.midPhoneField}>
-          <Text style={EditProfileStyle.midPhoneText}>Phone number:</Text>
+        <View style={EditProfileStyle.midTitleField}>
+          <View style={EditProfileStyle.midTitleTextField}>
+            <Text style={EditProfileStyle.midTitleText}>Phone number:</Text>
+          </View>
           <TextInput
             style={EditProfileStyle.textInput}
             value={phoneNumber}

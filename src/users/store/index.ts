@@ -65,7 +65,7 @@ const usersSlice = createSlice({
     });
     builder.addCase(patchUser.fulfilled, (state, {payload}) => {
       state.currentUser = payload;
-      console.log('State profileImage: ' + state.currentUser);
+      console.log('State profileImage: ' + JSON.stringify(state.currentUser));
     });
 
     builder.addMatcher(isError, (state, action: PayloadAction<string>) => {
