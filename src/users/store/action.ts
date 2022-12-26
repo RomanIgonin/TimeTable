@@ -58,17 +58,9 @@ export const patchUser = createAsyncThunk<UserType, UserType>(
     return await usersServices.patchUserService(currentUser);
   },
 );
-//
-// export const postCurrentUserOnServer = createAsyncThunk<undefined, UserType>(
-//   `${PREFIX}/postCurrentUserOnServer`,
-//   async currentUser => {
-//     return await usersServices.postCurrentUserService(currentUser);
-//   },
-// );
-//
-// export const deleteCurrentUserOnServer = createAsyncThunk<undefined, UserType>(
-//   `${PREFIX}/deleteCurrentUserOnServer`,
-//   async currentUser => {
-//     return await usersServices.deleteCurrentUserService(currentUser);
-//   },
-// );
+export const deleteUser = createAsyncThunk<undefined, string>(
+  `${PREFIX}/deleteUser`,
+  async currentUserId => {
+    return await usersServices.deleteUserService(currentUserId);
+  },
+);

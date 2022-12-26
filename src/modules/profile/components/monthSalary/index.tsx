@@ -3,7 +3,6 @@ import {useAppDispatch, useAppSelector} from '@src/hooks';
 import {currentUserSelector, datesSelector} from '@src/users/store/selectors';
 import {getDates} from '@src/users/store/action';
 import {Text, View} from 'react-native';
-import {ProfileStyle} from '@src/modules/profile/screens/profile/styles';
 import {MONTHS} from '@src/core/constants';
 import {MonthSalaryStyle} from '@src/modules/profile/components/monthSalary/style';
 
@@ -40,23 +39,23 @@ export default function MonthSalary() {
       <View style={MonthSalaryStyle.infoElement}>
         <View style={MonthSalaryStyle.infoElementTitle}>
           <Text style={MonthSalaryStyle.infoElementTitleText}>
-            Earned in {currentMonth}:
+            Salary for {currentMonth}:
           </Text>
         </View>
         <View style={MonthSalaryStyle.infoElementTextRight}>
           <Text>{salaryMoney} rubles</Text>
         </View>
       </View>
-      <View style={MonthSalaryStyle.infoElement}>
-        <View style={MonthSalaryStyle.infoElementTitle}>
-          <Text style={MonthSalaryStyle.infoElementTitleText}>
-            Salary for {currentMonth}:
-          </Text>
-        </View>
-        <View style={MonthSalaryStyle.infoElementTextRight}>
-          <Text>{allSalaryMoney} rubles</Text>
-        </View>
-      </View>
+      {/*<View style={MonthSalaryStyle.infoElement}>*/}
+      {/*  <View style={MonthSalaryStyle.infoElementTitle}>*/}
+      {/*    <Text style={MonthSalaryStyle.infoElementTitleText}>*/}
+      {/*      Salary for {currentMonth}:*/}
+      {/*    </Text>*/}
+      {/*  </View>*/}
+      {/*  <View style={MonthSalaryStyle.infoElementTextRight}>*/}
+      {/*    <Text>{allSalaryMoney} rubles</Text>*/}
+      {/*  </View>*/}
+      {/*</View>*/}
     </View>
   );
 }

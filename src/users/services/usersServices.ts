@@ -49,19 +49,18 @@ class UsersServices {
       .catch(error => console.error('deleteDateAndLessonService: ' + error));
   }
   public async patchUserService(currentUser: UserType) {
-    console.log('4: ' + currentUser.profileImage);
-    // return axios({
-    //   method: 'patch',
-    //   url: IP_USERS + `/${currentUser.id}`,
-    //   data: currentUser,
-    //   headers: {
-    //     ContentType: 'multipart/form-data',
-    //   },
-    // });
+    // console.log('4: ' + currentUser.profileImage);
     return axios
       .patch(IP_USERS + `/${currentUser.id}`, currentUser)
       .then(response => response.data)
       .catch(error => console.error('patchUserService: ' + error));
+  }
+  public async deleteUserService(currentUserId: string) {
+    console.log('5: ' + JSON.stringify(currentUserId));
+    return axios
+      .delete(IP_USERS + `/${currentUserId}`)
+      .then(response => response.data)
+      .catch(error => console.error('deleteUserService: ' + error));
   }
   // public async postCurrentUserService(currentUser: UserType) {
   //   return axios

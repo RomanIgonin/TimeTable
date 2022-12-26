@@ -6,6 +6,7 @@
       "password": "123qwe",
       "firstName": "",
       "lastName": "",
+      "gender": "",
       "phoneNumber": "",
       "profileImage": ""
     },
@@ -13,30 +14,22 @@
       "id": "URpAApFO5lOA4EZNezaFgrrjRf92",
       "email": "2@mail.ru",
       "password": "123qwe",
-      "firstName": "Roma",
-      "lastName": "Igonin",
+      "firstName": "Romasya",
+      "lastName": "Rombik",
+      "gender": "Male",
       "phoneNumber": "+77059131498",
       "profileImage": {
         "assets": [
           {
-            "fileSize": 5129941,
-            "height": 3024,
-            "uri": "file:///Users/a123/Library/Developer/CoreSimulator/Devices/FE8A00A1-BC85-490D-9DD5-51A314883266/data/Containers/Data/Application/CE874F05-F385-45D9-917C-E671746284F6/tmp/43A488F3-CF1F-42FF-939F-90D2E45EA02A.jpg",
+            "fileSize": 1852262,
+            "height": 2002,
+            "uri": "file:///Users/a123/Library/Developer/CoreSimulator/Devices/FE8A00A1-BC85-490D-9DD5-51A314883266/data/Containers/Data/Application/D275DEAC-99B9-43EF-B242-4F65873FD96C/tmp/F26CD241-FF94-422B-AF83-87CD7D759D61.jpg",
             "type": "image/jpg",
-            "fileName": "43A488F3-CF1F-42FF-939F-90D2E45EA02A.jpg",
-            "width": 4032
+            "fileName": "F26CD241-FF94-422B-AF83-87CD7D759D61.jpg",
+            "width": 3000
           }
         ]
       }
-    },
-    {
-      "id": "7nvAC80hXAfhbK953E1ehV8oxar2",
-      "email": "3@mail.ru",
-      "password": "123qwe",
-      "firstName": "",
-      "lastName": "",
-      "phoneNumber": "",
-      "profileImage": ""
     },
     {
       "id": "maZYA2WNsvPdQS79f17YsXg50bh2",
@@ -44,69 +37,23 @@
       "password": "66zetflix",
       "firstName": "Kamilla",
       "lastName": "Khusainova",
+      "gender": "",
       "phoneNumber": "+77771569569",
-      "profileImage": ""
+      "profileImage": {
+        "assets": [
+          {
+            "fileSize": 2089455,
+            "height": 3024,
+            "uri": "file:///var/mobile/Containers/Data/Application/938C896E-57E2-41A4-BF76-38F0BBC96450/tmp/10A0826E-61E6-4547-90B0-946830346A35.jpg",
+            "type": "image/jpg",
+            "fileName": "10A0826E-61E6-4547-90B0-946830346A35.jpg",
+            "width": 4032
+          }
+        ]
+      }
     }
   ],
   "dates": [
-    {
-      "id": "127qwe127",
-      "userId": "URpAApFO5lOA4EZNezaFgrrjRf92",
-      "date": "10.12.2022",
-      "lessons": [
-        {
-          "id": "qweqwe123",
-          "time": "20:00",
-          "language": "Turkish",
-          "price": "700"
-        },
-        {
-          "id": "qweqwe124",
-          "time": "21:00",
-          "language": "English",
-          "price": "700"
-        }
-      ]
-    },
-    {
-      "id": "VpRFhP9zG0Pl_nOkqfyBA",
-      "userId": "URpAApFO5lOA4EZNezaFgrrjRf92",
-      "date": "20.12.2022",
-      "lessons": [
-        {
-          "id": "ULOyqBdmNs4dqzbU88HdZ",
-          "time": "1",
-          "language": "1",
-          "price": "700"
-        }
-      ]
-    },
-    {
-      "id": "mZlDKfYv6hZD14I_xTJCG",
-      "userId": "URpAApFO5lOA4EZNezaFgrrjRf92",
-      "date": "21.12.2022",
-      "lessons": [
-        {
-          "id": "eTXHxZ96J4tbePoUXHJlF",
-          "time": "2",
-          "language": "2",
-          "price": "300"
-        }
-      ]
-    },
-    {
-      "id": "75unPKxLDJMNy_TbzL9Qr",
-      "userId": "URpAApFO5lOA4EZNezaFgrrjRf92",
-      "date": "30.11.2022",
-      "lessons": [
-        {
-          "id": "4P5E6deJQhKd1KwpljEEu",
-          "time": "1",
-          "language": "1",
-          "price": "100"
-        }
-      ]
-    },
     {
       "id": "2kqkZXWnYsYfkNC29PytU",
       "userId": "maZYA2WNsvPdQS79f17YsXg50bh2",
@@ -517,12 +464,6 @@
           "time": "11:30",
           "language": "Turkish",
           "price": "700"
-        },
-        {
-          "id": "MH6l_62xjE8R4cz9o-0cS",
-          "time": "13:00",
-          "language": "Turkish",
-          "price": "525"
         }
       ]
     },
@@ -536,12 +477,6 @@
           "time": "13:00",
           "language": "Turkish",
           "price": "700"
-        },
-        {
-          "id": "BQ1SuK3nzZDipRPiNM1od",
-          "time": "15:00",
-          "language": "Turkish",
-          "price": "800"
         }
       ]
     },
@@ -550,12 +485,6 @@
       "userId": "maZYA2WNsvPdQS79f17YsXg50bh2",
       "date": "29.12.2022",
       "lessons": [
-        {
-          "id": "0OK48YHv-nhMM0lKZfBwH",
-          "time": "13:00",
-          "language": "Turkish",
-          "price": "525"
-        },
         {
           "id": "iVEID853QYcY7zKdL1C_d",
           "time": "17:00",
@@ -586,25 +515,6 @@
           "time": "13:00",
           "language": "Turkish",
           "price": "525"
-        },
-        {
-          "id": "gMqDq_IQia1P37D-jCwkb",
-          "time": "14:00",
-          "language": "Turkish",
-          "price": "800"
-        }
-      ]
-    },
-    {
-      "id": "1uLoF0BcuZwKT8sC07HpD",
-      "userId": "maZYA2WNsvPdQS79f17YsXg50bh2",
-      "date": "31.12.2022",
-      "lessons": [
-        {
-          "id": "qK9SKr8Kjft7AGnblM1ee",
-          "time": "16:00",
-          "language": "Turkish",
-          "price": "700"
         }
       ]
     },
@@ -631,6 +541,19 @@
           "time": "1",
           "language": "1",
           "price": "100"
+        }
+      ]
+    },
+    {
+      "id": "WbyLSVkKXQ_1THSQXxEo1",
+      "userId": "maZYA2WNsvPdQS79f17YsXg50bh2",
+      "date": "31.12.2022",
+      "lessons": [
+        {
+          "id": "CDQQVeksvkTyz-WskmgVh",
+          "time": "15:00",
+          "language": "Turkish",
+          "price": "800"
         }
       ]
     }

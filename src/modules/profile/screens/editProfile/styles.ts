@@ -76,6 +76,7 @@ export const EditProfileStyle = StyleSheet.create({
   mid: {
     flex: 13,
     margin: 10,
+
     // justifyContent: 'center',
     // alignItems: 'center',
     // backgroundColor: 'blue',
@@ -85,7 +86,7 @@ export const EditProfileStyle = StyleSheet.create({
     alignItems: 'center',
     // justifyContent: 'center',
     margin: 5,
-    paddingLeft: 15,
+    paddingLeft: 5,
     flexDirection: 'row',
     // backgroundColor: 'silver',
   },
@@ -107,6 +108,24 @@ export const EditProfileStyle = StyleSheet.create({
     paddingLeft: 10,
     fontSize: FONT_SIZE_MIN,
   },
+
+  selected: {
+    borderRadius: BORDER_RADIUS_BTN,
+    backgroundColor: BLUE,
+    padding: 5,
+    paddingHorizontal: 10,
+  },
+  unselected: {
+    padding: 5,
+    paddingHorizontal: 10,
+  },
+  genderTextSelect: {
+    color: 'white',
+  },
+  genderTextUnselect: {
+    color: 'black',
+  },
+
   midBottom: {
     flex: 5,
   },

@@ -1,12 +1,12 @@
-import {FONT_SIZE_MIN} from '@src/core/constants';
+import {FONT_SIZE_MID, FONT_SIZE_MIN} from '@src/core/constants';
 import {StyleSheet} from 'react-native';
 
 export const MonthSalaryStyle = StyleSheet.create({
   main: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: 15,
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    marginHorizontal: 25,
     // backgroundColor: 'pink',
   },
   infoElement: {
@@ -24,6 +24,6 @@ export const MonthSalaryStyle = StyleSheet.create({
     fontWeight: 'bold',
   },
   infoElementTextRight: {
-    flex: 22,
+    flex: 15,
   },
 });

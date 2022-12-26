@@ -35,7 +35,7 @@ export default function Login({navigation}: LoginType) {
     }
   }, []);
 
-  const onPressLogin = async (email, password) => {
+  const onPressLogin = async (email: string, password: string) => {
     // console.log(
     //   'authUser uid before login: ' + (await auth().currentUser?.uid),
     // );

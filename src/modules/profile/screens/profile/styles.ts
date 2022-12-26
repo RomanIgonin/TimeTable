@@ -123,9 +123,9 @@ export const ProfileStyle = StyleSheet.create({
   infoElement: {
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center',
-    padding: 5,
-    borderBottomWidth: 1,
+    // alignItems: 'center',
+    padding: 12,
+    borderBottomWidth: 0.5,
     borderColor: GRAY,
     // justifyContent: 'center',
     // backgroundColor: 'pink',
@@ -134,7 +134,7 @@ export const ProfileStyle = StyleSheet.create({
     flex: 2,
     // paddingLeft: 10,
     paddingRight: 10,
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     // backgroundColor: 'grey',
   },
   infoElementTitleText: {

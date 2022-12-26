@@ -1,7 +1,7 @@
 import {Text, View} from 'react-native';
 import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
 import {useNavigation} from '@react-navigation/native';
-import {BLUE, FONT_SIZE_MIN} from '@src/core/constants';
+import {BLUE, BORDER_RADIUS_BTN, FONT_SIZE_MIN} from '@src/core/constants';
 
 export default function HomeCalendar() {
   const navigation = useNavigation();
@@ -11,9 +11,12 @@ export default function HomeCalendar() {
   };
 
   return (
-    <View>
+    <View style={{flex: 1}}>
       <Calendar
-        // style={{borderWidth: 1}}
+        style={{
+          margin: 10,
+          borderRadius: BORDER_RADIUS_BTN,
+        }}
         disableMonthChange={true}
         enableSwipeMonths={true}
         minDate={'2022-01-01'}

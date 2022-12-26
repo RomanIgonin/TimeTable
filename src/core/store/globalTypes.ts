@@ -13,11 +13,12 @@ export type DatesType = {
 };
 
 export type UserType = {
-  id: string;
+  id: string | undefined;
   email: string;
   password: string;
   firstName: string;
   lastName: string;
+  gender: 'Male' | 'Female' | '';
   phoneNumber: string;
   profileImage: any;
 };

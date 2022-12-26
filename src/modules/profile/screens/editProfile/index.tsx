@@ -2,27 +2,26 @@ import {
   Pressable,
   View,
   Text,
-  TextComponent,
   TextInput,
   Alert,
   Image,
   ImageBackground,
+  FlatList,
 } from 'react-native';
 import {EditProfileStyle} from '@src/modules/profile/screens/editProfile/styles';
-import ImageView from '@src/modules/profile/components/imageView';
 import {useState} from 'react';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
 import {currentUserSelector} from '@src/users/store/selectors';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-import {patchUser, postProfileImage} from '@src/users/store/action';
+import {patchUser} from '@src/users/store/action';
 import {EditProfileType} from '@src/navigation/stackNavigator/types';
-import {ProfileStyle} from '@src/modules/profile/screens/profile/styles';
 
 export default function EditProfile({navigation}: EditProfileType) {
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector(currentUserSelector);
   const [firstName, setFirstName] = useState(currentUser.firstName);
   const [lastName, setLastName] = useState(currentUser.lastName);
+  const [gender, setGender] = useState(currentUser.gender);
   const [phoneNumber, setPhoneNumber] = useState(currentUser.phoneNumber);
   const [imageResponse, setImageResponse] = useState<any>(
     currentUser.profileImage,
@@ -75,6 +74,7 @@ export default function EditProfile({navigation}: EditProfileType) {
     if (currentUser) {
       currentUser.firstName = firstName;
       currentUser.lastName = lastName;
+      currentUser.gender = gender;
       currentUser.phoneNumber = phoneNumber;
       imageResponse
         ? (currentUser.profileImage = imageResponse)
@@ -113,6 +113,96 @@ export default function EditProfile({navigation}: EditProfileType) {
     );
   };
 
+  const profileEditInfo = [
+    {
+      title: 'First Name:',
+      body: currentUser?.firstName,
+      state: setFirstName,
+      value: firstName,
+      key: '1',
+    },
+    {
+      title: 'Last Name:',
+      body: currentUser?.lastName,
+      state: setLastName,
+      value: lastName,
+      key: '2',
+    },
+    {
+      title: 'Gender:',
+      body: currentUser?.gender,
+      state: setGender,
+      value: gender,
+      key: '3',
+    },
+    {
+      title: 'Phone number:',
+      body: currentUser?.phoneNumber,
+      state: setPhoneNumber,
+      value: phoneNumber,
+      key: '4',
+    },
+  ];
+
+  const RadioElement = () => {
+    const genderArray = [
+      {gender: 'Male', key: '11'},
+      {gender: 'Female', key: '22'},
+    ];
+    return (
+      <View
+        style={{
+          flex: 6,
+          flexDirection: 'row',
+          justifyContent: 'flex-start',
+        }}>
+        {genderArray.map(item => {
+          return (
+            <View key={item.key} style={{paddingRight: 15}}>
+              <Pressable
+                style={
+                  gender === item.gender
+                    ? EditProfileStyle.selected
+                    : EditProfileStyle.unselected
+                }
+                onPress={() => setGender(item.gender)}>
+                <Text
+                  style={
+                    gender === item.gender
+                      ? EditProfileStyle.genderTextSelect
+                      : EditProfileStyle.genderTextUnselect
+                  }>
+                  {item.gender}
+                </Text>
+              </Pressable>
+            </View>
+          );
+        })}
+      </View>
+    );
+  };
+
+  const keyExtractor = (item: any) => item.key;
+  const renderItem = ({item}: any) => {
+    return (
+      <View style={EditProfileStyle.midTitleField}>
+        <View style={EditProfileStyle.midTitleTextField}>
+          <Text style={EditProfileStyle.midTitleText}>{item.title}</Text>
+        </View>
+        {item.title !== 'Gender:' ? (
+          <TextInput
+            style={EditProfileStyle.textInput}
+            value={item.value}
+            onChangeText={item.state}
+            clearButtonMode={'while-editing'}
+          />
+        ) : (
+          <RadioElement />
+        )}
+      </View>
+    );
+  };
+
   return (
     <View style={EditProfileStyle.main}>
       <View style={EditProfileStyle.top}>
@@ -127,42 +217,12 @@ export default function EditProfile({navigation}: EditProfileType) {
       </View>
 
       <View style={EditProfileStyle.mid}>
-        <View style={EditProfileStyle.midTitleField}>
-          <View style={EditProfileStyle.midTitleTextField}>
-            <Text style={EditProfileStyle.midTitleText}>First Name:</Text>
-          </View>
-
-          <TextInput
-            style={EditProfileStyle.textInput}
-            value={firstName}
-            onChangeText={setFirstName}
-            clearButtonMode={'while-editing'}
-          />
-        </View>
-        <View style={EditProfileStyle.midTitleField}>
-          <View style={EditProfileStyle.midTitleTextField}>
-            <Text style={EditProfileStyle.midTitleText}>Last Name:</Text>
-          </View>
-          <TextInput
-            style={EditProfileStyle.textInput}
-            value={lastName}
-            onChangeText={setLastName}
-            clearButtonMode={'while-editing'}
-          />
-        </View>
-        <View style={EditProfileStyle.midTitleField}>
-          <View style={EditProfileStyle.midTitleTextField}>
-            <Text style={EditProfileStyle.midTitleText}>Phone number:</Text>
-          </View>
-          <TextInput
-            style={EditProfileStyle.textInput}
-            value={phoneNumber}
-            onChangeText={setPhoneNumber}
-            keyboardType={'numbers-and-punctuation'}
-            clearButtonMode={'while-editing'}
-          />
-        </View>
-        <View style={EditProfileStyle.midBottom}></View>
+        <FlatList
+          data={profileEditInfo}
+          keyExtractor={keyExtractor}
+          renderItem={renderItem}
+          scrollEnabled={false}
+        />
       </View>
 
       <View style={EditProfileStyle.bottom}>
