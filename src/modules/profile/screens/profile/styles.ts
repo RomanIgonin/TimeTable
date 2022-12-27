@@ -2,7 +2,6 @@ import {StyleSheet} from 'react-native';
 import {
   BLUE,
   BORDER_RADIUS_BTN,
-  FONT_SIZE_MAX,
   FONT_SIZE_MID,
   FONT_SIZE_MIN,
   GRAY,
@@ -11,7 +10,7 @@ import {
 export const ProfileStyle = StyleSheet.create({
   main: {
     flex: 1,
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
   },
 
   upTop: {
@@ -25,7 +24,7 @@ export const ProfileStyle = StyleSheet.create({
     fontWeight: 'bold',
   },
   mainTop: {
-    flex: 7,
+    flex: 10,
     flexDirection: 'row',
     backgroundColor: 'white',
     // alignItems: 'center',
@@ -108,7 +107,7 @@ export const ProfileStyle = StyleSheet.create({
   },
 
   mainMiddle: {
-    flex: 11,
+    flex: 18,
     backgroundColor: 'white',
     marginHorizontal: 15,
     marginBottom: 15,

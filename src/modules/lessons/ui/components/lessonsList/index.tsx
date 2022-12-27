@@ -21,6 +21,17 @@ export const LessonsList: React.FC<Props> = ({date}) => {
     item => item.date === date,
   );
 
+  const currentDateLessons = [...currentDate.lessons];
+  currentDateLessons.sort((a, b) => {
+    const first = a.time.split(':');
+    const second = b.time.split(':');
+    if (parseInt(first[0]) === parseInt(second[0])) {
+      return parseInt(first[1]) - parseInt(second[1]);
+    } else {
+      return parseInt(first[0]) - parseInt(second[0]);
+    }
+  });
+
   const onPressDelete = (itemId: string) => {
     if (currentDate) {
       if (currentDate.lessons[1]) {
@@ -51,29 +62,27 @@ export const LessonsList: React.FC<Props> = ({date}) => {
     ]);
   };
 
-  // сделать что бы срабатывала после удаления всей даты
   useEffect(() => {
     dispatch(getDates(currentUser?.id));
   }, []);
 
   const keyExtractor = (item: LessonsType) => item.id;
-
   // не дает прописать тип LessonsType
   const renderItem = ({item}) => {
     return (
-      <Pressable onLongPress={() => onLongPress(item.id)}>
-        <View style={LessonsListStyle.lessonField}>
-          <View style={LessonsListStyle.time}>
-            <Text style={LessonsListStyle.lessonTextTime}>{item.time}</Text>
-          </View>
-          <View style={LessonsListStyle.language}>
-            <Text style={LessonsListStyle.lessonTextLanguage}>
-              {item.language}
-            </Text>
-          </View>
-          <View style={LessonsListStyle.price}>
-            <Text style={LessonsListStyle.lessonTextPrice}>{item.price}</Text>
-          </View>
+      <Pressable
+        style={LessonsListStyle.lessonField}
+        onLongPress={() => onLongPress(item.id)}>
+        <View style={LessonsListStyle.time}>
+          <Text style={LessonsListStyle.lessonTextTime}>{item.time}</Text>
+        </View>
+        <View style={LessonsListStyle.language}>
+          <Text style={LessonsListStyle.lessonTextLanguage}>
+            {item.language}
+          </Text>
+        </View>
+        <View style={LessonsListStyle.price}>
+          <Text style={LessonsListStyle.lessonTextPrice}>{item.price}</Text>
         </View>
       </Pressable>
     );
@@ -82,7 +91,8 @@ export const LessonsList: React.FC<Props> = ({date}) => {
   return (
     <View style={LessonsListStyle.main}>
       <FlatList
-        data={currentDate?.lessons}
+        // data={dateLessonsInOrder}
+        data={currentDateLessons}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
       />

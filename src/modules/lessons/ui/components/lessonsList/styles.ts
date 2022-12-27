@@ -1,45 +1,65 @@
 import {StyleSheet} from 'react-native';
-import {BLUE} from '@src/core/constants';
+import {
+  BLUE,
+  BORDER_RADIUS_BTN,
+  FONT_SIZE_MID,
+  FONT_SIZE_MIN,
+  GRAY,
+} from '@src/core/constants';
 
 export const LessonsListStyle = StyleSheet.create({
   main: {
     flex: 1,
+    backgroundColor: 'white',
+    // alignItems: 'center',
+    marginHorizontal: 15,
+    marginBottom: 25,
+    // padding: 15,
+    borderRadius: BORDER_RADIUS_BTN,
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowRadius: 7,
+    shadowOpacity: 0.2,
   },
   lessonField: {
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
-    paddingHorizontal: 40,
-    marginHorizontal: 10,
-    marginVertical: 5,
-    borderRadius: 10,
-    backgroundColor: BLUE,
+    paddingVertical: 12,
+    borderBottomWidth: 0.5,
+    borderColor: GRAY,
+    // paddingHorizontal: 40,
+    // borderRadius: BORDER_RADIUS_BTN,
+    // backgroundColor: BLUE,
   },
   time: {
-    flex: 1,
+    flex: 3,
     alignItems: 'center',
+    // backgroundColor: 'red',
   },
   language: {
-    flex: 2,
+    flex: 4,
     alignItems: 'center',
+    // backgroundColor: 'green',
   },
   price: {
-    flex: 1,
+    flex: 3,
     alignItems: 'center',
   },
   lessonTextTime: {
-    fontSize: 20,
-    color: 'white',
+    fontSize: FONT_SIZE_MIN,
+    // color: 'white',
   },
   lessonTextLanguage: {
-    fontSize: 20,
+    fontSize: FONT_SIZE_MIN,
     fontWeight: 'bold',
-    color: 'white',
+    // color: 'white',
   },
   lessonTextPrice: {
-    fontSize: 20,
-    color: 'white',
+    fontSize: FONT_SIZE_MIN,
+    // color: 'white',
   },
 });

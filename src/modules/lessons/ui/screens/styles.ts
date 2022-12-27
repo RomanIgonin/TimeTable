@@ -1,23 +1,23 @@
 import {StyleSheet} from 'react-native';
+import {FONT_SIZE_MID, FONT_SIZE_MIN} from '@src/core/constants';
 
 export const LessonsStyle = StyleSheet.create({
   main: {
     flex: 1,
   },
-  addLessons: {
-    flex: 6,
-    // backgroundColor: 'rgba(0,72,255,0.25)',
-  },
-  date: {
+  top: {
     flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'gray',
   },
-  dateText: {
-    color: 'black',
+  topText: {
+    fontSize: FONT_SIZE_MID,
     fontWeight: 'bold',
-    fontSize: 20,
+  },
+  addLessons: {
+    flex: 6,
+    paddingBottom: 15,
+    // backgroundColor: 'rgba(0,72,255,0.25)',
   },
   lessonsList: {
     flex: 20,

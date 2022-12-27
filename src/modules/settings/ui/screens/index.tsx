@@ -6,6 +6,7 @@ import {FONT_SIZE_MID} from '@src/core/constants';
 import {useState} from 'react';
 import {useAppDispatch} from '@src/hooks';
 import {deleteUser} from '@src/users/store/action';
+import {SettingsStyle} from '@src/modules/settings/ui/screens/styles';
 
 export default function Settings({navigation}: SettingsType) {
   const [isEnabled, setIsEnabled] = useState<boolean>(false);
@@ -96,7 +97,7 @@ export default function Settings({navigation}: SettingsType) {
           SETTINGS
         </Text>
       </View>
-      <View style={ProfileStyle.mainMiddle}>
+      <View style={SettingsStyle.mainMiddle}>
         <FlatList
           data={settingsItems}
           keyExtractor={keyExtractor}

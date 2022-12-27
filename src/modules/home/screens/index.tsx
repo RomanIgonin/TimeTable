@@ -27,10 +27,6 @@ export default function Home({navigation}: HomeType) {
           <MonthSalary />
         </View>
       </View>
-      {/*<View style={{flex: 2}}>*/}
-      {/*  <MonthSalary />*/}
-      {/*</View>*/}
-      {/*<View style={{flex: 1}}></View>*/}
     </View>
   );
 }

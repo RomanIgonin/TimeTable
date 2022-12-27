@@ -37,17 +37,17 @@
       "password": "66zetflix",
       "firstName": "Kamilla",
       "lastName": "Khusainova",
-      "gender": "",
+      "gender": "Female",
       "phoneNumber": "+77771569569",
       "profileImage": {
         "assets": [
           {
-            "fileSize": 2089455,
-            "height": 3024,
-            "uri": "file:///var/mobile/Containers/Data/Application/938C896E-57E2-41A4-BF76-38F0BBC96450/tmp/10A0826E-61E6-4547-90B0-946830346A35.jpg",
+            "fileSize": 1504541,
+            "height": 3088,
+            "uri": "file:///var/mobile/Containers/Data/Application/63E779F7-53C2-4507-B16C-3CE6CBCBA398/tmp/47E52C72-B4E6-4B0D-8919-FA4A9CF8030A.jpg",
             "type": "image/jpg",
-            "fileName": "10A0826E-61E6-4547-90B0-946830346A35.jpg",
-            "width": 4032
+            "fileName": "47E52C72-B4E6-4B0D-8919-FA4A9CF8030A.jpg",
+            "width": 2316
           }
         ]
       }
@@ -554,6 +554,19 @@
           "time": "15:00",
           "language": "Turkish",
           "price": "800"
+        }
+      ]
+    },
+    {
+      "id": "wAR3MZEU2QEkLqsDlymRj",
+      "userId": "maZYA2WNsvPdQS79f17YsXg50bh2",
+      "date": "30.11.2022",
+      "lessons": [
+        {
+          "id": "hdkx2wxTlNdCi2e0AvS71",
+          "time": "1",
+          "language": "1",
+          "price": "10000"
         }
       ]
     }

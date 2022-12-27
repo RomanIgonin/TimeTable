@@ -13,7 +13,7 @@ export type DatesType = {
 };
 
 export type UserType = {
-  id: string | undefined;
+  id: string;
   email: string;
   password: string;
   firstName: string;
@@ -27,6 +27,7 @@ export type usersInitialStateType = {
   currentUser: undefined | UserType;
   dates: DatesType[];
   isUsersLoading: boolean;
+  viewedMonth: string;
 };
 
 export type lessonsInitialStateType = {

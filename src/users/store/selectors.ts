@@ -13,7 +13,7 @@ export const datesSelector = createSelector(
   state => state?.dates,
 );
 
-// export const lessonssSelector = createSelector(
-//   datesSelector,
-//   state => state?.lessons,
-// );
+export const viewedMonthSelector = createSelector(
+  usersModuleSelector,
+  state => state?.viewedMonth,
+);

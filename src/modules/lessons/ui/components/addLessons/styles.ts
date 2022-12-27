@@ -1,19 +1,33 @@
 import {StyleSheet} from 'react-native';
-import {BLUE, GRAY} from '@src/core/constants';
+import {
+  BLUE,
+  BORDER_RADIUS_BTN,
+  FONT_SIZE_MID,
+  FONT_SIZE_MIN,
+  GRAY,
+} from '@src/core/constants';
 
 export const AddLessonsStyle = StyleSheet.create({
   main: {
     flex: 1,
   },
+
   mainInputs: {
     flex: 3,
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: GRAY,
-    borderRadius: 10,
-    margin: 10,
-    padding: 10,
+    padding: 15,
+    backgroundColor: 'white',
+    marginHorizontal: 15,
+    marginBottom: 10,
+    borderRadius: BORDER_RADIUS_BTN,
+    shadowOffset: {
+      width: 0,
+      height: 5,
+    },
+    shadowRadius: 7,
+    shadowOpacity: 0.2,
   },
   AddLessonButton: {
     flex: 2,
@@ -40,22 +54,25 @@ export const AddLessonsStyle = StyleSheet.create({
     // borderWidth: 1,
     marginRight: 15,
   },
-  timeText: {
+  timeTextField: {
     flex: 2,
     justifyContent: 'center',
+  },
+  timeText: {
+    fontWeight: 'bold',
   },
   timeInput: {
     flex: 3,
     alignSelf: 'stretch',
     justifyContent: 'center',
     backgroundColor: 'white',
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 10,
   },
   timeInputText: {
     marginLeft: 10,
     // alignSelf: 'center',
-    fontSize: 20,
+    fontSize: FONT_SIZE_MIN,
   },
   nameLessonField: {
     flex: 2,
@@ -63,22 +80,25 @@ export const AddLessonsStyle = StyleSheet.create({
     alignItems: 'center',
     // borderWidth: 1,
   },
-  nameLessonsText: {
+  nameLessonsTextField: {
     flex: 2,
     justifyContent: 'center',
+  },
+  nameLessonsText: {
+    fontWeight: 'bold',
   },
   nameLessonInput: {
     flex: 3,
     alignSelf: 'stretch',
     justifyContent: 'center',
     backgroundColor: 'white',
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 10,
   },
   nameLessonInputText: {
     marginLeft: 10,
     // alignSelf: 'center',
-    fontSize: 20,
+    fontSize: FONT_SIZE_MIN,
   },
   priceField: {
     flex: 1,
@@ -87,21 +107,24 @@ export const AddLessonsStyle = StyleSheet.create({
     // borderWidth: 1,
     marginLeft: 15,
   },
-  priceText: {
+  priceTextField: {
     flex: 2,
     justifyContent: 'center',
+  },
+  priceText: {
+    fontWeight: 'bold',
   },
   priceInput: {
     flex: 3,
     alignSelf: 'stretch',
     justifyContent: 'center',
     backgroundColor: 'white',
-    borderWidth: 2,
+    borderWidth: 1,
     borderRadius: 10,
   },
   priceInputText: {
     marginLeft: 10,
-    fontSize: 20,
+    fontSize: FONT_SIZE_MIN,
     // alignSelf: 'center',
   },
 });

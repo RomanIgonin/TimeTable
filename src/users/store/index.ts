@@ -1,6 +1,5 @@
 import {AnyAction, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {
-  deleteDateAndLesson,
   deleteLesson,
   getDates,
   getUser,
@@ -15,12 +14,17 @@ const initialState: usersInitialStateType = {
   currentUser: undefined,
   dates: [],
   isUsersLoading: false,
+  viewedMonth: '',
 };
 
 const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
+  reducers: {
+    setViewedMonth(state, action) {
+      state.viewedMonth = action.payload;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(getUser.pending, state => {
       state.isUsersLoading = true;

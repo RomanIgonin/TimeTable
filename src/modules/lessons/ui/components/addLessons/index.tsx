@@ -13,7 +13,7 @@ interface Props {
 }
 export const AddLessons: React.FC<Props> = ({date}) => {
   const [time, setTime] = useState('');
-  const [language, setLanguage] = useState('');
+  const [language, setLanguage] = useState('Turkish');
   const [price, setPrice] = useState('');
 
   const dispatch = useAppDispatch();
@@ -51,7 +51,7 @@ export const AddLessons: React.FC<Props> = ({date}) => {
         dispatch(postDateAndLesson(newDateAndLesson));
       }
       setTime('');
-      setLanguage('');
+      setLanguage('Turkish');
       setPrice('');
     }
   };
@@ -60,8 +60,8 @@ export const AddLessons: React.FC<Props> = ({date}) => {
     <View style={AddLessonsStyle.main}>
       <View style={AddLessonsStyle.mainInputs}>
         <View style={AddLessonsStyle.timeField}>
-          <View style={AddLessonsStyle.timeText}>
-            <Text>time</Text>
+          <View style={AddLessonsStyle.timeTextField}>
+            <Text style={AddLessonsStyle.timeText}>time</Text>
           </View>
           <View style={AddLessonsStyle.timeInput}>
             <TextInput
@@ -75,8 +75,8 @@ export const AddLessons: React.FC<Props> = ({date}) => {
           </View>
         </View>
         <View style={AddLessonsStyle.nameLessonField}>
-          <View style={AddLessonsStyle.nameLessonsText}>
-            <Text>lesson</Text>
+          <View style={AddLessonsStyle.nameLessonsTextField}>
+            <Text style={AddLessonsStyle.nameLessonsText}>lesson</Text>
           </View>
           <View style={AddLessonsStyle.nameLessonInput}>
             <TextInput
@@ -89,8 +89,8 @@ export const AddLessons: React.FC<Props> = ({date}) => {
           </View>
         </View>
         <View style={AddLessonsStyle.priceField}>
-          <View style={AddLessonsStyle.priceText}>
-            <Text>price</Text>
+          <View style={AddLessonsStyle.priceTextField}>
+            <Text style={AddLessonsStyle.priceText}>price</Text>
           </View>
           <View style={AddLessonsStyle.priceInput}>
             <TextInput

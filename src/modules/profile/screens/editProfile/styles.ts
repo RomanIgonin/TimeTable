@@ -10,8 +10,13 @@ import {
 export const EditProfileStyle = StyleSheet.create({
   main: {
     flex: 1,
+  },
+
+  main2: {
+    flex: 30,
     backgroundColor: 'white',
-    margin: 15,
+    marginHorizontal: 15,
+    marginBottom: 15,
     borderRadius: BORDER_RADIUS_BTN,
     shadowOffset: {
       width: 0,
@@ -30,9 +35,9 @@ export const EditProfileStyle = StyleSheet.create({
     // backgroundColor: 'green',
   },
   topTextView: {
-    flex: 1,
+    flex: 2,
     alignItems: 'center',
-    marginTop: 10,
+    // marginTop: 10,
     justifyContent: 'center',
   },
   topText: {
@@ -40,7 +45,7 @@ export const EditProfileStyle = StyleSheet.create({
     fontSize: FONT_SIZE_MID,
   },
   topImage: {
-    flex: 4,
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
     // backgroundColor: 'red',
@@ -56,8 +61,8 @@ export const EditProfileStyle = StyleSheet.create({
     // backgroundColor: 'blue',
   },
   photoDownloadView: {
-    width: 100,
-    height: 100,
+    width: 110,
+    height: 110,
     borderRadius: 50,
     borderWidth: 5,
     borderColor: GRAY,
@@ -74,7 +79,7 @@ export const EditProfileStyle = StyleSheet.create({
   },
 
   mid: {
-    flex: 13,
+    flex: 14,
     margin: 10,
 
     // justifyContent: 'center',
@@ -131,15 +136,21 @@ export const EditProfileStyle = StyleSheet.create({
   },
 
   bottom: {
-    flex: 2,
+    flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
     // backgroundColor: GRAY,
   },
-  bottomSaveChanges: {
+  bottomPaddingTop: {
     flex: 1,
+  },
+  bottomPaddingBottom: {
+    flex: 5,
+  },
+  bottomSaveChanges: {
+    flex: 8,
     justifyContent: 'center',
-    marginBottom: 15,
+    // marginBottom: 15,
     paddingHorizontal: 20,
     borderRadius: BORDER_RADIUS_BTN,
     backgroundColor: BLUE,

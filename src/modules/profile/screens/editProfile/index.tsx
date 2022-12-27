@@ -88,7 +88,7 @@ export default function EditProfile({navigation}: EditProfileType) {
     // console.log('imageResponse: ' + JSON.stringify(imageResponse));
     return imageResponse ? (
       <ImageBackground
-        style={{width: 100, height: 100}}
+        style={{width: 110, height: 110}}
         imageStyle={EditProfileStyle.imageBackground}
         source={{uri}}>
         <View style={{flex: 1, justifyContent: 'center'}}>
@@ -100,7 +100,7 @@ export default function EditProfile({navigation}: EditProfileType) {
       </ImageBackground>
     ) : (
       <ImageBackground
-        style={{width: 100, height: 100}}
+        style={{width: 110, height: 110}}
         imageStyle={EditProfileStyle.imageBackground}
         source={require('@src/assets/icons/profileImageUndefined.png')}>
         <View style={{flex: 1, justifyContent: 'center'}}>
@@ -205,27 +205,39 @@ export default function EditProfile({navigation}: EditProfileType) {
 
   return (
     <View style={EditProfileStyle.main}>
-      <View style={EditProfileStyle.top}>
-        <View style={EditProfileStyle.topTextView}>
-          <Text style={EditProfileStyle.topText}>EDIT PROFILE</Text>
+      <View style={EditProfileStyle.topTextView}>
+        <Text style={EditProfileStyle.topText}>EDIT PROFILE</Text>
+      </View>
+      <View style={EditProfileStyle.main2}>
+        <View style={EditProfileStyle.top}>
+          <Pressable
+            style={EditProfileStyle.topImage}
+            onPress={onPressDownloadImage}>
+            <ProfileImage />
+          </Pressable>
         </View>
-        <Pressable
-          style={EditProfileStyle.topImage}
-          onPress={onPressDownloadImage}>
-          <ProfileImage />
-        </Pressable>
-      </View>
 
-      <View style={EditProfileStyle.mid}>
-        <FlatList
-          data={profileEditInfo}
-          keyExtractor={keyExtractor}
-          renderItem={renderItem}
-          scrollEnabled={false}
-        />
-      </View>
+        <View style={EditProfileStyle.mid}>
+          <FlatList
+            data={profileEditInfo}
+            keyExtractor={keyExtractor}
+            renderItem={renderItem}
+            scrollEnabled={false}
+          />
+        </View>
 
+        {/*<View style={EditProfileStyle.bottom}>*/}
+        {/*  <Pressable*/}
+        {/*    style={EditProfileStyle.bottomSaveChanges}*/}
+        {/*    onPress={onPressSaveChanges}>*/}
+        {/*    <Text style={EditProfileStyle.bottomSaveChangesText}>*/}
+        {/*      Save changes*/}
+        {/*    </Text>*/}
+        {/*  </Pressable>*/}
+        {/*</View>*/}
+      </View>
       <View style={EditProfileStyle.bottom}>
+        <View style={EditProfileStyle.bottomPaddingTop}></View>
         <Pressable
           style={EditProfileStyle.bottomSaveChanges}
           onPress={onPressSaveChanges}>
@@ -233,6 +245,7 @@ export default function EditProfile({navigation}: EditProfileType) {
             Save changes
           </Text>
         </Pressable>
+        <View style={EditProfileStyle.bottomPaddingBottom}></View>
       </View>
     </View>
   );

@@ -15,7 +15,8 @@ export const MonthSalaryStyle = StyleSheet.create({
     alignItems: 'center',
   },
   infoElementTitle: {
-    flex: 20,
+    flex: 14,
+    // backgroundColor: 'red',
     // paddingRight: 10,
     // alignItems: 'flex-end',
   },
@@ -24,6 +25,8 @@ export const MonthSalaryStyle = StyleSheet.create({
     fontWeight: 'bold',
   },
   infoElementTextRight: {
-    flex: 15,
+    flex: 8,
+    alignItems: 'center',
+    // backgroundColor: 'pink',
   },
 });
