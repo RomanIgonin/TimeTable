@@ -1,8 +1,11 @@
 import {useAppSelector} from '@src/hooks';
-import {datesSelector, viewedMonthSelector} from '@src/users/store/selectors';
+import {
+  datesSelector,
+  viewedMonthSelector,
+} from '@src/modules/lessons/store/selectors';
 import {Text, View} from 'react-native';
 import {MONTHS} from '@src/core/constants';
-import {MonthSalaryStyle} from '@src/modules/profile/components/monthSalary/style';
+import {MonthSalaryStyle} from '@src/modules/home/components/monthSalary/style';
 
 export default function MonthSalary() {
   const dates = useAppSelector(datesSelector);

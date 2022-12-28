@@ -11,7 +11,8 @@ import {LoginAndSignUpStyle} from '@src/auth/styles/style';
 import authServices from '@src/auth/services/authServices';
 import {useAppDispatch} from '@src/hooks';
 import auth from '@react-native-firebase/auth';
-import {getDates, getUser} from '@src/users/store/action';
+import {getUser} from '@src/users/store/action';
+import {getDates} from '@src/modules/lessons/store/action';
 import {useEffect} from 'react';
 
 const DismissKeyboard = ({children}: any) => (
@@ -38,16 +39,10 @@ export default function Login({navigation}: LoginType) {
   }, []);
 
   const onPressLogin = async (email: string, password: string) => {
-    // console.log(
-    //   'authUser uid before login: ' + (await auth().currentUser?.uid),
-    // );
     await authServices.loginAuthService(email, password);
     const authUser = await auth().currentUser;
-    // console.log('authUser uid after login: ' + authUser?.uid);
     if (authUser?.uid) {
-      // console.log('Login response OK');
       // Достаем юзера с сервера и пихаем в редакс через экстра редусер
-      // console.log('login user id: ' + authUser.uid);
       dispatch(getUser(authUser.uid));
       dispatch(getDates(authUser.uid));
       navigation.navigate('HomeTabs');

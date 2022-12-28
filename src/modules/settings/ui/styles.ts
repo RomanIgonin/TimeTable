@@ -1,7 +1,17 @@
 import {StyleSheet} from 'react-native';
-import {BORDER_RADIUS_BTN} from '@src/core/constants';
+import {BORDER_RADIUS_BTN, FONT_SIZE_MID} from '@src/core/constants';
 
 export const SettingsStyle = StyleSheet.create({
+  main: {flex: 1},
+  textField: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: FONT_SIZE_MID,
+    fontWeight: 'bold',
+  },
   mainMiddle: {
     flex: 14,
     backgroundColor: 'white',

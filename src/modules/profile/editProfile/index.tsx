@@ -8,7 +8,7 @@ import {
   ImageBackground,
   FlatList,
 } from 'react-native';
-import {EditProfileStyle} from '@src/modules/profile/screens/editProfile/styles';
+import {EditProfileStyle} from '@src/modules/profile/editProfile/styles';
 import {useState} from 'react';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
 import {currentUserSelector} from '@src/users/store/selectors';
@@ -85,7 +85,6 @@ export default function EditProfile({navigation}: EditProfileType) {
   };
 
   const ProfileImage = () => {
-    // console.log('imageResponse: ' + JSON.stringify(imageResponse));
     return imageResponse ? (
       <ImageBackground
         style={{width: 110, height: 110}}
@@ -216,7 +215,6 @@ export default function EditProfile({navigation}: EditProfileType) {
             <ProfileImage />
           </Pressable>
         </View>
-
         <View style={EditProfileStyle.mid}>
           <FlatList
             data={profileEditInfo}
@@ -225,16 +223,6 @@ export default function EditProfile({navigation}: EditProfileType) {
             scrollEnabled={false}
           />
         </View>
-
-        {/*<View style={EditProfileStyle.bottom}>*/}
-        {/*  <Pressable*/}
-        {/*    style={EditProfileStyle.bottomSaveChanges}*/}
-        {/*    onPress={onPressSaveChanges}>*/}
-        {/*    <Text style={EditProfileStyle.bottomSaveChangesText}>*/}
-        {/*      Save changes*/}
-        {/*    </Text>*/}
-        {/*  </Pressable>*/}
-        {/*</View>*/}
       </View>
       <View style={EditProfileStyle.bottom}>
         <View style={EditProfileStyle.bottomPaddingTop}></View>

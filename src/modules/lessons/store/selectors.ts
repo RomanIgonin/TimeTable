@@ -3,7 +3,12 @@ import {createSelector} from '@reduxjs/toolkit';
 
 const lessonsModuleSelector = (state: RootState) => state.lessons;
 
-// export const lessonsSelector = createSelector(
-//   lessonsModuleSelector,
-//   state => state.lessons,
-// );
+export const datesSelector = createSelector(
+  lessonsModuleSelector,
+  state => state.dates,
+);
+
+export const viewedMonthSelector = createSelector(
+  lessonsModuleSelector,
+  state => state.viewedMonth,
+);

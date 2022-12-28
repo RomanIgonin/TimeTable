@@ -1,19 +1,18 @@
 import * as React from 'react';
+import {View, Image} from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {RootStackParamList} from './types';
 
-import Login from '../../auth/ui/screens/login/ui/screens';
-import SignUp from '../../auth/ui/screens/signUp/ui/screens';
+import Login from '../../auth/ui/screens/login';
+import SignUp from '../../auth/ui/screens/signUp';
 import Home from '../../modules/home/screens';
 import Lessons from '../../modules/lessons/ui/screens';
-import Profile from '../../modules/profile/screens/profile';
-// import Salary from '../../modules/monthSalary/ui/screens';
-import Settings from '../../modules/settings/ui/screens';
-import {View, Image} from 'react-native';
+import Profile from '../../modules/profile/profile';
+import Settings from '../../modules/settings/ui';
+import EditProfile from '@src/modules/profile/editProfile';
 import {NavigationStyle} from '@src/navigation/stackNavigator/style';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import EditProfile from '@src/modules/profile/screens/editProfile';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -30,11 +29,11 @@ function HomeTabs() {
         name={'Profile'}
         component={Profile}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: () => (
             <View>
               <Image
                 source={require('src/assets/icons/profile.png')}
-                style={NavigationStyle.profile}
+                style={NavigationStyle.iconTabNavigator}
               />
             </View>
           ),
@@ -44,11 +43,11 @@ function HomeTabs() {
         name={'Home'}
         component={Home}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: () => (
             <View>
               <Image
                 source={require('src/assets/icons/calendar.png')}
-                style={NavigationStyle.calendar}
+                style={NavigationStyle.iconTabNavigator}
               />
             </View>
           ),
@@ -58,11 +57,11 @@ function HomeTabs() {
         name={'Settings'}
         component={Settings}
         options={{
-          tabBarIcon: ({focused}) => (
+          tabBarIcon: () => (
             <View>
               <Image
                 source={require('src/assets/icons/settings.png')}
-                style={NavigationStyle.settings}
+                style={NavigationStyle.iconTabNavigator}
               />
             </View>
           ),
@@ -84,7 +83,6 @@ export default function Navigate() {
         <Stack.Screen name="HomeTabs" component={HomeTabs} />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="Lessons" component={Lessons} />
-        {/*<Stack.Screen name="Salary" component={Salary} />*/}
       </Stack.Navigator>
     </NavigationContainer>
   );

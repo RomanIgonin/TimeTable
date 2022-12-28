@@ -1,5 +1,4 @@
 import {StyleSheet} from 'react-native';
-import {height} from '../../core/constants';
 
 export const LoginAndSignUpStyle = StyleSheet.create({
   main: {
@@ -25,11 +24,9 @@ export const LoginAndSignUpStyle = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     width: '20%',
-    // backgroundColor: 'silver',
   },
   signUpText: {
     fontSize: 16,
-    // fontWeight: 'bold',
     color: 'blue',
     textDecorationLine: 'underline',
   },

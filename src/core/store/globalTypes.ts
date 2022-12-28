@@ -25,11 +25,10 @@ export type UserType = {
 
 export type usersInitialStateType = {
   currentUser: undefined | UserType;
-  dates: DatesType[];
   isUsersLoading: boolean;
-  viewedMonth: string;
 };
 
 export type lessonsInitialStateType = {
-  lessons: LessonsType[];
+  dates: DatesType[];
+  viewedMonth: string;
 };

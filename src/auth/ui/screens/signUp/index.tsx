@@ -12,7 +12,7 @@ import {LoginAndSignUpStyle} from '@src/auth/styles/style';
 import {SignUpType} from '@src/navigation/stackNavigator/types';
 import {useAppDispatch} from '@src/hooks';
 import {UserType} from '@src/core/store/globalTypes';
-import {getDates, postUser} from '@src/users/store/action';
+import {postUser} from '@src/users/store/action';
 import authServices from '@src/auth/services/authServices';
 
 const DismissKeyboard = ({children}: any) => (

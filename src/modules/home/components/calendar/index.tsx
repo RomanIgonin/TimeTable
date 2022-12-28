@@ -1,12 +1,12 @@
-import {Text, View} from 'react-native';
-import {Calendar, CalendarList, Agenda} from 'react-native-calendars';
-import {useNavigation} from '@react-navigation/native';
-import {BLUE, BORDER_RADIUS_BTN, FONT_SIZE_MIN} from '@src/core/constants';
+import {View} from 'react-native';
+import {Calendar} from 'react-native-calendars';
+import {BLUE, FONT_SIZE_MIN} from '@src/core/constants';
 import {useEffect} from 'react';
-import {useAppDispatch, useAppSelector} from '@src/hooks';
-import {usersActions} from '@src/users/store';
-import {getDates} from '@src/users/store/action';
-import {currentUserSelector} from '@src/users/store/selectors';
+import {useAppDispatch} from '@src/hooks';
+import {LessonsType} from '@src/navigation/stackNavigator/types';
+import {lessonsActions} from '@src/modules/lessons/store';
+import {HomeCalendarStyle} from '@src/modules/home/components/calendar/styles';
+import {useNavigation} from '@react-navigation/native';
 
 export default function HomeCalendar() {
   const navigation = useNavigation();
@@ -18,18 +18,15 @@ export default function HomeCalendar() {
   };
 
   useEffect(() => {
-    dispatch(usersActions.setViewedMonth(nowMonth));
+    dispatch(lessonsActions.setViewedMonth(nowMonth));
   }, []);
 
   return (
-    <View style={{flex: 1}}>
+    <View style={HomeCalendarStyle.main}>
       <Calendar
-        style={{
-          margin: 10,
-          borderRadius: BORDER_RADIUS_BTN,
-        }}
+        style={HomeCalendarStyle.calendar}
         onMonthChange={month => {
-          dispatch(usersActions.setViewedMonth(month.month));
+          dispatch(lessonsActions.setViewedMonth(month.month));
         }}
         disableMonthChange={true}
         enableSwipeMonths={true}

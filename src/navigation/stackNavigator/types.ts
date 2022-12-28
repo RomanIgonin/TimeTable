@@ -29,7 +29,6 @@ export type EditProfileType = NativeStackScreenProps<
   RootStackParamList,
   'EditProfile'
 >;
-export type SalaryType = NativeStackScreenProps<RootStackParamList, 'Salary'>;
 export type SettingsType = NativeStackScreenProps<
   RootStackParamList,
   'Settings'

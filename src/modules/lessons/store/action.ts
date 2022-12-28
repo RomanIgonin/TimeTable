@@ -1,34 +1,36 @@
-import {createAsyncThunk, createSelector} from '@reduxjs/toolkit';
-import {UserType} from '@src/users/store';
-import lessonsService from '@src/modules/lessons/services/lessonsService';
-import {LessonsListType, LessonsType} from '@src/core/store/globalTypes';
+import {createAsyncThunk} from '@reduxjs/toolkit';
+import lessonsServices from '@src/modules/lessons/services/lessonsService';
+import {DatesType} from '@src/core/store/globalTypes';
 
 const PREFIX = 'lessons';
 
-// export const getUsersFromServer = createAsyncThunk<UserType[], undefined>(
-//   `${PREFIX}/getUsersFromServer`,
-//   async () => {
-//     return await lessonsService.getUsersService();
-//   },
-// );
-//
-// export const getLessonsFromServer = createAsyncThunk<LessonsType[], string>(
-//   `${PREFIX}/getLessonsFromServer`,
-//   async id => {
-//     return await lessonsService.getLessonsService(id);
-//   },
-// );
-//
-// export const postDateAndLessonsOnServer = createAsyncThunk<
-//   undefined,
-//   LessonsType
-// >(`${PREFIX}/postDateAndLessonsOnServer`, async newDateAndLesson => {
-//   return await lessonsService.postDateAndLessonService(newDateAndLesson);
-// });
-//
-// export const postLessonOnServer = createAsyncThunk<undefined, LessonsListType>(
-//   `${PREFIX}/postLessonOnServer`,
-//   async newLesson => {
-//     return await lessonsService.postLessonService(newLesson);
-//   },
-// );
+export const getDates = createAsyncThunk<DatesType[], string | undefined>(
+  `${PREFIX}/getDates`,
+  async userId => {
+    return await lessonsServices.getDatesService(userId);
+  },
+);
+export const postLesson = createAsyncThunk<DatesType, DatesType>(
+  `${PREFIX}/postLesson`,
+  async patchDate => {
+    return await lessonsServices.postLessonService(patchDate);
+  },
+);
+export const postDateAndLesson = createAsyncThunk<DatesType, DatesType>(
+  `${PREFIX}/postDateAndLesson`,
+  async newLesson => {
+    return await lessonsServices.postDateAndLessonService(newLesson);
+  },
+);
+export const deleteLesson = createAsyncThunk<DatesType, DatesType>(
+  `${PREFIX}/deleteLesson`,
+  async patchDate => {
+    return await lessonsServices.deleteLessonService(patchDate);
+  },
+);
+export const deleteDateAndLesson = createAsyncThunk<undefined, DatesType>(
+  `${PREFIX}/deleteDateAndLesson`,
+  async patchDate => {
+    return await lessonsServices.deleteDateAndLessonService(patchDate);
+  },
+);

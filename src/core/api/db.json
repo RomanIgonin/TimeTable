@@ -18,18 +18,7 @@
       "lastName": "Rombik",
       "gender": "Male",
       "phoneNumber": "+77059131498",
-      "profileImage": {
-        "assets": [
-          {
-            "fileSize": 1852262,
-            "height": 2002,
-            "uri": "file:///Users/a123/Library/Developer/CoreSimulator/Devices/FE8A00A1-BC85-490D-9DD5-51A314883266/data/Containers/Data/Application/D275DEAC-99B9-43EF-B242-4F65873FD96C/tmp/F26CD241-FF94-422B-AF83-87CD7D759D61.jpg",
-            "type": "image/jpg",
-            "fileName": "F26CD241-FF94-422B-AF83-87CD7D759D61.jpg",
-            "width": 3000
-          }
-        ]
-      }
+      "profileImage": ""
     },
     {
       "id": "maZYA2WNsvPdQS79f17YsXg50bh2",
@@ -39,18 +28,7 @@
       "lastName": "Khusainova",
       "gender": "Female",
       "phoneNumber": "+77771569569",
-      "profileImage": {
-        "assets": [
-          {
-            "fileSize": 1504541,
-            "height": 3088,
-            "uri": "file:///var/mobile/Containers/Data/Application/63E779F7-53C2-4507-B16C-3CE6CBCBA398/tmp/47E52C72-B4E6-4B0D-8919-FA4A9CF8030A.jpg",
-            "type": "image/jpg",
-            "fileName": "47E52C72-B4E6-4B0D-8919-FA4A9CF8030A.jpg",
-            "width": 2316
-          }
-        ]
-      }
+      "profileImage": ""
     }
   ],
   "dates": [
@@ -496,6 +474,12 @@
           "time": "18:00",
           "language": "English",
           "price": "600"
+        },
+        {
+          "id": "e5QZbYs6QD6IsdSp9nHY-",
+          "time": "20:00",
+          "language": "Turkish",
+          "price": "700"
         }
       ]
     },
@@ -554,19 +538,6 @@
           "time": "15:00",
           "language": "Turkish",
           "price": "800"
-        }
-      ]
-    },
-    {
-      "id": "wAR3MZEU2QEkLqsDlymRj",
-      "userId": "maZYA2WNsvPdQS79f17YsXg50bh2",
-      "date": "30.11.2022",
-      "lessons": [
-        {
-          "id": "hdkx2wxTlNdCi2e0AvS71",
-          "time": "1",
-          "language": "1",
-          "price": "10000"
         }
       ]
     }

@@ -3,9 +3,9 @@ import {AddLessonsStyle} from '@src/modules/lessons/ui/components/addLessons/sty
 import React, {useState} from 'react';
 import {nanoid} from '@reduxjs/toolkit';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
-import {datesSelector} from '@src/users/store/selectors';
+import {datesSelector} from '@src/modules/lessons/store/selectors';
 import {currentUserSelector} from '@src/users/store/selectors';
-import {postDateAndLesson, postLesson} from '@src/users/store/action';
+import {postDateAndLesson, postLesson} from '@src/modules/lessons/store/action';
 import {LessonsType} from '@src/core/store/globalTypes';
 
 interface Props {
@@ -69,8 +69,6 @@ export const AddLessons: React.FC<Props> = ({date}) => {
               onChangeText={setTime}
               style={AddLessonsStyle.timeInputText}
               keyboardType={'numbers-and-punctuation'}
-              // clearButtonMode={'while-editing'}
-              // cursorColor={'black'}
             />
           </View>
         </View>
@@ -84,7 +82,6 @@ export const AddLessons: React.FC<Props> = ({date}) => {
               onChangeText={setLanguage}
               style={AddLessonsStyle.nameLessonInputText}
               clearButtonMode={'while-editing'}
-              // cursorColor={'black'}
             />
           </View>
         </View>
@@ -97,9 +94,7 @@ export const AddLessons: React.FC<Props> = ({date}) => {
               value={price}
               onChangeText={setPrice}
               style={AddLessonsStyle.priceInputText}
-              // clearButtonMode={'while-editing'}
               keyboardType={'phone-pad'}
-              // cursorColor={'black'}
             />
           </View>
         </View>

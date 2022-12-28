@@ -1,36 +1,42 @@
 import axios from 'axios';
-import {LessonsType} from '@src/core/store/globalTypes';
-import {IP_LESSONS, IP_USERS} from '@src/core/constants';
-import {useAppSelector} from '@src/hooks';
-import {currentUserSelector} from '@src/users/store/selectors';
+import {IP_USERS, IP_DATES} from '@src/core/constants';
+import {DatesType} from '@src/core/store/globalTypes';
 
-class LessonsService {
-  // public async postLessonService(newLesson: LessonsType) {
-  //   return axios
-  //     .post(IP_LESSONS, newLesson)
-  //     .then(response => response.data)
-  //     .catch(error => console.error('postLessonService: ' + error));
-  // }
-  // public async postDateAndLessonService(newDateAndLesson: LessonsType) {
-  //   console.log('in service, begin post');
-  //   const CurrentUser = () => {
-  //     return useAppSelector(currentUserSelector);
-  //   };
-  //   const currentUser = CurrentUser();
-  //   console.log('current user in service: ' + currentUser);
-  //   if (currentUser) {
-  //     console.log(IP_USERS + '/' + `${currentUser.id}` + '/lessons');
-  //
-  //     return axios
-  //       .post(
-  //         IP_USERS + '/' + `${currentUser.id}` + '/lessons',
-  //         newDateAndLesson,
-  //       )
-  //       .then(response => response.data)
-  //       .catch(error => console.error('postDateAndLessonService: ' + error));
-  //   }
-  // }
+class LessonsServices {
+  // get dates with lessons for the current user
+  public async getDatesService(userId: string | undefined) {
+    return axios
+      .get(IP_USERS + `/${userId}` + '/dates?userId=' + `${userId}`)
+      .then(response => response.data)
+      .catch(error => console.error('getDatesService: ' + error));
+  }
+  // patch Date object with new lessons
+  public async postLessonService(patchDate: DatesType) {
+    return axios
+      .patch(IP_DATES + `/${patchDate.id}`, patchDate)
+      .then(response => response.data)
+      .catch(error => console.error('postLessonService: ' + error));
+  }
+  public async postDateAndLessonService(newDateAndLesson: DatesType) {
+    return axios
+      .post(IP_DATES, newDateAndLesson)
+      .then(response => response.data)
+      .catch(error => console.error('postDateAndLessonService: ' + error));
+  }
+  // toggle Date object without lesson being removed
+  public async deleteLessonService(patchDate: DatesType) {
+    return axios
+      .patch(IP_DATES + `/${patchDate.id}`, patchDate)
+      .then(response => response.data)
+      .catch(error => console.error('deleteLessonService: ' + error));
+  }
+  public async deleteDateAndLessonService(patchDate: DatesType) {
+    return axios
+      .delete(IP_DATES + `/${patchDate.id}`)
+      .then(response => response.data)
+      .catch(error => console.error('deleteDateAndLessonService: ' + error));
+  }
 }
 
-const lessonsService = new LessonsService();
-export default lessonsService;
+const lessonsServices = new LessonsServices();
+export default lessonsServices;

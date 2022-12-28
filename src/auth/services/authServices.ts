@@ -1,30 +1,23 @@
-import auth, {firebase} from '@react-native-firebase/auth';
-import {usersActions, UserType} from '@src/users/store';
-import {postUser} from '@src/users/store/action';
-import {useAppDispatch} from '@src/hooks';
+import auth from '@react-native-firebase/auth';
 import {Alert} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 
 class AuthServices {
-  public async loginAuthService(email, password) {
+  public async loginAuthService(email: string, password: string) {
     return await auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        // console.log(email + ': sign in!');
-        // console.log(response.user);
-        // return 'OK';
+        console.log(email + ': sign in!');
       })
       .catch(error => {
         console.log('Error login: ' + error);
         Alert.alert('Invalid login or password');
-        // return 'ERROR';
       });
   }
-  public async signUpAuthService(email, password) {
+  public async signUpAuthService(email: string, password: string) {
     return await auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        // console.log(email + ' sign up');
+        console.log(email + ' sign up');
       })
       .catch(error => {
         console.log('Error signUp: ' + error);

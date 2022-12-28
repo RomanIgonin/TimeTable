@@ -1,12 +1,12 @@
 import {Alert, FlatList, Pressable, Switch, Text, View} from 'react-native';
-import {ProfileStyle} from '@src/modules/profile/screens/profile/styles';
+import {ProfileStyle} from '@src/modules/profile/profile/styles';
 import auth from '@react-native-firebase/auth';
 import {SettingsType} from '@src/navigation/stackNavigator/types';
 import {FONT_SIZE_MID} from '@src/core/constants';
 import {useState} from 'react';
 import {useAppDispatch} from '@src/hooks';
 import {deleteUser} from '@src/users/store/action';
-import {SettingsStyle} from '@src/modules/settings/ui/screens/styles';
+import {SettingsStyle} from '@src/modules/settings/ui/styles';
 
 export default function Settings({navigation}: SettingsType) {
   const [isEnabled, setIsEnabled] = useState<boolean>(false);
@@ -91,11 +91,9 @@ export default function Settings({navigation}: SettingsType) {
   };
 
   return (
-    <View style={{flex: 1}}>
-      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text style={{fontSize: FONT_SIZE_MID, fontWeight: 'bold'}}>
-          SETTINGS
-        </Text>
+    <View style={SettingsStyle.main}>
+      <View style={SettingsStyle.textField}>
+        <Text style={SettingsStyle.text}>SETTINGS</Text>
       </View>
       <View style={SettingsStyle.mainMiddle}>
         <FlatList

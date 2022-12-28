@@ -1,11 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {
-  BLUE,
-  BORDER_RADIUS_BTN,
-  FONT_SIZE_MID,
-  FONT_SIZE_MIN,
-  GRAY,
-} from '@src/core/constants';
+import {BLUE, BORDER_RADIUS_BTN, FONT_SIZE_MIN} from '@src/core/constants';
 
 export const AddLessonsStyle = StyleSheet.create({
   main: {
@@ -32,7 +26,6 @@ export const AddLessonsStyle = StyleSheet.create({
   AddLessonButton: {
     flex: 2,
     alignItems: 'center',
-    // backgroundColor: 'grey',
   },
   AddLessonButtonField: {
     backgroundColor: BLUE,
@@ -51,7 +44,6 @@ export const AddLessonsStyle = StyleSheet.create({
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    // borderWidth: 1,
     marginRight: 15,
   },
   timeTextField: {
@@ -71,14 +63,12 @@ export const AddLessonsStyle = StyleSheet.create({
   },
   timeInputText: {
     marginLeft: 10,
-    // alignSelf: 'center',
     fontSize: FONT_SIZE_MIN,
   },
   nameLessonField: {
     flex: 2,
     flexDirection: 'column',
     alignItems: 'center',
-    // borderWidth: 1,
   },
   nameLessonsTextField: {
     flex: 2,
@@ -97,14 +87,12 @@ export const AddLessonsStyle = StyleSheet.create({
   },
   nameLessonInputText: {
     marginLeft: 10,
-    // alignSelf: 'center',
     fontSize: FONT_SIZE_MIN,
   },
   priceField: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
-    // borderWidth: 1,
     marginLeft: 15,
   },
   priceTextField: {
@@ -125,6 +113,5 @@ export const AddLessonsStyle = StyleSheet.create({
   priceInputText: {
     marginLeft: 10,
     fontSize: FONT_SIZE_MIN,
-    // alignSelf: 'center',
   },
 });

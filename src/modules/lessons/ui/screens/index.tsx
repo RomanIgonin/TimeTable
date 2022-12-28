@@ -5,7 +5,7 @@ import {LessonsStyle} from '@src/modules/lessons/ui/screens/styles';
 import {LessonsList} from '@src/modules/lessons/ui/components/lessonsList';
 import {MONTHS} from '@src/core/constants';
 import {useAppSelector} from '@src/hooks';
-import {viewedMonthSelector} from '@src/users/store/selectors';
+import {viewedMonthSelector} from '@src/modules/lessons/store/selectors';
 
 export default function Lessons({route}: LessonsType) {
   const viewedMonth = useAppSelector(viewedMonthSelector);
@@ -23,9 +23,6 @@ export default function Lessons({route}: LessonsType) {
       <View style={LessonsStyle.addLessons}>
         <AddLessons date={date} />
       </View>
-      {/*<View style={LessonsStyle.date}>*/}
-      {/*  <Text style={LessonsStyle.dateText}>{date}</Text>*/}
-      {/*</View>*/}
       <View style={LessonsStyle.lessonsList}>
         <LessonsList date={date} />
       </View>

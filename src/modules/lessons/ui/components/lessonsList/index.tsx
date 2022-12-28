@@ -1,12 +1,13 @@
 import {View, Text, FlatList, Pressable, Alert} from 'react-native';
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
-import {currentUserSelector, datesSelector} from '@src/users/store/selectors';
+import {currentUserSelector} from '@src/users/store/selectors';
+import {datesSelector} from '@src/modules/lessons/store/selectors';
 import {
   deleteDateAndLesson,
   deleteLesson,
   getDates,
-} from '@src/users/store/action';
+} from '@src/modules/lessons/store/action';
 import {LessonsType} from '@src/core/store/globalTypes';
 import {LessonsListStyle} from '@src/modules/lessons/ui/components/lessonsList/styles';
 
@@ -21,16 +22,19 @@ export const LessonsList: React.FC<Props> = ({date}) => {
     item => item.date === date,
   );
 
-  const currentDateLessons = [...currentDate.lessons];
-  currentDateLessons.sort((a, b) => {
-    const first = a.time.split(':');
-    const second = b.time.split(':');
-    if (parseInt(first[0]) === parseInt(second[0])) {
-      return parseInt(first[1]) - parseInt(second[1]);
-    } else {
-      return parseInt(first[0]) - parseInt(second[0]);
-    }
-  });
+  let currentDateLessons = [];
+  if (currentDate) {
+    currentDateLessons = [...currentDate.lessons];
+    currentDateLessons.sort((a, b) => {
+      const first = a.time.split(':');
+      const second = b.time.split(':');
+      if (parseInt(first[0]) === parseInt(second[0])) {
+        return parseInt(first[1]) - parseInt(second[1]);
+      } else {
+        return parseInt(first[0]) - parseInt(second[0]);
+      }
+    });
+  }
 
   const onPressDelete = (itemId: string) => {
     if (currentDate) {
@@ -91,8 +95,7 @@ export const LessonsList: React.FC<Props> = ({date}) => {
   return (
     <View style={LessonsListStyle.main}>
       <FlatList
-        // data={dateLessonsInOrder}
-        data={currentDateLessons}
+        data={currentDate ? currentDateLessons : []}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
       />

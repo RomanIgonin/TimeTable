@@ -24,20 +24,14 @@ export const EditProfileStyle = StyleSheet.create({
     },
     shadowRadius: 7,
     shadowOpacity: 0.2,
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
 
   top: {
     flex: 6,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: 'green',
   },
   topTextView: {
     flex: 2,
     alignItems: 'center',
-    // marginTop: 10,
     justifyContent: 'center',
   },
   topText: {
@@ -48,17 +42,12 @@ export const EditProfileStyle = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'red',
-    // margin: 20,
   },
   imageBackground: {
     flex: 1,
-    // alignContent: 'center',
-    // justifyContent: 'center',
     borderRadius: 60,
     borderWidth: 5,
     borderColor: GRAY,
-    // backgroundColor: 'blue',
   },
   photoDownloadView: {
     width: 110,
@@ -68,11 +57,7 @@ export const EditProfileStyle = StyleSheet.create({
     borderColor: GRAY,
   },
   photoDownload: {
-    // flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
     alignSelf: 'center',
-    // marginVertical: 35,
     width: 30,
     height: 30,
     opacity: 0.7,
@@ -81,24 +66,16 @@ export const EditProfileStyle = StyleSheet.create({
   mid: {
     flex: 14,
     margin: 10,
-
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    // backgroundColor: 'blue',
   },
   midTitleField: {
     flex: 1,
     alignItems: 'center',
-    // justifyContent: 'center',
     margin: 5,
     paddingLeft: 5,
     flexDirection: 'row',
-    // backgroundColor: 'silver',
   },
   midTitleTextField: {
     flex: 2,
-    // alignItems: 'center',
-    // justifyContent: 'center',
   },
   midTitleText: {
     justifyContent: 'center',
@@ -139,7 +116,6 @@ export const EditProfileStyle = StyleSheet.create({
     flex: 3,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: GRAY,
   },
   bottomPaddingTop: {
     flex: 1,
@@ -150,7 +126,6 @@ export const EditProfileStyle = StyleSheet.create({
   bottomSaveChanges: {
     flex: 8,
     justifyContent: 'center',
-    // marginBottom: 15,
     paddingHorizontal: 20,
     borderRadius: BORDER_RADIUS_BTN,
     backgroundColor: BLUE,

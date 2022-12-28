@@ -1,36 +1,52 @@
 import {AnyAction, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {lessonsInitialStateType} from '@src/core/store/globalTypes';
 import {
-  postLessonOnServer,
-  getLessonsFromServer,
-  postDateAndLessonsOnServer,
-  getUsersFromServer,
+  deleteDateAndLesson,
+  deleteLesson,
+  getDates,
+  postDateAndLesson,
+  postLesson,
 } from '@src/modules/lessons/store/action';
 
 const initialState: lessonsInitialStateType = {
-  lessons: [],
+  dates: [],
+  viewedMonth: '',
 };
 
 const lessonsSlice = createSlice({
   name: 'lessons',
   initialState,
-  reducers: {},
+  reducers: {
+    setViewedMonth(state, action) {
+      state.viewedMonth = action.payload;
+    },
+  },
   extraReducers: builder => {
-    // builder.addCase(getLessonsFromServer.fulfilled, (state, {payload}) => {
-    //   // state.lessons = payload;
-    // });
-    // builder.addCase(
-    //   postDateAndLessonsOnServer.fulfilled,
-    //   (state, {payload}) => {
-    //     // state.lessons = payload;
-    //   },
-    // );
-    // builder.addCase(postLessonOnServer.fulfilled, (state, {payload}) => {
-    //   // state.lessons = payload;
-    // });
-    // builder.addMatcher(isError, (state, action: PayloadAction<string>) => {
-    //   console.log(action.payload);
-    // });
+    builder.addCase(getDates.fulfilled, (state, {payload}) => {
+      state.dates = payload;
+      console.log('getDates done');
+    });
+    builder.addCase(postLesson.fulfilled, (state, {payload}) => {
+      state.dates = state.dates?.filter(date => date.id !== payload.id);
+      state.dates?.push(payload);
+      console.log('postLesson done');
+    });
+    builder.addCase(postDateAndLesson.fulfilled, (state, {payload}) => {
+      state.dates?.push(payload);
+      console.log('postDateAndLesson done');
+    });
+    builder.addCase(deleteLesson.fulfilled, (state, {payload}) => {
+      state.dates = state.dates?.filter(date => date.id !== payload.id);
+      state.dates?.push(payload);
+      console.log('deleteLesson done');
+    });
+    // после удаления всех уроков в дне, не может отрендерить скрин lesson
+    builder.addCase(deleteDateAndLesson.fulfilled, (state, {payload}) => {
+      console.log('deleteDateAndLesson done');
+    });
+    builder.addMatcher(isError, (state, action: PayloadAction<string>) => {
+      console.log(action.payload);
+    });
   },
 });
 

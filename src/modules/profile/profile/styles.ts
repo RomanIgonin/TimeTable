@@ -10,14 +10,12 @@ import {
 export const ProfileStyle = StyleSheet.create({
   main: {
     flex: 1,
-    // backgroundColor: 'white',
   },
 
   upTop: {
     flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: GRAY,
   },
   upTopText: {
     fontSize: FONT_SIZE_MID,
@@ -27,7 +25,6 @@ export const ProfileStyle = StyleSheet.create({
     flex: 10,
     flexDirection: 'row',
     backgroundColor: 'white',
-    // alignItems: 'center',
     marginHorizontal: 15,
     marginBottom: 15,
     borderRadius: BORDER_RADIUS_BTN,
@@ -37,12 +34,9 @@ export const ProfileStyle = StyleSheet.create({
     },
     shadowRadius: 7,
     shadowOpacity: 0.2,
-    // justifyContent: 'center',
   },
   photoAndName: {
     flex: 6,
-    // backgroundColor: 'green',
-    // alignItems: 'center',
   },
   leftIndent: {
     flex: 1,
@@ -52,16 +46,10 @@ export const ProfileStyle = StyleSheet.create({
     marginTop: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    // backgroundColor: 'pink',
   },
   imageProfile: {
-    // flex: 1,
-    // width: '40%',
-    // height: '100%',
     width: 100,
     height: 100,
-    // alignItems: 'center',
-    // justifyContent: 'center',
     borderRadius: 60,
     borderWidth: 5,
     borderColor: GRAY,
@@ -72,36 +60,27 @@ export const ProfileStyle = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 5,
     borderColor: GRAY,
-    // opacity: 0.5,
   },
   NameField: {
     flex: 1,
     padding: 15,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'red',
   },
   NameText: {
-    // padding: '5%',
     fontWeight: 'bold',
     fontSize: 20,
-    // backgroundColor: 'red',
   },
   emailText: {
-    // backgroundColor: 'red',
     marginVertical: 5,
   },
 
   edit: {
     flex: 1,
-    // justifyContent: 'flex-start',
     alignItems: 'flex-start',
     paddingTop: 15,
-    // paddingRight: 10,
-    // backgroundColor: 'blue',
   },
   editImage: {
-    // flex: 1,
     width: 25,
     height: 25,
   },
@@ -122,19 +101,14 @@ export const ProfileStyle = StyleSheet.create({
   infoElement: {
     flex: 1,
     flexDirection: 'row',
-    // alignItems: 'center',
     padding: 12,
     borderBottomWidth: 0.5,
     borderColor: GRAY,
-    // justifyContent: 'center',
-    // backgroundColor: 'pink',
   },
   infoElementTitle: {
     flex: 2,
-    // paddingLeft: 10,
     paddingRight: 10,
     alignItems: 'flex-start',
-    // backgroundColor: 'grey',
   },
   infoElementTitleText: {
     fontSize: FONT_SIZE_MIN,
@@ -142,7 +116,6 @@ export const ProfileStyle = StyleSheet.create({
   },
   infoElementTextRight: {
     flex: 3,
-    // backgroundColor: 'silver',
   },
   infoBottom: {
     flex: 6,
@@ -152,7 +125,6 @@ export const ProfileStyle = StyleSheet.create({
     flex: 2,
     justifyContent: 'center',
     alignItems: 'center',
-    // backgroundColor: 'silver',
   },
   bottomSignOut: {
     flex: 1,

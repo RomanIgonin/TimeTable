@@ -1,12 +1,11 @@
 import {FlatList, Image, Pressable, Text, View} from 'react-native';
 import {useAppSelector} from '@src/hooks';
 import {currentUserSelector} from '@src/users/store/selectors';
-import {useNavigation} from '@react-navigation/native';
-import {ProfileStyle} from '@src/modules/profile/screens/profile/styles';
+import {ProfileStyle} from '@src/modules/profile/profile/styles';
+import {ProfileType} from '@src/navigation/stackNavigator/types';
 
-export default function Profile() {
+export default function Profile({navigation}: ProfileType) {
   const currentUser = useAppSelector(currentUserSelector);
-  const navigation = useNavigation();
 
   const name =
     currentUser?.firstName && currentUser?.lastName
@@ -82,12 +81,6 @@ export default function Profile() {
           scrollEnabled={false}
         />
       </View>
-
-      {/*<View style={ProfileStyle.mainBottom}>*/}
-      {/*  <Pressable onPress={onPressSignOut} style={ProfileStyle.bottomSignOut}>*/}
-      {/*    <Text style={ProfileStyle.bottomSignOutText}>Sign out</Text>*/}
-      {/*  </Pressable>*/}
-      {/*</View>*/}
     </View>
   );
 }
