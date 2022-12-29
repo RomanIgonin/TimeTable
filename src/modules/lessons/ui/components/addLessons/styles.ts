@@ -27,19 +27,6 @@ export const AddLessonsStyle = StyleSheet.create({
     flex: 2,
     alignItems: 'center',
   },
-  AddLessonButtonField: {
-    backgroundColor: BLUE,
-    width: 150,
-    height: '100%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 15,
-  },
-  AddLessonButtonText: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    color: 'white',
-  },
   timeField: {
     flex: 1,
     flexDirection: 'column',
@@ -57,9 +44,9 @@ export const AddLessonsStyle = StyleSheet.create({
     flex: 3,
     alignSelf: 'stretch',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: BORDER_RADIUS_BTN,
   },
   timeInputText: {
     marginLeft: 10,
@@ -79,15 +66,12 @@ export const AddLessonsStyle = StyleSheet.create({
   },
   nameLessonInput: {
     flex: 3,
+    alignItems: 'center',
     alignSelf: 'stretch',
     justifyContent: 'center',
     backgroundColor: 'white',
     borderWidth: 1,
-    borderRadius: 10,
-  },
-  nameLessonInputText: {
-    marginLeft: 10,
-    fontSize: FONT_SIZE_MIN,
+    borderRadius: BORDER_RADIUS_BTN,
   },
   priceField: {
     flex: 1,
@@ -108,7 +92,7 @@ export const AddLessonsStyle = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'white',
     borderWidth: 1,
-    borderRadius: 10,
+    borderRadius: BORDER_RADIUS_BTN,
   },
   priceInputText: {
     marginLeft: 10,

@@ -98,6 +98,7 @@ export const LessonsList: React.FC<Props> = ({date}) => {
         data={currentDate ? currentDateLessons : []}
         keyExtractor={keyExtractor}
         renderItem={renderItem}
+        scrollEnabled={false}
       />
     </View>
   );

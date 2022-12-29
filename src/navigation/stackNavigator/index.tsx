@@ -80,7 +80,11 @@ export default function Navigate() {
         }}>
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen name="HomeTabs" component={HomeTabs} />
+        <Stack.Screen
+          name="HomeTabs"
+          component={HomeTabs}
+          options={{gestureEnabled: false}}
+        />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="Lessons" component={Lessons} />
       </Stack.Navigator>
