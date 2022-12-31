@@ -1,8 +1,10 @@
-import {TextInput, View, Text} from 'react-native';
+import {TextInput, View, Text, Pressable} from 'react-native';
 import {AddLessonsStyle} from '@src/modules/lessons/ui/components/addLessons/styles';
 import React, {useState} from 'react';
-import {ButtonAddLesson} from '@src/modules/lessons/ui/components/buttonAddLesson';
-import {LessonSwitch} from '@src/modules/lessons/ui/components/lessonSwitch';
+import {ButtonAddLesson} from '@src/modules/lessons/ui/components/addLessons/buttonAddLesson';
+import {LessonSwitch} from '@src/modules/lessons/ui/components/addLessons/lessonSwitch';
+import {TimeSwitch} from '@src/modules/lessons/ui/components/addLessons/timeSwitch';
+import {PriceSwitch} from '@src/modules/lessons/ui/components/addLessons/priceSwitch';
 
 interface Props {
   date: string;
@@ -12,8 +14,14 @@ export const AddLessons: React.FC<Props> = ({date}) => {
   const [language, setLanguage] = useState('Turkish');
   const [price, setPrice] = useState('');
 
+  const getTime = (value: string) => {
+    setTime(value);
+  };
   const getLanguage = (value: string) => {
     setLanguage(value);
+  };
+  const getPrice = (value: string) => {
+    setPrice(value);
   };
 
   return (
@@ -24,12 +32,7 @@ export const AddLessons: React.FC<Props> = ({date}) => {
             <Text style={AddLessonsStyle.timeText}>time</Text>
           </View>
           <View style={AddLessonsStyle.timeInput}>
-            <TextInput
-              value={time}
-              onChangeText={setTime}
-              style={AddLessonsStyle.timeInputText}
-              keyboardType={'numbers-and-punctuation'}
-            />
+            <TimeSwitch time={time} getTime={getTime} />
           </View>
         </View>
         <View style={AddLessonsStyle.nameLessonField}>
@@ -45,12 +48,7 @@ export const AddLessons: React.FC<Props> = ({date}) => {
             <Text style={AddLessonsStyle.priceText}>price</Text>
           </View>
           <View style={AddLessonsStyle.priceInput}>
-            <TextInput
-              value={price}
-              onChangeText={setPrice}
-              style={AddLessonsStyle.priceInputText}
-              keyboardType={'phone-pad'}
-            />
+            <PriceSwitch price={price} getPrice={getPrice} />
           </View>
         </View>
       </View>

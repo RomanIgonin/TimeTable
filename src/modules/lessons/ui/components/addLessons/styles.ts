@@ -43,14 +43,8 @@ export const AddLessonsStyle = StyleSheet.create({
   timeInput: {
     flex: 3,
     alignSelf: 'stretch',
-    justifyContent: 'center',
-    // backgroundColor: 'white',
     borderWidth: 1,
     borderRadius: BORDER_RADIUS_BTN,
-  },
-  timeInputText: {
-    marginLeft: 10,
-    fontSize: FONT_SIZE_MIN,
   },
   nameLessonField: {
     flex: 2,
@@ -89,8 +83,8 @@ export const AddLessonsStyle = StyleSheet.create({
   priceInput: {
     flex: 3,
     alignSelf: 'stretch',
-    justifyContent: 'center',
-    backgroundColor: 'white',
+    // justifyContent: 'center',
+    // backgroundColor: 'white',
     borderWidth: 1,
     borderRadius: BORDER_RADIUS_BTN,
   },

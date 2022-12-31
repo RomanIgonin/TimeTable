@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "logoApp.png",
+      "filename" : "loadingScreen.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },

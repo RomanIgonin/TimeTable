@@ -1,6 +1,6 @@
 import {Animated, Pressable, Text, View} from 'react-native';
 import React, {useEffect, useRef} from 'react';
-import {LessonSwitchStyle} from '@src/modules/lessons/ui/components/lessonSwitch/style';
+import {LessonSwitchStyle} from '@src/modules/lessons/ui/components/addLessons/lessonSwitch/style';
 
 interface Props {
   language: string;

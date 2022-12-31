@@ -31,3 +31,5 @@ export const MONTHS = [
   'November',
   'December',
 ];
+
+export const PRICES = ['500', '600', '700', '800', '900', '1000'];

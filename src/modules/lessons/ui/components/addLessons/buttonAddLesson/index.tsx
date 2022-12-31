@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from 'react';
 import {Animated, Pressable, Text} from 'react-native';
-import {ButtonAddLessonStyle} from '@src/modules/lessons/ui/components/buttonAddLesson/style';
+import {ButtonAddLessonStyle} from '@src/modules/lessons/ui/components/addLessons/buttonAddLesson/style';
 import {LessonsType} from '@src/core/store/globalTypes';
 import {nanoid} from '@reduxjs/toolkit';
 import {postDateAndLesson, postLesson} from '@src/modules/lessons/store/action';
