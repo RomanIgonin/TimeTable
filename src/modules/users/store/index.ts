@@ -1,6 +1,6 @@
 import {AnyAction, createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {getUser, patchUser, postUser} from './action';
-import {usersInitialStateType} from '@src/core/store/globalTypes';
+import {usersInitialStateType} from '@src/store/globalTypes';
 
 const initialState: usersInitialStateType = {
   currentUser: undefined,

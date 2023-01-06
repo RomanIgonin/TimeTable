@@ -1,11 +1,11 @@
 import React, {useRef, useEffect} from 'react';
 import {Animated, Pressable, Text} from 'react-native';
 import {ButtonAddLessonStyle} from '@src/modules/lessons/ui/components/addLessons/buttonAddLesson/style';
-import {LessonsType} from '@src/core/store/globalTypes';
+import {LessonsType} from '@src/store/globalTypes';
 import {nanoid} from '@reduxjs/toolkit';
 import {postDateAndLesson, postLesson} from '@src/modules/lessons/store/action';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
-import {currentUserSelector} from '@src/users/store/selectors';
+import {currentUserSelector} from '@src/modules/users/store/selectors';
 import {datesSelector} from '@src/modules/lessons/store/selectors';
 
 interface Props {

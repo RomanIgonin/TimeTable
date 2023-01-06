@@ -1,24 +1,25 @@
-import {View} from 'react-native';
-import {Calendar} from 'react-native-calendars';
-import {BLUE, FONT_SIZE_MIN} from '@src/core/constants';
-import {useEffect} from 'react';
-import {useAppDispatch} from '@src/hooks';
-import {LessonsType} from '@src/navigation/stackNavigator/types';
-import {lessonsActions} from '@src/modules/lessons/store';
-import {HomeCalendarStyle} from '@src/modules/home/components/calendar/styles';
-import {useNavigation} from '@react-navigation/native';
+import { View } from 'react-native';
+import { Calendar } from 'react-native-calendars';
+import { BLUE, FONT_SIZE_MIN } from '@src/modules/core/constants';
+import { useEffect } from 'react';
+import { useAppDispatch } from '@src/hooks';
+import { lessonsActions } from '@src/modules/lessons/store';
+import { HomeCalendarStyle } from '@src/modules/home/components/calendar/styles';
+import { useNavigation } from '@react-navigation/native';
 
 export default function HomeCalendar() {
   const navigation = useNavigation();
   const dispatch = useAppDispatch();
   const nowMonth = new Date().toISOString().slice(5, 7);
+  const nowYear = new Date().toISOString().slice(0, 4);
 
   const onDayPress = (selectDay: any) => {
-    navigation.navigate('Lessons', {selectDay: selectDay});
+    navigation.navigate('Lessons', { selectDay: selectDay });
   };
 
   useEffect(() => {
     dispatch(lessonsActions.setViewedMonth(nowMonth));
+    dispatch(lessonsActions.setViewedYear(nowYear));
   }, []);
 
   return (
@@ -26,7 +27,10 @@ export default function HomeCalendar() {
       <Calendar
         style={HomeCalendarStyle.calendar}
         onMonthChange={month => {
-          dispatch(lessonsActions.setViewedMonth(month.month));
+          const monthString =
+            month.month < 10 ? '0' + month.month : String(month.month);
+          dispatch(lessonsActions.setViewedMonth(monthString));
+          dispatch(lessonsActions.setViewedYear(String(month.year)));
         }}
         disableMonthChange={true}
         enableSwipeMonths={true}

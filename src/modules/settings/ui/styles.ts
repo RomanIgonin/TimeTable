@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {BORDER_RADIUS_BTN, FONT_SIZE_MID} from '@src/core/constants';
+import {BORDER_RADIUS_BTN, FONT_SIZE_MID} from '@src/modules/core/constants';
 
 export const SettingsStyle = StyleSheet.create({
   main: {flex: 1},

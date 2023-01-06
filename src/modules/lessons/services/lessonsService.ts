@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {IP_USERS, IP_DATES} from '@src/core/constants';
-import {DatesType} from '@src/core/store/globalTypes';
+import {IP_USERS, IP_DATES} from '@src/modules/core/constants';
+import {DatesType} from '@src/store/globalTypes';
 
 class LessonsServices {
   // get dates with lessons for the current user

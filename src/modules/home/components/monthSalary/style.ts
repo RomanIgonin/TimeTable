@@ -1,4 +1,4 @@
-import {FONT_SIZE_MIN} from '@src/core/constants';
+import {FONT_SIZE_MIN} from '@src/modules/core/constants';
 import {StyleSheet} from 'react-native';
 
 export const MonthSalaryStyle = StyleSheet.create({

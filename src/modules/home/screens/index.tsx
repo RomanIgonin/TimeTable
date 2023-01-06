@@ -1,7 +1,7 @@
-import {View} from 'react-native';
+import { View } from 'react-native';
 import HomeCalendar from '@src/modules/home/components/calendar';
 import MonthSalary from '@src/modules/home/components/monthSalary';
-import {HomeStyle} from '@src/modules/home/screens/styles';
+import { HomeStyle } from '@src/modules/home/screens/styles';
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
-import {AnyAction, createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {lessonsInitialStateType} from '@src/core/store/globalTypes';
+import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { lessonsInitialStateType } from '@src/store/globalTypes';
 import {
   deleteDateAndLesson,
   deleteLesson,
@@ -11,6 +11,7 @@ import {
 const initialState: lessonsInitialStateType = {
   dates: [],
   viewedMonth: '',
+  viewedYear: '',
 };
 
 const lessonsSlice = createSlice({
@@ -20,28 +21,31 @@ const lessonsSlice = createSlice({
     setViewedMonth(state, action) {
       state.viewedMonth = action.payload;
     },
+    setViewedYear(state, action) {
+      state.viewedYear = action.payload;
+    },
   },
   extraReducers: builder => {
-    builder.addCase(getDates.fulfilled, (state, {payload}) => {
+    builder.addCase(getDates.fulfilled, (state, { payload }) => {
       state.dates = payload;
       console.log('getDates done');
     });
-    builder.addCase(postLesson.fulfilled, (state, {payload}) => {
+    builder.addCase(postLesson.fulfilled, (state, { payload }) => {
       state.dates = state.dates?.filter(date => date.id !== payload.id);
       state.dates?.push(payload);
       console.log('postLesson done');
     });
-    builder.addCase(postDateAndLesson.fulfilled, (state, {payload}) => {
+    builder.addCase(postDateAndLesson.fulfilled, (state, { payload }) => {
       state.dates?.push(payload);
       console.log('postDateAndLesson done');
     });
-    builder.addCase(deleteLesson.fulfilled, (state, {payload}) => {
+    builder.addCase(deleteLesson.fulfilled, (state, { payload }) => {
       state.dates = state.dates?.filter(date => date.id !== payload.id);
       state.dates?.push(payload);
       console.log('deleteLesson done');
     });
     // после удаления всех уроков в дне, не может отрендерить скрин lesson
-    builder.addCase(deleteDateAndLesson.fulfilled, (state, {payload}) => {
+    builder.addCase(deleteDateAndLesson.fulfilled, (state, { payload }) => {
       console.log('deleteDateAndLesson done');
     });
     builder.addMatcher(isError, (state, action: PayloadAction<string>) => {

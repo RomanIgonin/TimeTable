@@ -1,7 +1,7 @@
 import React from 'react';
-import MainStack from '@src/navigation/stackNavigator';
+import MainStack from '@src/modules/navigation/stackNavigator';
 import {Provider} from 'react-redux';
-import {store} from './src/core/store/index';
+import {store} from '@src/store';
 import {SafeAreaView, StatusBar} from 'react-native';
 
 export default function App() {

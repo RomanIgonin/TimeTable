@@ -4,14 +4,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
 import {RootStackParamList} from './types';
 
-import Login from '../../auth/ui/screens/login';
-import SignUp from '../../auth/ui/screens/signUp';
-import Home from '../../modules/home/screens';
-import Lessons from '../../modules/lessons/ui/screens';
-import Profile from '../../modules/profile/profile';
-import Settings from '../../modules/settings/ui';
+import Login from '@src/modules/auth/ui/screens/login';
+import SignUp from '@src/modules/auth/ui/screens/signUp';
+import Home from '@src/modules/home/screens';
+import Lessons from '@src/modules/lessons/ui/screens';
+import Profile from '@src/modules/profile/profile';
+import Settings from '@src/modules/settings/ui';
 import EditProfile from '@src/modules/profile/editProfile';
-import {NavigationStyle} from '@src/navigation/stackNavigator/style';
+import {NavigationStyle} from '@src/modules/navigation/stackNavigator/style';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -32,7 +32,7 @@ function HomeTabs() {
           tabBarIcon: () => (
             <View>
               <Image
-                source={require('src/assets/icons/profile.png')}
+                source={require('@src/assets/icons/profile.png')}
                 style={NavigationStyle.iconTabNavigator}
               />
             </View>
@@ -46,7 +46,7 @@ function HomeTabs() {
           tabBarIcon: () => (
             <View>
               <Image
-                source={require('src/assets/icons/calendar.png')}
+                source={require('@src/assets/icons/calendar.png')}
                 style={NavigationStyle.iconTabNavigator}
               />
             </View>
@@ -60,7 +60,7 @@ function HomeTabs() {
           tabBarIcon: () => (
             <View>
               <Image
-                source={require('src/assets/icons/settings.png')}
+                source={require('@src/assets/icons/settings.png')}
                 style={NavigationStyle.iconTabNavigator}
               />
             </View>

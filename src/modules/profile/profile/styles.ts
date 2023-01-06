@@ -5,7 +5,7 @@ import {
   FONT_SIZE_MID,
   FONT_SIZE_MIN,
   GRAY,
-} from '@src/core/constants';
+} from '@src/modules/core/constants';
 
 export const ProfileStyle = StyleSheet.create({
   main: {

@@ -1,5 +1,9 @@
 import {StyleSheet} from 'react-native';
-import {BORDER_RADIUS_BTN, FONT_SIZE_MIN, GRAY} from '@src/core/constants';
+import {
+  BORDER_RADIUS_BTN,
+  FONT_SIZE_MIN,
+  GRAY,
+} from '@src/modules/core/constants';
 
 export const LessonsListStyle = StyleSheet.create({
   main: {

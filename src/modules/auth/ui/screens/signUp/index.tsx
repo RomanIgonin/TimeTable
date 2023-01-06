@@ -5,15 +5,15 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
 } from 'react-native';
-import {AuthForm} from '@src/auth/ui/components/authForm';
+import {AuthForm} from '@src/modules/auth/ui/components/authForm';
 import auth from '@react-native-firebase/auth';
 import React from 'react';
-import {LoginAndSignUpStyle} from '@src/auth/styles/style';
-import {SignUpType} from '@src/navigation/stackNavigator/types';
+import {LoginAndSignUpStyle} from '@src/modules/auth/styles/style';
+import {SignUpType} from '@src/modules/navigation/stackNavigator/types';
 import {useAppDispatch} from '@src/hooks';
-import {UserType} from '@src/core/store/globalTypes';
-import {postUser} from '@src/users/store/action';
-import authServices from '@src/auth/services/authServices';
+import {UserType} from '@src/store/globalTypes';
+import {postUser} from '@src/modules/users/store/action';
+import authServices from '@src/modules/auth/services/authServices';
 
 const DismissKeyboard = ({children}: any) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>

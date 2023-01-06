@@ -1,5 +1,9 @@
-import {StyleSheet} from 'react-native';
-import {BLUE, BORDER_RADIUS_BTN, FONT_SIZE_MIN} from '@src/core/constants';
+import { StyleSheet } from 'react-native';
+import {
+  BLUE,
+  BORDER_RADIUS_BTN,
+  FONT_SIZE_MIN,
+} from '@src/modules/core/constants';
 
 export const AddLessonsStyle = StyleSheet.create({
   main: {
@@ -26,6 +30,7 @@ export const AddLessonsStyle = StyleSheet.create({
   AddLessonButton: {
     flex: 2,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   timeField: {
     flex: 1,

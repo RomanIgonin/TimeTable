@@ -11,10 +11,10 @@ import {
 import {EditProfileStyle} from '@src/modules/profile/editProfile/styles';
 import {useState} from 'react';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
-import {currentUserSelector} from '@src/users/store/selectors';
+import {currentUserSelector} from '@src/modules/users/store/selectors';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-import {patchUser} from '@src/users/store/action';
-import {EditProfileType} from '@src/navigation/stackNavigator/types';
+import {patchUser} from '@src/modules/users/store/action';
+import {EditProfileType} from '@src/modules/navigation/stackNavigator/types';
 
 export default function EditProfile({navigation}: EditProfileType) {
   const dispatch = useAppDispatch();

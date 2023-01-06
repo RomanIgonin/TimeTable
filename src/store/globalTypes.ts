@@ -31,4 +31,5 @@ export type usersInitialStateType = {
 export type lessonsInitialStateType = {
   dates: DatesType[];
   viewedMonth: string;
+  viewedYear: string;
 };

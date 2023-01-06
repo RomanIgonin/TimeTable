@@ -4,7 +4,7 @@ import {
   BORDER_RADIUS_BTN,
   FONT_SIZE_MID,
   FONT_SIZE_MIN,
-} from '@src/core/constants';
+} from '@src/modules/core/constants';
 
 export const AuthFormStyle = StyleSheet.create({
   main: {

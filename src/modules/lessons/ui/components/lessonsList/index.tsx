@@ -1,14 +1,14 @@
 import {View, Text, FlatList, Pressable, Alert} from 'react-native';
 import React, {useEffect} from 'react';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
-import {currentUserSelector} from '@src/users/store/selectors';
+import {currentUserSelector} from '@src/modules/users/store/selectors';
 import {datesSelector} from '@src/modules/lessons/store/selectors';
 import {
   deleteDateAndLesson,
   deleteLesson,
   getDates,
 } from '@src/modules/lessons/store/action';
-import {LessonsType} from '@src/core/store/globalTypes';
+import {LessonsType} from '@src/store/globalTypes';
 import {LessonsListStyle} from '@src/modules/lessons/ui/components/lessonsList/styles';
 
 interface Props {

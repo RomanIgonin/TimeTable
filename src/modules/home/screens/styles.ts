@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {BORDER_RADIUS_BTN} from '@src/core/constants';
+import {BORDER_RADIUS_BTN} from '@src/modules/core/constants';
 
 export const HomeStyle = StyleSheet.create({
   main: {

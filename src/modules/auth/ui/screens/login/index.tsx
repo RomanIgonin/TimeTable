@@ -5,13 +5,13 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import {AuthForm} from '@src/auth/ui/components/authForm';
-import {LoginType} from '@src/navigation/stackNavigator/types';
-import {LoginAndSignUpStyle} from '@src/auth/styles/style';
-import authServices from '@src/auth/services/authServices';
+import {AuthForm} from '@src/modules/auth/ui/components/authForm';
+import {LoginType} from '@src/modules/navigation/stackNavigator/types';
+import {LoginAndSignUpStyle} from '@src/modules/auth/styles/style';
+import authServices from '@src/modules/auth/services/authServices';
 import {useAppDispatch} from '@src/hooks';
 import auth from '@react-native-firebase/auth';
-import {getUser} from '@src/users/store/action';
+import {getUser} from '@src/modules/users/store/action';
 import {getDates} from '@src/modules/lessons/store/action';
 import {useEffect} from 'react';
 

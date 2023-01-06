@@ -1,15 +1,15 @@
-import {TextInput, View, Text, Pressable} from 'react-native';
-import {AddLessonsStyle} from '@src/modules/lessons/ui/components/addLessons/styles';
-import React, {useState} from 'react';
-import {ButtonAddLesson} from '@src/modules/lessons/ui/components/addLessons/buttonAddLesson';
-import {LessonSwitch} from '@src/modules/lessons/ui/components/addLessons/lessonSwitch';
-import {TimeSwitch} from '@src/modules/lessons/ui/components/addLessons/timeSwitch';
-import {PriceSwitch} from '@src/modules/lessons/ui/components/addLessons/priceSwitch';
+import { View, Text } from 'react-native';
+import { AddLessonsStyle } from '@src/modules/lessons/ui/components/addLessons/styles';
+import React, { useState } from 'react';
+import { ButtonAddLesson } from '@src/modules/lessons/ui/components/addLessons/buttonAddLesson';
+import { LessonSwitch } from '@src/modules/lessons/ui/components/addLessons/lessonSwitch';
+import { TimeSwitch } from '@src/modules/lessons/ui/components/addLessons/timeSwitch';
+import { PriceSwitch } from '@src/modules/lessons/ui/components/addLessons/priceSwitch';
 
 interface Props {
   date: string;
 }
-export const AddLessons: React.FC<Props> = ({date}) => {
+export const AddLessons: React.FC<Props> = ({ date }) => {
   const [time, setTime] = useState('');
   const [language, setLanguage] = useState('Turkish');
   const [price, setPrice] = useState('');

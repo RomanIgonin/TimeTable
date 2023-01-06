@@ -1,31 +1,29 @@
-import {useAppSelector} from '@src/hooks';
+import { useAppSelector } from '@src/hooks';
 import {
   datesSelector,
   viewedMonthSelector,
+  viewedYearSelector,
 } from '@src/modules/lessons/store/selectors';
-import {Text, View} from 'react-native';
-import {MONTHS} from '@src/core/constants';
-import {MonthSalaryStyle} from '@src/modules/home/components/monthSalary/style';
+import { Text, View } from 'react-native';
+import { MONTHS } from '@src/modules/core/constants';
+import { MonthSalaryStyle } from '@src/modules/home/components/monthSalary/style';
 
 export default function MonthSalary() {
-  const dates = useAppSelector(datesSelector);
   const viewedMonth = useAppSelector(viewedMonthSelector);
+  const viewedYear = useAppSelector(viewedYearSelector);
   const currentMonth = MONTHS[parseInt(viewedMonth)];
+  const dates = useAppSelector(datesSelector);
 
-  let allSalaryMoney = 0;
-
-  dates.forEach(item => {
-    const monthInDate = item.date.split('.');
-    item.lessons.forEach(lesson => {
-      let buff = Number(lesson.price);
-      if (viewedMonth == monthInDate[1]) {
-        allSalaryMoney += buff;
-        // if (parseInt(day) >= parseInt(arrayMonth[0])) {
-        //   salaryMoney += buff;
-        // }
-      }
-    });
+  // Отбираем даты с уроками в выбранном месяце в календаре
+  const datesThisMonth = dates.filter(item => {
+    const splitDate = item.date.split('.');
+    return viewedMonth == splitDate[1] && viewedYear == splitDate[2];
   });
+  // Суммируем цены за уроки в отобранных днях
+  const allSalaryMoney = datesThisMonth.reduce(
+    (a, b) => a + b.lessons.reduce((c, d) => c + Number(d.price), 0),
+    0,
+  );
 
   return (
     <View style={MonthSalaryStyle.main}>

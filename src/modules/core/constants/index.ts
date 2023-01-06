@@ -1,5 +1,5 @@
 import {useAppSelector} from '@src/hooks';
-import {currentUserSelector} from '@src/users/store/selectors';
+import {currentUserSelector} from '@src/modules/users/store/selectors';
 
 export const IP_USERS = 'http://192.168.8.112:3002/users';
 export const IP_DATES = 'http://192.168.8.112:3002/dates';

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {IP_USERS} from '../../core/constants';
-import {UserType} from '@src/core/store/globalTypes';
+import {UserType} from '@src/store/globalTypes';
 
 class UsersServices {
   public async getUserService(id: string) {
