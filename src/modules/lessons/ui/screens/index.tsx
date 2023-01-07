@@ -14,7 +14,6 @@ export default function Lessons({ route }: LessonsType) {
   const date = String(
     selectDay.day + '.' + addZero + selectDay.month + '.' + selectDay.year,
   );
-  console.log(date);
   const month = MONTHS[parseInt(viewedMonth)];
 
   return (
