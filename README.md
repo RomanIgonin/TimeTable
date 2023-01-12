@@ -3,7 +3,7 @@
 Welcome!
 
 
-In this app, you can mark lessons and times on the calendar. On the main screen, the money earned for lessons in the selected month is calculated. You can also enter your personal details in your profile. See the main screenshots of the app below.
+In this app, you can mark lessons and time on the calendar. On the main screen the money which you earned for lessons is calculated for the selected month. You can also add your personal data in your profile.
 
 <div style="flex-direction: row">
 <img alt="Login Screen" src="https://github.com/RomanIgonin/TimeTable/blob/develop/src/assets/images/screens/Login_Screen.png" width="200">
