@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {View, Image} from 'react-native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
-import {RootStackParamList} from './types';
+import { View, Image } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { RootStackParamList } from './types';
 
 import Login from '@src/modules/auth/ui/screens/login';
 import SignUp from '@src/modules/auth/ui/screens/signUp';
@@ -11,8 +11,8 @@ import Lessons from '@src/modules/lessons/ui/screens';
 import Profile from '@src/modules/profile/profile';
 import Settings from '@src/modules/settings/ui';
 import EditProfile from '@src/modules/profile/editProfile';
-import {NavigationStyle} from '@src/modules/navigation/stackNavigator/style';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { NavigationStyle } from '@src/modules/navigation/stackNavigator/style';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 const Tab = createBottomTabNavigator();
@@ -83,7 +83,7 @@ export default function Navigate() {
         <Stack.Screen
           name="HomeTabs"
           component={HomeTabs}
-          options={{gestureEnabled: false}}
+          options={{ gestureEnabled: false }}
         />
         <Stack.Screen name="EditProfile" component={EditProfile} />
         <Stack.Screen name="Lessons" component={Lessons} />
