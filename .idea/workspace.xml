@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5a058117-b150-4070-aca0-1845bc4a17c7" name="Changes" comment="1">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TASKS.md" beforeDir="false" afterPath="$PROJECT_DIR$/TASKS.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth/ui/screens/login/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/screens/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/ui/screens/login/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/screens/login/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/screens/signUp/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/ui/screens/signUp/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/core/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/core/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/lessons/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/components/addLessons/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/components/addLessons/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/screens/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/screens/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/screens/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/screens/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/stackNavigator/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/stackNavigator/style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/stackNavigator/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/profile/editProfile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/profile/editProfile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/profile/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/profile/profile/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/settings/ui/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/settings/ui/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/users/services/usersServices.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/users/services/usersServices.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2ILeuWMlXKNLvGGxdtsDMf1Ydnm" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/rombik/Projects/TimeTable",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Users/rombik/Projects/TimeTable/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/modules/navigation" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5a058117-b150-4070-aca0-1845bc4a17c7" name="Changes" comment="" />
+      <created>1669965513645</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1669965513645</updated>
+      <workItem from="1669965516907" duration="99000" />
+      <workItem from="1669965642873" duration="3524000" />
+      <workItem from="1670064497615" duration="20000" />
+      <workItem from="1670483657594" duration="1229000" />
+      <workItem from="1670826429835" duration="501000" />
+      <workItem from="1671520490966" duration="278000" />
+      <workItem from="1672661054946" duration="508000" />
+      <workItem from="1672661666970" duration="950000" />
+      <workItem from="1672724395915" duration="195000" />
+      <workItem from="1672994443842" duration="1624000" />
+      <workItem from="1673494470046" duration="1114000" />
+      <workItem from="1673507178754" duration="42000" />
+      <workItem from="1673510082621" duration="998000" />
+      <workItem from="1673587837766" duration="23412000" />
+      <workItem from="1674292896363" duration="1787000" />
+    </task>
+    <task id="LOCAL-00001" summary="1">
+      <created>1673510157808</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1673510157808</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
+  </component>
+</project>
