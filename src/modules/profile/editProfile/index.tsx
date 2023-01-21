@@ -14,7 +14,7 @@ import {useAppDispatch, useAppSelector} from '@src/hooks';
 import {currentUserSelector} from '@src/modules/users/store/selectors';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import {patchUser} from '@src/modules/users/store/action';
-import {EditProfileType} from '@src/modules/navigation/stackNavigator/types';
+import {EditProfileType} from '@src/modules/navigation/types';
 
 export default function EditProfile({navigation}: EditProfileType) {
   const dispatch = useAppDispatch();

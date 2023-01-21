@@ -16,7 +16,6 @@ class UsersServices {
       .catch(error => console.error('postUsersService: ' + error));
   }
   public async patchUserService(currentUser: UserType) {
-    // console.log('4: ' + currentUser.profileImage);
     return axios
       .patch(IP_USERS + `/${currentUser.id}`, currentUser)
       .then(response => response.data)

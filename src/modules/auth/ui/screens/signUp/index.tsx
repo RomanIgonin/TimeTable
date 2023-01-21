@@ -9,7 +9,7 @@ import {AuthForm} from '@src/modules/auth/ui/components/authForm';
 import auth from '@react-native-firebase/auth';
 import React from 'react';
 import {LoginAndSignUpStyle} from '@src/modules/auth/styles/style';
-import {SignUpType} from '@src/modules/navigation/stackNavigator/types';
+import {SignUpType} from '@src/modules/navigation/types';
 import {useAppDispatch} from '@src/hooks';
 import {UserType} from '@src/store/globalTypes';
 import {postUser} from '@src/modules/users/store/action';

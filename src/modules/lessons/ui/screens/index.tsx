@@ -1,5 +1,5 @@
 import { Text, View } from 'react-native';
-import { LessonsType } from '@src/modules/navigation/stackNavigator/types';
+import { LessonsType } from '@src/modules/navigation/types';
 import { AddLessons } from '@src/modules/lessons/ui/components/addLessons';
 import { LessonsStyle } from '@src/modules/lessons/ui/screens/styles';
 import { LessonsList } from '@src/modules/lessons/ui/components/lessonsList';

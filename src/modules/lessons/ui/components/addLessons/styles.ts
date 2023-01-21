@@ -88,8 +88,6 @@ export const AddLessonsStyle = StyleSheet.create({
   priceInput: {
     flex: 3,
     alignSelf: 'stretch',
-    // justifyContent: 'center',
-    // backgroundColor: 'white',
     borderWidth: 1,
     borderRadius: BORDER_RADIUS_BTN,
   },

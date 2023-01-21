@@ -44,7 +44,6 @@ const lessonsSlice = createSlice({
       state.dates?.push(payload);
       console.log('deleteLesson done');
     });
-    // после удаления всех уроков в дне, не может отрендерить скрин lesson
     builder.addCase(deleteDateAndLesson.fulfilled, (state, { payload }) => {
       console.log('deleteDateAndLesson done');
     });

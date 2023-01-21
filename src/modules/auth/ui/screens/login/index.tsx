@@ -6,7 +6,7 @@ import {
   View,
 } from 'react-native';
 import {AuthForm} from '@src/modules/auth/ui/components/authForm';
-import {LoginType} from '@src/modules/navigation/stackNavigator/types';
+import {LoginType} from '@src/modules/navigation/types';
 import {LoginAndSignUpStyle} from '@src/modules/auth/styles/style';
 import authServices from '@src/modules/auth/services/authServices';
 import {useAppDispatch} from '@src/hooks';
@@ -42,7 +42,6 @@ export default function Login({navigation}: LoginType) {
     await authServices.loginAuthService(email, password);
     const authUser = await auth().currentUser;
     if (authUser?.uid) {
-      // Достаем юзера с сервера и пихаем в редакс через экстра редусер
       dispatch(getUser(authUser.uid));
       dispatch(getDates(authUser.uid));
       navigation.navigate('HomeTabs');

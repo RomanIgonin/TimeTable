@@ -1,8 +1,7 @@
 import {Alert, FlatList, Pressable, Switch, Text, View} from 'react-native';
 import {ProfileStyle} from '@src/modules/profile/profile/styles';
 import auth from '@react-native-firebase/auth';
-import {SettingsType} from '@src/modules/navigation/stackNavigator/types';
-import {FONT_SIZE_MID} from '@src/modules/core/constants';
+import {SettingsType} from '@src/modules/navigation/types';
 import {useState} from 'react';
 import {useAppDispatch} from '@src/hooks';
 import {deleteUser} from '@src/modules/users/store/action';

@@ -17,7 +17,6 @@ export const LessonsStyle = StyleSheet.create({
   addLessons: {
     flex: 6,
     paddingBottom: 15,
-    // backgroundColor: 'rgba(0,72,255,0.25)',
   },
   lessonsList: {
     flex: 20,
