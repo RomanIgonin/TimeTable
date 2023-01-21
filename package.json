@@ -7,7 +7,7 @@
     "ios": "react-native run-ios",
     "ios_12.4": "react-native run-ios --simulator='iPhone 6 (12.4)'",
     "server": "json-server -p 3002 --routes src/modules/core/api/routes.json --watch src/core/api/db.json",
-    "server_host": "json-server --host 192.168.8.215 -p 3002 --routes src/modules/core/api/routes.json --watch src/modules/core/api/db.json",
+    "server_host": "json-server --host 192.168.8.112 -p 3002 --routes src/modules/core/api/routes.json --watch src/modules/core/api/db.json",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint sys --ext .js,.jsx,.ts,.tsx"
