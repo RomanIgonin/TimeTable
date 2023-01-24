@@ -11,7 +11,7 @@ import Lessons from '@src/modules/lessons/ui/screens';
 import Profile from '@src/modules/profile/profile';
 import Settings from '@src/modules/settings/ui';
 import EditProfile from '@src/modules/profile/editProfile';
-import {NavigationStyle} from '@src/modules/navigation/stackNavigator/style';
+import {NavigationStyle} from '@src/modules/navigation/style';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();

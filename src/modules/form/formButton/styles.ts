@@ -1,0 +1,22 @@
+import styled from '@emotion/native';
+import {
+  BLUE,
+  BORDER_RADIUS_BTN,
+  FONT_SIZE_MID,
+  HEIGHT_BTN,
+  WIDTH_BTN,
+} from '@src/modules/core/constants';
+
+export const ButtonWrapper = styled.Pressable`
+  align-items: center;
+  justify-content: center;
+  height: ${() => `${HEIGHT_BTN}px`};
+  width: ${() => `${WIDTH_BTN}px`};
+  background-color: ${() => `${BLUE}`};
+  border-radius: ${() => `${BORDER_RADIUS_BTN}px`};
+`;
+export const Button = styled.Text`
+  font-size: ${() => `${FONT_SIZE_MID}px`};
+  font-weight: bold;
+  color: white;
+`;

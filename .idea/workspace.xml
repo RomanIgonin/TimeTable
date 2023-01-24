@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a058117-b150-4070-aca0-1845bc4a17c7" name="Changes" comment="1">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prettier.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/App.tsx" afterDir="false" />
+    <list default="true" id="5a058117-b150-4070-aca0-1845bc4a17c7" name="Changes" comment="make common input, emotion/js styled for authForm, add hook useForm for validation">
+      <change afterPath="$PROJECT_DIR$/src/modules/form/formButton/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/form/formButton/styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/form/formInput/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/form/formInput/styles.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/modules/lessons/store/adapter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TASKS.md" beforeDir="false" afterPath="$PROJECT_DIR$/TASKS.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/ui/screens/login/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/styles/style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/styles/style.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/components/authForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/ui/components/authForm/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/components/authForm/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/ui/components/authForm/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/screens/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/ui/screens/login/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/screens/login/styles.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/screens/signUp/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/ui/screens/signUp/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/core/api/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/core/api/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/routes.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/core/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/core/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/lessons/services/lessonsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/services/lessonsService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/lessons/store/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/store/action.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/lessons/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/store/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/components/addLessons/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/components/addLessons/styles.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/components/addLessons/buttonAddLesson/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/components/addLessons/buttonAddLesson/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/components/lessonsList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/components/lessonsList/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/screens/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/screens/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/screens/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/screens/styles.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/navigation/stackNavigator/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/navigation/stackNavigator/style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/style.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/navigation/stackNavigator/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/navigation/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/profile/editProfile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/profile/editProfile/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/profile/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/profile/profile/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/settings/ui/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/settings/ui/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/users/services/usersServices.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/users/services/usersServices.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/users/store/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/users/store/action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/users/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/users/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/globalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/globalInterface.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +47,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2ILeuWMlXKNLvGGxdtsDMf1Ydnm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -55,12 +63,15 @@
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "/Users/rombik/Projects/TimeTable/node_modules/typescript/lib",
+    "prettierjs.PrettierConfiguration.Package": "/Users/a123/Projects/TimeTable/node_modules/prettier",
+    "settings.editor.selected.configurable": "preferences.sourceCode.JavaScript",
+    "ts.external.directory.path": "/Users/a123/Projects/TimeTable/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server" />
       <recent name="$PROJECT_DIR$/src/modules/navigation" />
     </key>
   </component>
@@ -95,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673510157808</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update TASKS">
+      <created>1674314511320</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674314511320</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -114,6 +132,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="update TASKS" />
+    <MESSAGE value="make common input, emotion/js styled for authForm, add hook useForm for validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="make common input, emotion/js styled for authForm, add hook useForm for validation" />
   </component>
 </project>

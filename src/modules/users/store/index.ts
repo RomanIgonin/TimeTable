@@ -1,10 +1,10 @@
-import {AnyAction, createSlice, PayloadAction} from '@reduxjs/toolkit';
-import {getUser, patchUser, postUser} from './action';
-import {usersInitialStateType} from '@src/store/globalTypes';
+import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { getUser, patchUser, postUser } from './action';
+import { userInitialState } from '@src/store/globalInterface';
 
-const initialState: usersInitialStateType = {
+const initialState: userInitialState = {
   currentUser: undefined,
-  isUsersLoading: false,
+  isUserLoading: false,
 };
 
 const usersSlice = createSlice({
@@ -13,20 +13,18 @@ const usersSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(getUser.pending, state => {
-      state.isUsersLoading = true;
+      state.isUserLoading = true;
     });
-    builder.addCase(getUser.fulfilled, (state, {payload}) => {
+    builder.addCase(getUser.fulfilled, (state, { payload }) => {
       state.currentUser = payload;
-      state.isUsersLoading = false;
+      state.isUserLoading = false;
       console.log('currentUser in state: ' + state.currentUser?.email);
     });
-    builder.addCase(postUser.fulfilled, (state, {payload}) => {
+    builder.addCase(postUser.fulfilled, (state, { payload }) => {
       state.currentUser = payload;
-      console.log('postUser done: ' + state.currentUser);
     });
-    builder.addCase(patchUser.fulfilled, (state, {payload}) => {
+    builder.addCase(patchUser.fulfilled, (state, { payload }) => {
       state.currentUser = payload;
-      console.log('State profileImage: ' + JSON.stringify(state.currentUser));
     });
     builder.addMatcher(isError, (state, action: PayloadAction<string>) => {
       console.log(action.payload);
@@ -35,7 +33,6 @@ const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
-export const usersActions = usersSlice.actions;
 
 function isError(action: AnyAction) {
   return action.type.endsWith('rejected');

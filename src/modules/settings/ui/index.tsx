@@ -1,13 +1,13 @@
-import {Alert, FlatList, Pressable, Switch, Text, View} from 'react-native';
-import {ProfileStyle} from '@src/modules/profile/profile/styles';
+import { Alert, FlatList, Pressable, Switch, Text, View } from 'react-native';
+import { ProfileStyle } from '@src/modules/profile/profile/styles';
 import auth from '@react-native-firebase/auth';
-import {SettingsType} from '@src/modules/navigation/types';
-import {useState} from 'react';
-import {useAppDispatch} from '@src/hooks';
-import {deleteUser} from '@src/modules/users/store/action';
-import {SettingsStyle} from '@src/modules/settings/ui/styles';
+import { Settings } from '@src/modules/navigation/types';
+import { useState } from 'react';
+import { useAppDispatch } from '@src/hooks';
+import { deleteUser } from '@src/modules/users/store/action';
+import { SettingsStyle } from '@src/modules/settings/ui/styles';
 
-export default function Settings({navigation}: SettingsType) {
+export default function Settings({ navigation }: Settings) {
   const [isEnabled, setIsEnabled] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
@@ -58,13 +58,13 @@ export default function Settings({navigation}: SettingsType) {
   };
 
   const settingsItems = [
-    {title: 'Dark theme', key: '1'},
-    {title: 'Sign out', key: '2'},
-    {title: 'Delete account', key: '3'},
+    { title: 'Dark theme', key: '1' },
+    { title: 'Sign out', key: '2' },
+    { title: 'Delete account', key: '3' },
   ];
 
   const keyExtractor = (item: any) => item.key;
-  const renderItem = ({item}: any) => {
+  const renderItem = ({ item }: any) => {
     return (
       <Pressable
         onPress={() => onPressSetting(item)}
@@ -73,9 +73,9 @@ export default function Settings({navigation}: SettingsType) {
           <Text style={ProfileStyle.infoElementTitleText}>{item.title}</Text>
         </View>
         {item.title === 'Dark theme' ? (
-          <View style={{justifyContent: 'center', height: 5, paddingTop: 9}}>
+          <View style={{ justifyContent: 'center', height: 5, paddingTop: 9 }}>
             <Switch
-              trackColor={{false: '#767577', true: '#74f85f'}}
+              trackColor={{ false: '#767577', true: '#74f85f' }}
               thumbColor={isEnabled ? 'rgb(252,252,252)' : '#f4f3f4'}
               ios_backgroundColor="#3e3e3e"
               onValueChange={() => setIsEnabled(!isEnabled)}

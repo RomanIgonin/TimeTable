@@ -1,10 +1,10 @@
-import {FlatList, Image, Pressable, Text, View} from 'react-native';
-import {useAppSelector} from '@src/hooks';
-import {currentUserSelector} from '@src/modules/users/store/selectors';
-import {ProfileStyle} from '@src/modules/profile/profile/styles';
-import {ProfileType} from '@src/modules/navigation/types';
+import { FlatList, Image, Pressable, Text, View } from 'react-native';
+import { useAppSelector } from '@src/hooks';
+import { currentUserSelector } from '@src/modules/users/store/selectors';
+import { ProfileStyle } from '@src/modules/profile/profile/styles';
+import { Profile } from '@src/modules/navigation/types';
 
-export default function Profile({navigation}: ProfileType) {
+export default function Profile({ navigation }: Profile) {
   const currentUser = useAppSelector(currentUserSelector);
 
   const name =
@@ -16,11 +16,11 @@ export default function Profile({navigation}: ProfileType) {
     navigation.navigate('EditProfile');
   };
   const imageResponse = currentUser?.profileImage;
-  const uri = imageResponse.assets && imageResponse.assets[0].uri;
+  const uri = imageResponse ? imageResponse.assets[0].uri : null;
 
   const ProfileImage = () => {
     return imageResponse ? (
-      <Image style={ProfileStyle.imageProfile} source={{uri}} />
+      <Image style={ProfileStyle.imageProfile} source={{ uri }} />
     ) : (
       <Image
         style={ProfileStyle.noImageProfile}
@@ -30,12 +30,12 @@ export default function Profile({navigation}: ProfileType) {
   };
 
   const profileInfo = [
-    {title: 'Phone number:', body: currentUser?.phoneNumber, key: '1'},
-    {title: 'Gender:', body: currentUser?.gender, key: '2'},
+    { title: 'Phone number:', body: currentUser?.phoneNumber, key: '1' },
+    { title: 'Gender:', body: currentUser?.gender, key: '2' },
   ];
 
   const keyExtractor = (item: any) => item.key;
-  const renderItem = ({item}: any) => {
+  const renderItem = ({ item }: any) => {
     return (
       <View style={ProfileStyle.infoElement}>
         <View style={ProfileStyle.infoElementTitle}>

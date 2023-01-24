@@ -1,74 +1,124 @@
-import {
-  Keyboard,
-  Pressable,
-  Text,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
-import {AuthForm} from '@src/modules/auth/ui/components/authForm';
-import {LoginType} from '@src/modules/navigation/types';
-import {LoginAndSignUpStyle} from '@src/modules/auth/styles/style';
-import authServices from '@src/modules/auth/services/authServices';
-import {useAppDispatch} from '@src/hooks';
+import { Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { AuthForm } from '@src/modules/auth/ui/components/authForm';
+import { Login } from '@src/modules/navigation/types';
 import auth from '@react-native-firebase/auth';
-import {getUser} from '@src/modules/users/store/action';
-import {getDates} from '@src/modules/lessons/store/action';
-import {useEffect} from 'react';
+import authServices from '@src/modules/auth/services/authServices';
+import { useAppDispatch } from '@src/hooks';
+import { getUser } from '@src/modules/users/store/action';
+import { getDates } from '@src/modules/lessons/store/action';
+import React, { useEffect } from 'react';
+import * as Style from '@src/modules/auth/styles/style';
+import { useForm } from 'react-hook-form';
 
-const DismissKeyboard = ({children}: any) => (
+const DismissKeyboard = ({ children }: any) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     {children}
   </TouchableWithoutFeedback>
 );
 
-export default function Login({navigation}: LoginType) {
+export default function Login({ navigation }: Login) {
   const dispatch = useAppDispatch();
-
+  const { reset } = useForm();
   const onPressSignUp = () => {
     navigation.navigate('SignUp');
+    reset();
   };
 
-  useEffect(() => {
-    const currentUserId = auth().currentUser?.uid;
-    if (currentUserId) {
-      dispatch(getUser(currentUserId));
-      dispatch(getDates(currentUserId));
+  const userIsVerified = (currentUserId: string) => {
+    dispatch(getUser(currentUserId));
+    dispatch(getDates(currentUserId));
+    navigation.navigate('HomeTabs');
+  };
 
-      navigation.navigate('HomeTabs');
+  const currentUserId = auth().currentUser?.uid;
+  // Проверку авторизации и переход на HomeTabs проводим после рендера
+  useEffect(() => {
+    if (currentUserId) {
+      userIsVerified(currentUserId);
     }
   }, []);
 
   const onPressLogin = async (email: string, password: string) => {
     await authServices.loginAuthService(email, password);
-    const authUser = await auth().currentUser;
-    if (authUser?.uid) {
-      dispatch(getUser(authUser.uid));
-      dispatch(getDates(authUser.uid));
-      navigation.navigate('HomeTabs');
+    const authUser = auth().currentUser?.uid;
+    if (authUser) {
+      userIsVerified(authUser);
     }
   };
 
-  return (
-    <DismissKeyboard>
-      <View style={LoginAndSignUpStyle.main}>
-        <View style={LoginAndSignUpStyle.topPadding}></View>
+  if (!currentUserId) {
+    return (
+      <DismissKeyboard>
+        <Style.Main>
+          <AuthForm
+            textInButton={'Login'}
+            onPressButton={onPressLogin}
+            authType={'Login'}
+          />
 
-        <View style={LoginAndSignUpStyle.authForm}>
-          <AuthForm textInButton={'Login'} onPressButton={onPressLogin} />
-        </View>
+          <Style.QuestionWrapper>
+            <Style.Question>Not registered yet?</Style.Question>
+          </Style.QuestionWrapper>
 
-        <View style={LoginAndSignUpStyle.bottomPadding}>
-          <View style={LoginAndSignUpStyle.question}>
-            <Text>Not registered yet?</Text>
-          </View>
-          <Pressable
-            style={LoginAndSignUpStyle.signUpLink}
-            onPress={onPressSignUp}>
-            <Text style={LoginAndSignUpStyle.signUpText}>Sign up</Text>
-          </Pressable>
-          <View style={LoginAndSignUpStyle.bottom}></View>
-        </View>
-      </View>
-    </DismissKeyboard>
-  );
+          <Style.LinkWrapper onPress={onPressSignUp}>
+            <Style.Link>Sign up</Style.Link>
+          </Style.LinkWrapper>
+        </Style.Main>
+      </DismissKeyboard>
+    );
+  }
 }
+
+// const DismissKeyboard = ({ children }: any) => (
+//   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+//     {children}
+//   </TouchableWithoutFeedback>
+// );
+
+// export default function Login({ navigation }: LoginType) {
+//   const dispatch = useAppDispatch();
+//
+//   const onPressSignUp = () => {
+//     navigation.navigate('SignUp');
+//   };
+//
+//   const userIsVerified = (currentUserId: string) => {
+//     dispatch(getUser(currentUserId));
+//     dispatch(getDates(currentUserId));
+//     navigation.navigate('HomeTabs');
+//   };
+//
+//   const currentUserId = auth().currentUser?.uid;
+//   // Проверку авторизации и переход на HomeTabs нужно проводить после рендера
+//   useEffect(() => {
+//     if (currentUserId) {
+//       userIsVerified(currentUserId);
+//     }
+//   }, []);
+//
+//   const onPressLogin = async (email: string, password: string) => {
+//     await authServices.loginAuthService(email, password);
+//     const authUser = auth().currentUser?.uid;
+//     if (authUser) {
+//       userIsVerified(authUser);
+//     }
+//   };
+//
+//   if (!currentUserId) {
+//     return (
+//       // <DismissKeyboard>
+//       <Style.Main>
+//         <AuthForm textInButton={'Login'} onPressButton={onPressLogin} />
+//
+//         <Style.QuestionWrapper>
+//           <Style.Question>Not registered yet?</Style.Question>
+//         </Style.QuestionWrapper>
+//
+//         <Style.LinkWrapper onPress={onPressSignUp}>
+//           <Style.Link>Sign up</Style.Link>
+//         </Style.LinkWrapper>
+//       </Style.Main>
+//       // </DismissKeyboard>
+//     );
+//   }
+// }

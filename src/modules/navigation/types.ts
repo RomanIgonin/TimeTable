@@ -1,6 +1,6 @@
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-export type SelectDayType = {
+export type SelectDay = {
   day: number;
   month: number;
   year: number;
@@ -13,23 +13,20 @@ export type RootStackParamList = {
   SignUp: undefined;
   Home: undefined;
   HomeTabs: undefined;
-  Lessons: {selectDay: SelectDayType};
+  Lessons: { selectDay: SelectDay };
   Profile: undefined;
   EditProfile: undefined;
   Salary: undefined;
   Settings: undefined;
 };
 
-export type LoginType = NativeStackScreenProps<RootStackParamList, 'Login'>;
-export type SignUpType = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
-export type HomeType = NativeStackScreenProps<RootStackParamList, 'Home'>;
-export type LessonsType = NativeStackScreenProps<RootStackParamList, 'Lessons'>;
-export type ProfileType = NativeStackScreenProps<RootStackParamList, 'Profile'>;
-export type EditProfileType = NativeStackScreenProps<
+export type Login = NativeStackScreenProps<RootStackParamList, 'Login'>;
+export type SignUp = NativeStackScreenProps<RootStackParamList, 'SignUp'>;
+export type Home = NativeStackScreenProps<RootStackParamList, 'Home'>;
+export type Lessons = NativeStackScreenProps<RootStackParamList, 'Lessons'>;
+export type Profile = NativeStackScreenProps<RootStackParamList, 'Profile'>;
+export type EditProfile = NativeStackScreenProps<
   RootStackParamList,
   'EditProfile'
 >;
-export type SettingsType = NativeStackScreenProps<
-  RootStackParamList,
-  'Settings'
->;
+export type Settings = NativeStackScreenProps<RootStackParamList, 'Settings'>;

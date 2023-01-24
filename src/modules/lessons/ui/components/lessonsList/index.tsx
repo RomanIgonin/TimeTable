@@ -1,21 +1,21 @@
-import {View, Text, FlatList, Pressable, Alert} from 'react-native';
-import React, {useEffect} from 'react';
-import {useAppDispatch, useAppSelector} from '@src/hooks';
-import {currentUserSelector} from '@src/modules/users/store/selectors';
-import {datesSelector} from '@src/modules/lessons/store/selectors';
+import { View, Text, FlatList, Pressable, Alert } from 'react-native';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '@src/hooks';
+import { currentUserSelector } from '@src/modules/users/store/selectors';
+import { datesSelector } from '@src/modules/lessons/store/selectors';
 import {
   deleteDateAndLesson,
   deleteLesson,
   getDates,
 } from '@src/modules/lessons/store/action';
-import {LessonsType} from '@src/store/globalTypes';
-import {LessonsListStyle} from '@src/modules/lessons/ui/components/lessonsList/styles';
+import { Lessons } from '@src/store/globalInterface';
+import { LessonsListStyle } from '@src/modules/lessons/ui/components/lessonsList/styles';
 
 interface Props {
   date: string;
 }
 
-export const LessonsList: React.FC<Props> = ({date}) => {
+export const LessonsList: React.FC<Props> = ({ date }) => {
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector(currentUserSelector);
   const currentDate = useAppSelector(datesSelector).find(
@@ -67,9 +67,9 @@ export const LessonsList: React.FC<Props> = ({date}) => {
     dispatch(getDates(currentUser?.id));
   }, []);
 
-  const keyExtractor = (item: LessonsType) => item.id;
+  const keyExtractor = (item: Lessons) => item.id;
   // не дает прописать тип LessonsType
-  const renderItem = ({item}) => {
+  const renderItem = ({ item }) => {
     return (
       <Pressable
         style={LessonsListStyle.lessonField}

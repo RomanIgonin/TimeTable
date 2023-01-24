@@ -1,32 +1,31 @@
 import axios from 'axios';
-import {IP_USERS} from '../../core/constants';
-import {UserType} from '@src/store/globalTypes';
+import {URL} from '../../core/constants';
+import {UserType} from '@src/store/globalInterface';
 
 class UsersServices {
-  public async getUserService(id: string) {
+  public async getUser(id: string) {
     return axios
-      .get(IP_USERS + '/' + `${id}`)
+      .get(URL + 'users/' + `${id}`)
       .then(response => response.data)
-      .catch(error => console.error('getUserService: ' + error));
+      .catch(error => console.error('getUser: ' + error));
   }
-  public async postUserService(newUser: UserType) {
+  public async postUser(newUser: UserType) {
     return axios
-      .post(IP_USERS, newUser)
+      .post(URL + 'users/', newUser)
       .then(response => response.data)
-      .catch(error => console.error('postUsersService: ' + error));
+      .catch(error => console.error('postUsers: ' + error));
   }
-  public async patchUserService(currentUser: UserType) {
+  public async patchUser(currentUser: UserType) {
     return axios
-      .patch(IP_USERS + `/${currentUser.id}`, currentUser)
+      .patch(URL + 'users/' + `${currentUser.id}`, currentUser)
       .then(response => response.data)
-      .catch(error => console.error('patchUserService: ' + error));
+      .catch(error => console.error('patchUser: ' + error));
   }
-  public async deleteUserService(currentUserId: string) {
-    console.log('5: ' + JSON.stringify(currentUserId));
+  public async deleteUser(currentUserId: string) {
     return axios
-      .delete(IP_USERS + `/${currentUserId}`)
+      .delete(URL + 'users/' + `${currentUserId}`)
       .then(response => response.data)
-      .catch(error => console.error('deleteUserService: ' + error));
+      .catch(error => console.error('deleteUser: ' + error));
   }
 }
 

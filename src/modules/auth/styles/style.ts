@@ -1,36 +1,23 @@
-import {StyleSheet} from 'react-native';
+import styled from '@emotion/native';
+import { BLUE, FONT_SIZE_MIN } from '@src/modules/core/constants';
 
-export const LoginAndSignUpStyle = StyleSheet.create({
-  main: {
-    flex: 1,
-  },
-  topPadding: {
-    flex: 1,
-  },
-  authForm: {
-    flex: 1,
-  },
-  bottomPadding: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  question: {
-    flex: 1,
-    justifyContent: 'center',
-    marginTop: 5,
-  },
-  signUpLink: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '20%',
-  },
-  signUpText: {
-    fontSize: 16,
-    color: 'blue',
-    textDecorationLine: 'underline',
-  },
-  bottom: {
-    flex: 6,
-  },
-});
+export const Main = styled.View`
+  flex: 1;
+  justify-content: center;
+`;
+
+export const QuestionWrapper = styled.View`
+  align-items: center;
+`;
+export const Question = styled.Text`
+  margin: 10px 0 0 0;
+`;
+
+export const LinkWrapper = styled.Pressable`
+  align-items: center;
+`;
+export const Link = styled.Text`
+  font-size: ${() => `${FONT_SIZE_MIN}px`};
+  color: ${() => `${BLUE}`};
+  text-decoration-line: underline;
+`;

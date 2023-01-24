@@ -1,38 +1,38 @@
 import axios from 'axios';
-import {IP_USERS, IP_DATES} from '@src/modules/core/constants';
-import {DatesType} from '@src/store/globalTypes';
+import {URL} from '@src/modules/core/constants';
+import {DatesType} from '@src/store/globalInterface';
 
 class LessonsServices {
   // get dates with lessons for the current user
-  public async getDatesService(userId: string | undefined) {
+  public async getDates(userId: string | undefined) {
     return axios
-      .get(IP_USERS + `/${userId}` + '/dates?userId=' + `${userId}`)
+      .get(URL + 'dates/' + `${userId}` + '/dates?userId=' + `${userId}`)
       .then(response => response.data)
       .catch(error => console.error('getDatesService: ' + error));
   }
   // patch Date object with new lessons
-  public async postLessonService(patchDate: DatesType) {
+  public async postLesson(patchDate: DatesType) {
     return axios
-      .patch(IP_DATES + `/${patchDate.id}`, patchDate)
+      .patch(URL + 'dates/' + `${patchDate.id}`, patchDate)
       .then(response => response.data)
       .catch(error => console.error('postLessonService: ' + error));
   }
-  public async postDateAndLessonService(newDateAndLesson: DatesType) {
+  public async postDateAndLesson(newDateAndLesson: DatesType) {
     return axios
-      .post(IP_DATES, newDateAndLesson)
+      .post(URL + 'dates/', newDateAndLesson)
       .then(response => response.data)
       .catch(error => console.error('postDateAndLessonService: ' + error));
   }
   // toggle Date object without lesson being removed
-  public async deleteLessonService(patchDate: DatesType) {
+  public async deleteLesson(patchDate: DatesType) {
     return axios
-      .patch(IP_DATES + `/${patchDate.id}`, patchDate)
+      .patch(URL + 'dates/' + `${patchDate.id}`, patchDate)
       .then(response => response.data)
       .catch(error => console.error('deleteLessonService: ' + error));
   }
-  public async deleteDateAndLessonService(patchDate: DatesType) {
+  public async deleteDateAndLesson(patchDate: DatesType) {
     return axios
-      .delete(IP_DATES + `/${patchDate.id}`)
+      .delete(URL + 'dates/' + `${patchDate.id}`)
       .then(response => response.data)
       .catch(error => console.error('deleteDateAndLessonService: ' + error));
   }

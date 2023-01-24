@@ -1,13 +1,13 @@
-export const IP_USERS = 'http://192.168.8.112:3002/users';
-export const IP_DATES = 'http://192.168.8.112:3002/dates';
-
-export const IP_CURRENT_USER = 'http://192.168.8.112:3002/currentUser';
+export const URL = 'http://192.168.8.112:3002/';
 
 export const BLUE = '#156ed3';
 export const GRAY = '#b9b9b9';
-export const VIOLENT_LIGHT = '#bdb3e0';
 
 export const BORDER_RADIUS_BTN = 10;
+
+export const HEIGHT_BTN = 40;
+export const WIDTH_BTN = 140;
+export const HEIGHT_INPUT = 40;
 
 export const FONT_SIZE_MAX = 25;
 export const FONT_SIZE_MID = 20;
@@ -30,3 +30,6 @@ export const MONTHS = [
 ];
 
 export const PRICES = ['500', '600', '700', '800', '900', '1000'];
+
+export const EMAIL_REGEX =
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/;

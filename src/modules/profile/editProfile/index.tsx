@@ -8,15 +8,15 @@ import {
   ImageBackground,
   FlatList,
 } from 'react-native';
-import {EditProfileStyle} from '@src/modules/profile/editProfile/styles';
-import {useState} from 'react';
-import {useAppDispatch, useAppSelector} from '@src/hooks';
-import {currentUserSelector} from '@src/modules/users/store/selectors';
-import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
-import {patchUser} from '@src/modules/users/store/action';
-import {EditProfileType} from '@src/modules/navigation/types';
+import { EditProfileStyle } from '@src/modules/profile/editProfile/styles';
+import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '@src/hooks';
+import { currentUserSelector } from '@src/modules/users/store/selectors';
+import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
+import { patchUser } from '@src/modules/users/store/action';
+import { EditProfile } from '@src/modules/navigation/types';
 
-export default function EditProfile({navigation}: EditProfileType) {
+export default function EditProfile({ navigation }: EditProfile) {
   const dispatch = useAppDispatch();
   const currentUser = useAppSelector(currentUserSelector);
   const [firstName, setFirstName] = useState(currentUser.firstName);
@@ -87,10 +87,10 @@ export default function EditProfile({navigation}: EditProfileType) {
   const ProfileImage = () => {
     return imageResponse ? (
       <ImageBackground
-        style={{width: 110, height: 110}}
+        style={{ width: 110, height: 110 }}
         imageStyle={EditProfileStyle.imageBackground}
-        source={{uri}}>
-        <View style={{flex: 1, justifyContent: 'center'}}>
+        source={{ uri }}>
+        <View style={{ flex: 1, justifyContent: 'center' }}>
           <Image
             style={EditProfileStyle.photoDownload}
             source={require('@src/assets/icons/photoDownloadWhite.png')}
@@ -99,10 +99,10 @@ export default function EditProfile({navigation}: EditProfileType) {
       </ImageBackground>
     ) : (
       <ImageBackground
-        style={{width: 110, height: 110}}
+        style={{ width: 110, height: 110 }}
         imageStyle={EditProfileStyle.imageBackground}
         source={require('@src/assets/icons/profileImageUndefined.png')}>
-        <View style={{flex: 1, justifyContent: 'center'}}>
+        <View style={{ flex: 1, justifyContent: 'center' }}>
           <Image
             style={EditProfileStyle.photoDownload}
             source={require('@src/assets/icons/photoDownloadWhite.png')}
@@ -145,8 +145,8 @@ export default function EditProfile({navigation}: EditProfileType) {
 
   const RadioElement = () => {
     const genderArray = [
-      {gender: 'Male', key: '11'},
-      {gender: 'Female', key: '22'},
+      { gender: 'Male', key: '11' },
+      { gender: 'Female', key: '22' },
     ];
     return (
       <View
@@ -157,7 +157,7 @@ export default function EditProfile({navigation}: EditProfileType) {
         }}>
         {genderArray.map(item => {
           return (
-            <View key={item.key} style={{paddingRight: 15}}>
+            <View key={item.key} style={{ paddingRight: 15 }}>
               <Pressable
                 style={
                   gender === item.gender
@@ -182,7 +182,7 @@ export default function EditProfile({navigation}: EditProfileType) {
   };
 
   const keyExtractor = (item: any) => item.key;
-  const renderItem = ({item}: any) => {
+  const renderItem = ({ item }: any) => {
     return (
       <View style={EditProfileStyle.midTitleField}>
         <View style={EditProfileStyle.midTitleTextField}>

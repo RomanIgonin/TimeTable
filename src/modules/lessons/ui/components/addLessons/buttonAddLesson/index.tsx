@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from 'react';
 import {Animated, Pressable, Text} from 'react-native';
 import {ButtonAddLessonStyle} from '@src/modules/lessons/ui/components/addLessons/buttonAddLesson/style';
-import {LessonsType} from '@src/store/globalTypes';
+import {LessonsType} from '@src/store/globalInterface';
 import {nanoid} from '@reduxjs/toolkit';
 import {postDateAndLesson, postLesson} from '@src/modules/lessons/store/action';
 import {useAppDispatch, useAppSelector} from '@src/hooks';
