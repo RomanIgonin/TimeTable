@@ -2,9 +2,9 @@ import { FlatList, Image, Pressable, Text, View } from 'react-native';
 import { useAppSelector } from '@src/hooks';
 import { currentUserSelector } from '@src/modules/users/store/selectors';
 import { ProfileStyle } from '@src/modules/profile/profile/styles';
-import { Profile } from '@src/modules/navigation/types';
+import { ProfileType } from '@src/modules/navigation/types';
 
-export default function Profile({ navigation }: Profile) {
+export default function Profile({ navigation }: ProfileType) {
   const currentUser = useAppSelector(currentUserSelector);
 
   const name =

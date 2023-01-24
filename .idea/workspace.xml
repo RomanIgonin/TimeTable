@@ -2,38 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a058117-b150-4070-aca0-1845bc4a17c7" name="Changes" comment="make common input, emotion/js styled for authForm, add hook useForm for validation">
-      <change afterPath="$PROJECT_DIR$/src/modules/form/formButton/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/form/formButton/styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/form/formInput/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/form/formInput/styles.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/lessons/store/adapter.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TASKS.md" beforeDir="false" afterPath="$PROJECT_DIR$/TASKS.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/styles/style.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/styles/style.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/components/authForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/ui/components/authForm/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/components/authForm/styles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/ui/components/authForm/styles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/screens/login/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/ui/screens/login/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/auth/ui/screens/signUp/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/auth/ui/screens/signUp/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/core/api/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/db.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/core/api/routes.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/api/routes.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/core/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/core/constants/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lessons/services/lessonsService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/services/lessonsService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lessons/store/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/store/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lessons/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/store/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/components/addLessons/buttonAddLesson/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/components/addLessons/buttonAddLesson/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/components/lessonsList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/components/lessonsList/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/lessons/ui/screens/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/lessons/ui/screens/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/navigation/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/navigation/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/navigation/types.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/profile/editProfile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/profile/editProfile/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/profile/profile/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/profile/profile/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/settings/ui/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/settings/ui/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/users/services/usersServices.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/users/services/usersServices.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/users/store/action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/users/store/action.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/users/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/users/store/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/globalTypes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/globalInterface.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +89,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674314511320</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="make common input, emotion/js styled for authForm, add hook useForm for validation">
+      <created>1674570782712</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674570782712</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

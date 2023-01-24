@@ -32,4 +32,4 @@ export const MONTHS = [
 export const PRICES = ['500', '600', '700', '800', '900', '1000'];
 
 export const EMAIL_REGEX =
-  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$/;
+  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-].+[a-zA-Z0-9-]*$/;

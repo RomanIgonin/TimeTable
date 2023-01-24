@@ -4,7 +4,7 @@ import { AuthForm } from '@src/modules/auth/ui/components/authForm';
 import auth from '@react-native-firebase/auth';
 import authServices from '@src/modules/auth/services/authServices';
 import * as Style from '@src/modules/auth/styles/style';
-import { SignUp } from '@src/modules/navigation/types';
+import { SignUpType } from '@src/modules/navigation/types';
 import { useAppDispatch } from '@src/hooks';
 import { User } from '@src/store/globalInterface';
 import { postUser } from '@src/modules/users/store/action';
@@ -16,7 +16,7 @@ const DismissKeyboard = ({ children }: any) => (
   </TouchableWithoutFeedback>
 );
 
-export default function SignUp({ navigation }: SignUp) {
+export default function SignUp({ navigation }: SignUpType) {
   const dispatch = useAppDispatch();
   const { reset } = useForm();
   const onPressLogin = () => {
