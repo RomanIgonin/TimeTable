@@ -34,3 +34,10 @@ export const deleteDateAndLesson = createAsyncThunk<undefined, Dates>(
     return await lessonsServices.deleteDateAndLesson(patchDate);
   },
 );
+// Даты принадлежащие данному юзеру удаляются сами, как?
+// export const deleteAllDatesForUserId = createAsyncThunk<undefined, string>(
+//   `${PREFIX}/deleteAllDatesForUserId`,
+//   async userId => {
+//     return await lessonsServices.deleteAllDatesForUserId(userId);
+//   },
+// );

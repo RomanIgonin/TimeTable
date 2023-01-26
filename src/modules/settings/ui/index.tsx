@@ -1,13 +1,14 @@
 import { Alert, FlatList, Pressable, Switch, Text, View } from 'react-native';
 import { ProfileStyle } from '@src/modules/profile/profile/styles';
 import auth from '@react-native-firebase/auth';
-import { SettingsType } from '@src/modules/navigation/types';
 import { useState } from 'react';
 import { useAppDispatch } from '@src/hooks';
-import { deleteUser } from '@src/modules/users/store/action';
+import { deleteUser } from '@src/modules/auth/store/action';
 import { SettingsStyle } from '@src/modules/settings/ui/styles';
+import { usersActions } from '@src/modules/auth/store';
+import { lessonsActions } from '@src/modules/lessons/store';
 
-export default function Settings({ navigation }: SettingsType) {
+export default function Settings() {
   const [isEnabled, setIsEnabled] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
@@ -26,8 +27,8 @@ export default function Settings({ navigation }: SettingsType) {
             auth()
               .signOut()
               .then(() => {
-                console.log('Пользователь вышел' + '\n');
-                navigation.navigate('Login');
+                dispatch(usersActions.userSignOut(undefined));
+                dispatch(lessonsActions.removeDates([]));
               });
           },
         },
@@ -42,15 +43,13 @@ export default function Settings({ navigation }: SettingsType) {
         {
           text: 'OK',
           onPress: async () => {
-            const currentUser = await auth().currentUser;
-            if (currentUser) {
-              currentUser.delete().then(() => {
-                console.log('Пользователь удален с файрбейса');
-                console.log('user to delete: ' + JSON.stringify(currentUser));
-                dispatch(deleteUser(currentUser.uid));
-                navigation.navigate('Login');
-              });
-            }
+            const currentUser = auth().currentUser;
+            currentUser?.delete().then(() => {
+              dispatch(deleteUser(currentUser.uid));
+              // Даты принадлежащие данному юзеру удаляются сами, как?
+              // dispatch(deleteAllDatesForUserId(currentUser.uid));
+              dispatch(usersActions.userSignOut(undefined));
+            });
           },
         },
       ]);
@@ -58,7 +57,7 @@ export default function Settings({ navigation }: SettingsType) {
   };
 
   const settingsItems = [
-    { title: 'Dark theme', key: '1' },
+    { title: 'Dark index', key: '1' },
     { title: 'Sign out', key: '2' },
     { title: 'Delete account', key: '3' },
   ];
@@ -72,7 +71,7 @@ export default function Settings({ navigation }: SettingsType) {
         <View style={ProfileStyle.infoElementTitle}>
           <Text style={ProfileStyle.infoElementTitleText}>{item.title}</Text>
         </View>
-        {item.title === 'Dark theme' ? (
+        {item.title === 'Dark index' ? (
           <View style={{ justifyContent: 'center', height: 5, paddingTop: 9 }}>
             <Switch
               trackColor={{ false: '#767577', true: '#74f85f' }}

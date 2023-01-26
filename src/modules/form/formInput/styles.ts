@@ -13,7 +13,7 @@ export const TextWrapper = styled.View`
 
 export const TextError = styled.Text`
   color: rgba(255, 0, 0, 0.74);
-  font-size: ${() => `${FONT_SIZE_MID}px`};
+  font-size: ${() => `${FONT_SIZE_MIN}px`};
 `;
 
 export const Text = styled.Text`

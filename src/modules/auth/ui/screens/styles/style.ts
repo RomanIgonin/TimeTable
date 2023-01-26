@@ -1,5 +1,5 @@
 import styled from '@emotion/native';
-import { BLUE, FONT_SIZE_MIN } from '@src/modules/core/constants';
+import { FONT_SIZE_MIN } from '@src/modules/core/constants';
 
 export const Main = styled.View`
   flex: 1;
@@ -18,6 +18,6 @@ export const LinkWrapper = styled.Pressable`
 `;
 export const Link = styled.Text`
   font-size: ${() => `${FONT_SIZE_MIN}px`};
-  color: ${() => `${BLUE}`};
+  color: ${props => props.theme.color.blue};
   text-decoration-line: underline;
 `;

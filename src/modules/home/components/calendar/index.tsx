@@ -6,6 +6,7 @@ import { useAppDispatch } from '@src/hooks';
 import { lessonsActions } from '@src/modules/lessons/store';
 import { HomeCalendarStyle } from '@src/modules/home/components/calendar/styles';
 import { useNavigation } from '@react-navigation/native';
+import { SelectDay } from '@src/modules/navigation/types';
 
 export default function HomeCalendar() {
   const navigation = useNavigation();
@@ -13,8 +14,8 @@ export default function HomeCalendar() {
   const nowMonth = new Date().toISOString().slice(5, 7);
   const nowYear = new Date().toISOString().slice(0, 4);
 
-  const onDayPress = (selectDay: any) => {
-    navigation.navigate('Lessons', { selectDay: selectDay });
+  const onDayPress = (selectDay: SelectDay) => {
+    navigation.navigate('Lessons', { selectDay });
   };
 
   useEffect(() => {

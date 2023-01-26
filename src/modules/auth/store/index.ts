@@ -1,5 +1,5 @@
 import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { getUser, patchUser, postUser } from './action';
+import { deleteUser, getUser, patchUser, postUser } from './action';
 import { userInitialState } from '@src/store/globalInterface';
 
 const initialState: userInitialState = {
@@ -10,7 +10,11 @@ const initialState: userInitialState = {
 const usersSlice = createSlice({
   name: 'users',
   initialState,
-  reducers: {},
+  reducers: {
+    userSignOut(state, { payload }) {
+      state.currentUser = payload;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(getUser.pending, state => {
       state.isUserLoading = true;
@@ -20,12 +24,19 @@ const usersSlice = createSlice({
       state.isUserLoading = false;
       console.log('currentUser in state: ' + state.currentUser?.email);
     });
+
+    builder.addCase(postUser.pending, state => {
+      state.isUserLoading = true;
+    });
     builder.addCase(postUser.fulfilled, (state, { payload }) => {
       state.currentUser = payload;
+      state.isUserLoading = false;
     });
+
     builder.addCase(patchUser.fulfilled, (state, { payload }) => {
       state.currentUser = payload;
     });
+
     builder.addMatcher(isError, (state, action: PayloadAction<string>) => {
       console.log(action.payload);
     });
@@ -33,6 +44,7 @@ const usersSlice = createSlice({
 });
 
 export default usersSlice.reducer;
+export const usersActions = usersSlice.actions;
 
 function isError(action: AnyAction) {
   return action.type.endsWith('rejected');

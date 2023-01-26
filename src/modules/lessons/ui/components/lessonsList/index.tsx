@@ -1,7 +1,7 @@
 import { View, Text, FlatList, Pressable, Alert } from 'react-native';
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@src/hooks';
-import { currentUserSelector } from '@src/modules/users/store/selectors';
+import { currentUserSelector } from '@src/modules/auth/store/selectors';
 import { datesSelector } from '@src/modules/lessons/store/selectors';
 import {
   deleteDateAndLesson,

@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {URL} from '../../core/constants';
-import {UserType} from '@src/store/globalInterface';
+import { URL } from '../../core/constants';
+import { User } from '@src/store/globalInterface';
 
 class UsersServices {
   public async getUser(id: string) {
@@ -9,13 +9,13 @@ class UsersServices {
       .then(response => response.data)
       .catch(error => console.error('getUser: ' + error));
   }
-  public async postUser(newUser: UserType) {
+  public async postUser(newUser: User) {
     return axios
       .post(URL + 'users/', newUser)
       .then(response => response.data)
       .catch(error => console.error('postUsers: ' + error));
   }
-  public async patchUser(currentUser: UserType) {
+  public async patchUser(currentUser: User) {
     return axios
       .patch(URL + 'users/' + `${currentUser.id}`, currentUser)
       .then(response => response.data)

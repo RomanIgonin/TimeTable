@@ -12,7 +12,7 @@ export const ButtonWrapper = styled.Pressable`
   justify-content: center;
   height: ${() => `${HEIGHT_BTN}px`};
   width: ${() => `${WIDTH_BTN}px`};
-  background-color: ${() => `${BLUE}`};
+  background-color: ${props => props.theme.color.blue};
   border-radius: ${() => `${BORDER_RADIUS_BTN}px`};
 `;
 export const Button = styled.Text`

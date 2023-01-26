@@ -1,4 +1,3 @@
-import { FONT_SIZE_MID } from '@src/modules/core/constants';
 import styled from '@emotion/native';
 
 export const Main = styled.View``;

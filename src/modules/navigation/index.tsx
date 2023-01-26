@@ -1,92 +1,61 @@
 import * as React from 'react';
-import {View, Image} from 'react-native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {NavigationContainer} from '@react-navigation/native';
-import {RootStackParamList} from './types';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from '@react-navigation/native';
+import {
+  currentUserSelector,
+  isUserLoadingSelector,
+} from '@src/modules/auth/store/selectors';
 
+import SplashScreen from '@src/modules/auth/ui/screens/splashScreen';
 import Login from '@src/modules/auth/ui/screens/login';
 import SignUp from '@src/modules/auth/ui/screens/signUp';
-import Home from '@src/modules/home/screens';
 import Lessons from '@src/modules/lessons/ui/screens';
-import Profile from '@src/modules/profile/profile';
-import Settings from '@src/modules/settings/ui';
 import EditProfile from '@src/modules/profile/editProfile';
-import {NavigationStyle} from '@src/modules/navigation/style';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import HomeTabs from '@src/modules/navigation/bottomTabNavigation';
+import { useAppSelector } from '@src/hooks';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
-const Tab = createBottomTabNavigator();
-
-function HomeTabs() {
-  return (
-    <Tab.Navigator
-      initialRouteName={'Home'}
-      screenOptions={{
-        headerShown: false,
-        tabBarShowLabel: false,
-      }}>
-      <Tab.Screen
-        name={'Profile'}
-        component={Profile}
-        options={{
-          tabBarIcon: () => (
-            <View>
-              <Image
-                source={require('@src/assets/icons/profile.png')}
-                style={NavigationStyle.iconTabNavigator}
-              />
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name={'Home'}
-        component={Home}
-        options={{
-          tabBarIcon: () => (
-            <View>
-              <Image
-                source={require('@src/assets/icons/calendar.png')}
-                style={NavigationStyle.iconTabNavigator}
-              />
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name={'Settings'}
-        component={Settings}
-        options={{
-          tabBarIcon: () => (
-            <View>
-              <Image
-                source={require('@src/assets/icons/settings.png')}
-                style={NavigationStyle.iconTabNavigator}
-              />
-            </View>
-          ),
-        }}
-      />
-    </Tab.Navigator>
-  );
-}
+const Stack = createNativeStackNavigator();
 
 export default function Navigate() {
+  const currentUser = useAppSelector(currentUserSelector);
+  const isUserLoading = useAppSelector(isUserLoadingSelector);
+
+  // Render Navigation происходит 2 раза, при этом isUserLoading оба раза false
+  console.log('render in navigation: ', currentUser, isUserLoading);
+
+  if (isUserLoading) {
+    return <SplashScreen />;
+  }
   return (
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
           headerShown: false,
         }}>
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="SignUp" component={SignUp} />
-        <Stack.Screen
-          name="HomeTabs"
-          component={HomeTabs}
-          options={{gestureEnabled: false}}
-        />
-        <Stack.Screen name="EditProfile" component={EditProfile} />
-        <Stack.Screen name="Lessons" component={Lessons} />
+        {!currentUser ? (
+          <>
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{ gestureEnabled: false }}
+            />
+            <Stack.Screen
+              name="SignUp"
+              component={SignUp}
+              options={{ gestureEnabled: false }}
+            />
+          </>
+        ) : (
+          <>
+            <Stack.Screen
+              name="HomeTabs"
+              component={HomeTabs}
+              options={{ gestureEnabled: false }}
+            />
+            <Stack.Screen name="EditProfile" component={EditProfile} />
+            <Stack.Screen name="Lessons" component={Lessons} />
+          </>
+        )}
       </Stack.Navigator>
     </NavigationContainer>
   );

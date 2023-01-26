@@ -7,18 +7,18 @@ interface Props {
   name: string;
   control: any;
   value?: string;
-  rules: object;
+  // rules: object;
   keyboardType?: KeyboardTypeOptions | undefined;
   secureTextEntry?: boolean | undefined;
 }
 
 export default function FormInput(props: Props) {
-  const { name, control, rules = {}, value, ...otherProps } = props;
+  const { name, control, value, ...otherProps } = props;
   return (
     <Controller
       control={control}
       name={name}
-      rules={rules}
+      // rules={rules}
       render={({
         field: { value, onChange, onBlur },
         fieldState: { error },

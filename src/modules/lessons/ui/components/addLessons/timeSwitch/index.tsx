@@ -47,7 +47,7 @@ export const TimeSwitch: React.FC<Props> = ({ time, getTime }) => {
         theme="light"
         onConfirm={value => {
           setOpen(false);
-          getTime(String(value).substr(15, 6));
+          getTime(String(value).substring(15, 20) + '0');
         }}
         onCancel={() => {
           setOpen(false);

@@ -3,20 +3,22 @@ import { TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { AuthForm } from '@src/modules/auth/ui/components/authForm';
 import auth from '@react-native-firebase/auth';
 import authServices from '@src/modules/auth/services/authServices';
-import * as Style from '@src/modules/auth/styles/style';
-import { SignUpType } from '@src/modules/navigation/types';
+import * as Style from '@src/modules/auth/ui/screens/styles/style';
 import { useAppDispatch } from '@src/hooks';
 import { User } from '@src/store/globalInterface';
-import { postUser } from '@src/modules/users/store/action';
+import { postUser } from '@src/modules/auth/store/action';
 import { useForm } from 'react-hook-form';
+import { useNavigation } from '@react-navigation/native';
 
+// Проверить работает ли без нее скрытие клавиатуры
 const DismissKeyboard = ({ children }: any) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     {children}
   </TouchableWithoutFeedback>
 );
 
-export default function SignUp({ navigation }: SignUpType) {
+export default function SignUp() {
+  const navigation = useNavigation<any>();
   const dispatch = useAppDispatch();
   const { reset } = useForm();
   const onPressLogin = () => {
@@ -28,7 +30,6 @@ export default function SignUp({ navigation }: SignUpType) {
     await authServices.signUpAuthService(email, password);
     const authUser = auth().currentUser;
     if (authUser) {
-      console.log('signUp user: ' + authUser?.email);
       const newUser: User = {
         id: auth().currentUser?.uid,
         email: email,
@@ -40,7 +41,6 @@ export default function SignUp({ navigation }: SignUpType) {
         profileImage: '',
       };
       dispatch(postUser(newUser));
-      navigation.navigate('HomeTabs');
     }
   };
 

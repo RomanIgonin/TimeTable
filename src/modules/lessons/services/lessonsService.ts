@@ -1,6 +1,6 @@
 import axios from 'axios';
-import {URL} from '@src/modules/core/constants';
-import {DatesType} from '@src/store/globalInterface';
+import { URL } from '@src/modules/core/constants';
+import { Dates } from '@src/store/globalInterface';
 
 class LessonsServices {
   // get dates with lessons for the current user
@@ -11,31 +11,38 @@ class LessonsServices {
       .catch(error => console.error('getDatesService: ' + error));
   }
   // patch Date object with new lessons
-  public async postLesson(patchDate: DatesType) {
+  public async postLesson(patchDate: Dates) {
     return axios
       .patch(URL + 'dates/' + `${patchDate.id}`, patchDate)
       .then(response => response.data)
       .catch(error => console.error('postLessonService: ' + error));
   }
-  public async postDateAndLesson(newDateAndLesson: DatesType) {
+  public async postDateAndLesson(newDateAndLesson: Dates) {
     return axios
       .post(URL + 'dates/', newDateAndLesson)
       .then(response => response.data)
       .catch(error => console.error('postDateAndLessonService: ' + error));
   }
   // toggle Date object without lesson being removed
-  public async deleteLesson(patchDate: DatesType) {
+  public async deleteLesson(patchDate: Dates) {
     return axios
       .patch(URL + 'dates/' + `${patchDate.id}`, patchDate)
       .then(response => response.data)
       .catch(error => console.error('deleteLessonService: ' + error));
   }
-  public async deleteDateAndLesson(patchDate: DatesType) {
+  public async deleteDateAndLesson(patchDate: Dates) {
     return axios
       .delete(URL + 'dates/' + `${patchDate.id}`)
       .then(response => response.data)
       .catch(error => console.error('deleteDateAndLessonService: ' + error));
   }
+  // Даты принадлежащие данному юзеру удаляются сами, как?
+  // public async deleteAllDatesForUserId(userId: string) {
+  //   return axios
+  //     .delete(URL + 'dates?userId=' + `${userId}`)
+  //     .then(response => response.data)
+  //     .catch(error => console.error('deleteAllDatesForUserId: ' + error));
+  // }
 }
 
 const lessonsServices = new LessonsServices();

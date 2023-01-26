@@ -1,16 +1,6 @@
 {
   "users": [
     {
-      "id": "NK0JVedKZAWYi87vwKJr5JChIeg1",
-      "email": "1@mail.ru",
-      "password": "123qwe",
-      "firstName": "",
-      "lastName": "",
-      "gender": "",
-      "phoneNumber": "",
-      "profileImage": ""
-    },
-    {
       "id": "URpAApFO5lOA4EZNezaFgrrjRf92",
       "email": "2@mail.ru",
       "password": "123qwe",
@@ -504,32 +494,6 @@
           "time": "13:00",
           "language": "Turkish",
           "price": "525"
-        }
-      ]
-    },
-    {
-      "id": "rBKsjYx-sxqGZQCGyVIlV",
-      "userId": "NK0JVedKZAWYi87vwKJr5JChIeg1",
-      "date": "22.12.2022",
-      "lessons": [
-        {
-          "id": "57yQPUR0UfQlM7viHV7Ym",
-          "time": "1",
-          "language": "1",
-          "price": "100"
-        }
-      ]
-    },
-    {
-      "id": "apQeMl8FkXKl84IhxqrWY",
-      "userId": "NK0JVedKZAWYi87vwKJr5JChIeg1",
-      "date": "23.12.2022",
-      "lessons": [
-        {
-          "id": "1SlLE6p2Fvb0hU7S_26x0",
-          "time": "1",
-          "language": "1",
-          "price": "100"
         }
       ]
     },

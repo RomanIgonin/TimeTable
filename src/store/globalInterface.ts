@@ -7,7 +7,7 @@ export interface Lessons {
 
 export interface Dates {
   id: string;
-  userId: string;
+  userId: string | undefined;
   date: string;
   lessons: Lessons[];
 }
@@ -30,8 +30,9 @@ export interface userInitialState {
   isUserLoading: boolean;
 }
 
-export interface lessonsInitialState {
-  dates: Dates[];
-  viewedMonth: string;
-  viewedYear: string;
-}
+// export interface lessonsInitialState {
+//   dates: Dates[];
+//   viewedMonth: string;
+//   viewedYear: string;
+//   isLoading: boolean;
+// }

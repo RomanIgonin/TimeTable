@@ -1,10 +1,4 @@
-import {
-  AnyAction,
-  createSlice,
-  EntityState,
-  PayloadAction,
-} from '@reduxjs/toolkit';
-import { Dates, lessonsInitialState } from '@src/store/globalInterface';
+import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
   deleteLesson,
   getDates,
@@ -13,45 +7,43 @@ import {
 } from '@src/modules/lessons/store/action';
 import lessonsAdapter from '@src/modules/lessons/store/adapter';
 
-// const initialState: lessonsInitialState = {
-//   dates: [],
-//   // переделать слайс в ентити адаптер
-//   viewedMonth: '',
-//   viewedYear: '',
-// };
-type StateSlice = {
-  viewedMonth: string;
-  viewedYear: string;
-} & EntityState<Dates[]>;
-
-const lessonsSlice = createSlice<StateSlice, {}>({
+// Пока не подключил интерфейс для initialState
+const lessonsSlice = createSlice({
   name: 'lessons',
-  initialState: lessonsAdapter.getInitialState({
+  initialState: {
+    dates: lessonsAdapter.getInitialState(),
     viewedMonth: '',
     viewedYear: '',
-  }),
+    isLoading: false,
+  },
   reducers: {
-    setViewedMonth(state, action) {
-      state.viewedMonth = action.payload;
+    removeDates(state, { payload }) {
+      lessonsAdapter.setAll(state.dates, payload);
     },
-    setViewedYear(state, action) {
-      state.viewedYear = action.payload;
+    setViewedMonth(state, { payload }) {
+      state.viewedMonth = payload;
+    },
+    setViewedYear(state, { payload }) {
+      state.viewedYear = payload;
     },
   },
   extraReducers: builder => {
-    builder.addCase(getDates.fulfilled, (state, { payload }) => {
-      state.dates = payload;
+    builder.addCase(getDates.pending, state => {
+      state.isLoading = true;
     });
+    builder.addCase(getDates.fulfilled, (state, { payload }) => {
+      state.isLoading = false;
+      lessonsAdapter.setAll(state.dates, payload);
+    });
+
     builder.addCase(postLesson.fulfilled, (state, { payload }) => {
-      state.dates = state.dates?.filter(date => date.id !== payload.id);
-      state.dates?.push(payload);
+      lessonsAdapter.setOne(state.dates, payload);
     });
     builder.addCase(postDateAndLesson.fulfilled, (state, { payload }) => {
-      state.dates?.push(payload);
+      lessonsAdapter.addOne(state.dates, payload);
     });
     builder.addCase(deleteLesson.fulfilled, (state, { payload }) => {
-      state.dates = state.dates?.filter(date => date.id !== payload.id);
-      state.dates?.push(payload);
+      lessonsAdapter.setOne(state.dates, payload);
     });
     builder.addMatcher(isError, (state, action: PayloadAction<string>) => {
       console.log(action.payload);
