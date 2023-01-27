@@ -1,5 +1,4 @@
 import { Text, View } from 'react-native';
-import { LessonsType } from '@src/modules/navigation/types';
 import { AddLessons } from '@src/modules/lessons/ui/components/addLessons';
 import { LessonsStyle } from '@src/modules/lessons/ui/screens/styles';
 import { LessonsList } from '@src/modules/lessons/ui/components/lessonsList';
@@ -7,7 +6,7 @@ import { MONTHS } from '@src/modules/core/constants';
 import { useAppSelector } from '@src/hooks';
 import { viewedMonthSelector } from '@src/modules/lessons/store/selectors';
 
-export default function Lessons({ route }: LessonsType) {
+export default function Lessons({ route }: any) {
   const viewedMonth = useAppSelector(viewedMonthSelector);
   const selectDay = route.params.selectDay;
   const addZero = selectDay.month < 10 ? '0' : '';

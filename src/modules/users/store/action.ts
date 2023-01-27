@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import usersServices from '@src/modules/auth/services/usersServices';
+import usersServices from '@src/modules/users/services/usersServices';
 import { User } from '@src/store/globalInterface';
 
 const PREFIX = 'users';

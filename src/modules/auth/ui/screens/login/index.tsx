@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { AuthForm } from '@src/modules/auth/ui/components/authForm';
 import auth from '@react-native-firebase/auth';
 import authServices from '@src/modules/auth/services/authServices';
 import { useAppDispatch } from '@src/hooks';
 import { useForm } from 'react-hook-form';
-import { getUser } from '@src/modules/auth/store/action';
+import { getUser } from '@src/modules/users/store/action';
 import { getDates } from '@src/modules/lessons/store/action';
 import * as Style from '@src/modules/auth/ui/screens/styles/style';
 import { useNavigation } from '@react-navigation/native';
 
+// Проверить работает ли без нее скрытие клавиатуры
 const DismissKeyboard = ({ children }: any) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     {children}
@@ -23,7 +24,7 @@ export default function Login() {
 
   const onPressSignUp = () => {
     navigation.navigate('SignUp');
-    reset();
+    reset(); // Не очищает инпуты. При этом в SignUp такой же reset() работает.
   };
 
   const onPressLogin = async (email: string, password: string) => {
@@ -38,11 +39,7 @@ export default function Login() {
   return (
     <DismissKeyboard>
       <Style.Main>
-        <AuthForm
-          textInButton={'Login'}
-          onPressButton={onPressLogin}
-          authType={'Login'}
-        />
+        <AuthForm textInButton={'Login'} onPressButton={onPressLogin} />
 
         <Style.QuestionWrapper>
           <Style.Question>Not registered yet?</Style.Question>

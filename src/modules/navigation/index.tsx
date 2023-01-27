@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import {
   currentUserSelector,
   isUserLoadingSelector,
-} from '@src/modules/auth/store/selectors';
+} from '@src/modules/users/store/selectors';
 
 import SplashScreen from '@src/modules/auth/ui/screens/splashScreen';
 import Login from '@src/modules/auth/ui/screens/login';

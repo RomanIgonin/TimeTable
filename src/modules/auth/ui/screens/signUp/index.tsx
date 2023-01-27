@@ -6,7 +6,7 @@ import authServices from '@src/modules/auth/services/authServices';
 import * as Style from '@src/modules/auth/ui/screens/styles/style';
 import { useAppDispatch } from '@src/hooks';
 import { User } from '@src/store/globalInterface';
-import { postUser } from '@src/modules/auth/store/action';
+import { postUser } from '@src/modules/users/store/action';
 import { useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
 
@@ -23,7 +23,7 @@ export default function SignUp() {
   const { reset } = useForm();
   const onPressLogin = () => {
     navigation.navigate('Login');
-    reset();
+    reset(); // Не очищает инпуты в Login screen
   };
 
   const onPressSignUp = async (email: string, password: string) => {
@@ -47,11 +47,7 @@ export default function SignUp() {
   return (
     <DismissKeyboard>
       <Style.Main>
-        <AuthForm
-          textInButton={'Sign Up'}
-          onPressButton={onPressSignUp}
-          authType={'SignUp'}
-        />
+        <AuthForm textInButton={'Sign Up'} onPressButton={onPressSignUp} />
 
         <Style.QuestionWrapper>
           <Style.Question>Already have an account?</Style.Question>

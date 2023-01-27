@@ -1,6 +1,5 @@
 import styled from '@emotion/native';
 import {
-  BLUE,
   BORDER_RADIUS_BTN,
   FONT_SIZE_MID,
   HEIGHT_BTN,

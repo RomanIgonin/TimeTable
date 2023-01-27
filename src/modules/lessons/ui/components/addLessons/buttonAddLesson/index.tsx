@@ -1,14 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 import { Animated, Pressable, Text } from 'react-native';
 import { ButtonAddLessonStyle } from '@src/modules/lessons/ui/components/addLessons/buttonAddLesson/style';
-import { LessonsType } from '@src/store/globalInterface';
+import { Lessons } from '@src/store/globalInterface';
 import { nanoid } from '@reduxjs/toolkit';
 import {
   postDateAndLesson,
   postLesson,
 } from '@src/modules/lessons/store/action';
 import { useAppDispatch, useAppSelector } from '@src/hooks';
-import { currentUserSelector } from '@src/modules/auth/store/selectors';
+import { currentUserSelector } from '@src/modules/users/store/selectors';
 import { datesSelector } from '@src/modules/lessons/store/selectors';
 
 interface Props {
@@ -18,12 +18,8 @@ interface Props {
   price: string;
 }
 
-export const ButtonAddLesson: React.FC<Props> = ({
-  date,
-  time,
-  language,
-  price,
-}) => {
+export const ButtonAddLesson = (props: Props) => {
+  const { date, time, language, price } = props;
   const currentUser = useAppSelector(currentUserSelector);
   const currentDate = useAppSelector(datesSelector).find(
     item => item.date === date,
@@ -39,7 +35,7 @@ export const ButtonAddLesson: React.FC<Props> = ({
     AnimationScale();
     if (currentUser) {
       if (currentDate) {
-        const newLesson: LessonsType = {
+        const newLesson: Lessons = {
           id: nanoid(),
           time: time,
           language: language,

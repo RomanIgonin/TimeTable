@@ -7,11 +7,11 @@ import {
 } from '@src/modules/lessons/store/action';
 import lessonsAdapter from '@src/modules/lessons/store/adapter';
 
-// Пока не подключил интерфейс для initialState
 const lessonsSlice = createSlice({
   name: 'lessons',
   initialState: {
     dates: lessonsAdapter.getInitialState(),
+    // Как описать интерфейс у них?
     viewedMonth: '',
     viewedYear: '',
     isLoading: false,
@@ -35,7 +35,6 @@ const lessonsSlice = createSlice({
       state.isLoading = false;
       lessonsAdapter.setAll(state.dates, payload);
     });
-
     builder.addCase(postLesson.fulfilled, (state, { payload }) => {
       lessonsAdapter.setOne(state.dates, payload);
     });

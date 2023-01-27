@@ -3,14 +3,12 @@ import { URL } from '@src/modules/core/constants';
 import { Dates } from '@src/store/globalInterface';
 
 class LessonsServices {
-  // get dates with lessons for the current user
   public async getDates(userId: string | undefined) {
     return axios
       .get(URL + 'dates/' + `${userId}` + '/dates?userId=' + `${userId}`)
       .then(response => response.data)
       .catch(error => console.error('getDatesService: ' + error));
   }
-  // patch Date object with new lessons
   public async postLesson(patchDate: Dates) {
     return axios
       .patch(URL + 'dates/' + `${patchDate.id}`, patchDate)
@@ -23,7 +21,6 @@ class LessonsServices {
       .then(response => response.data)
       .catch(error => console.error('postDateAndLessonService: ' + error));
   }
-  // toggle Date object without lesson being removed
   public async deleteLesson(patchDate: Dates) {
     return axios
       .patch(URL + 'dates/' + `${patchDate.id}`, patchDate)

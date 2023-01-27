@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import MainStack from '@src/modules/navigation';
 import { Provider } from 'react-redux';
 import { store } from '@src/store';
@@ -6,7 +6,7 @@ import { SafeAreaView, StatusBar } from 'react-native';
 import { ThemeProvider } from '@emotion/react';
 import { index } from '@src/styles/theme';
 import auth from '@react-native-firebase/auth';
-import { getUser } from '@src/modules/auth/store/action';
+import { getUser } from '@src/modules/users/store/action';
 import { getDates } from '@src/modules/lessons/store/action';
 
 export default function App() {

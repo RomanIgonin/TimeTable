@@ -1,7 +1,7 @@
 import { View, Text, FlatList, Pressable, Alert } from 'react-native';
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@src/hooks';
-import { currentUserSelector } from '@src/modules/auth/store/selectors';
+import { currentUserSelector } from '@src/modules/users/store/selectors';
 import { datesSelector } from '@src/modules/lessons/store/selectors';
 import {
   deleteDateAndLesson,
@@ -68,8 +68,7 @@ export const LessonsList: React.FC<Props> = ({ date }) => {
   }, []);
 
   const keyExtractor = (item: Lessons) => item.id;
-  // не дает прописать тип LessonsType
-  const renderItem = ({ item }) => {
+  const renderItem = ({ item }: any) => {
     return (
       <Pressable
         style={LessonsListStyle.lessonField}

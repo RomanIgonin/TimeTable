@@ -1,5 +1,5 @@
 import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { deleteUser, getUser, patchUser, postUser } from './action';
+import { getUser, patchUser, postUser } from './action';
 import { userInitialState } from '@src/store/globalInterface';
 
 const initialState: userInitialState = {

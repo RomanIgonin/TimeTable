@@ -7,7 +7,7 @@ interface Props {
   name: string;
   control: any;
   value?: string;
-  // rules: object;
+  // rules: object; // Использовал до применения yup
   keyboardType?: KeyboardTypeOptions | undefined;
   secureTextEntry?: boolean | undefined;
 }
@@ -18,7 +18,7 @@ export default function FormInput(props: Props) {
     <Controller
       control={control}
       name={name}
-      // rules={rules}
+      // rules={rules} // Использовал до применения yup
       render={({
         field: { value, onChange, onBlur },
         fieldState: { error },

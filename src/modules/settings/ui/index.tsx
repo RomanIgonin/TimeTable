@@ -3,9 +3,9 @@ import { ProfileStyle } from '@src/modules/profile/profile/styles';
 import auth from '@react-native-firebase/auth';
 import { useState } from 'react';
 import { useAppDispatch } from '@src/hooks';
-import { deleteUser } from '@src/modules/auth/store/action';
+import { deleteUser } from '@src/modules/users/store/action';
 import { SettingsStyle } from '@src/modules/settings/ui/styles';
-import { usersActions } from '@src/modules/auth/store';
+import { usersActions } from '@src/modules/users/store';
 import { lessonsActions } from '@src/modules/lessons/store';
 
 export default function Settings() {
