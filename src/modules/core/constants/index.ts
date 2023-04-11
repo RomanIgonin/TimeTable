@@ -1,4 +1,4 @@
-export const URL = 'http://192.168.8.112:3002/';
+export const URL = 'http://172.20.10.12:3002/';
 
 export const BLUE = '#156ed3';
 export const GRAY = '#b9b9b9';

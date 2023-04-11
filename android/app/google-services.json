@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "86469942371",
+    "project_id": "timetable-1cc19",
+    "storage_bucket": "timetable-1cc19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:86469942371:android:bf503e933143fd1e826c56",
+        "android_client_info": {
+          "package_name": "com.timetable"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "86469942371-fpd600m4eu9jdd0idhf1hlitlf7u2ir8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHloDNhSoCPW58jI6KFO8C-bFW1ReI_HM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "86469942371-fpd600m4eu9jdd0idhf1hlitlf7u2ir8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "86469942371-7bskah3p6ne6le4kslm5p4oqn877vlm1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.TimeTable"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
