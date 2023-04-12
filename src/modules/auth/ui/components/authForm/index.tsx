@@ -1,7 +1,7 @@
 import React from 'react';
-import FormInput from '@src/modules/form/formInput';
-import * as Style from '@src/modules/auth/ui/components/authForm/styles';
-import FormButton from '@src/modules/form/formButton';
+import FormInput from '@src/modules/ud-ui/input';
+import * as S from '@src/modules/auth/ui/components/authForm/styles';
+import FormButton from '@src/modules/ud-ui/button';
 import { FieldValues, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -16,7 +16,7 @@ yup.setLocale({
   mixed: {
     default: 'is required field',
   },
-  number: {
+  string: {
     min: 'min ${min} symbols',
     max: 'max ${min} symbols',
   },
@@ -35,7 +35,7 @@ export const AuthForm = (props: Props) => {
     // formState: { errors }, // содержит информацию обо всем состоянии формы
     reset,
   } = useForm({
-    mode: 'onChange',
+    mode: 'onSubmit',
     resolver: yupResolver(schema),
   });
   const { textInButton, onPressButton } = props;
@@ -46,16 +46,16 @@ export const AuthForm = (props: Props) => {
   };
 
   return (
-    <Style.Main>
+    <S.Main>
       <FormInput
         name="email"
         control={control}
         keyboardType={'email-address'}
       />
       <FormInput name="password" control={control} secureTextEntry={true} />
-      <Style.FormButtonWrapper>
+      <S.FormButtonWrapper>
         <FormButton label={textInButton} onPress={handleSubmit(onPressAuth)} />
-      </Style.FormButtonWrapper>
-    </Style.Main>
+      </S.FormButtonWrapper>
+    </S.Main>
   );
 };

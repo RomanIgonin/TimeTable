@@ -7,10 +7,9 @@ import { useAppDispatch } from '@src/hooks';
 import { useForm } from 'react-hook-form';
 import { getUser } from '@src/modules/users/store/action';
 import { getDates } from '@src/modules/lessons/store/action';
-import * as Style from '@src/modules/auth/ui/screens/styles/style';
+import * as S from '@src/modules/auth/ui/screens/styles/style';
 import { useNavigation } from '@react-navigation/native';
 
-// Проверить работает ли без нее скрытие клавиатуры
 const DismissKeyboard = ({ children }: any) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     {children}
@@ -23,8 +22,8 @@ export default function Login() {
   const { reset } = useForm();
 
   const onPressSignUp = () => {
-    navigation.navigate('SignUp');
     reset(); // Не очищает инпуты. При этом в SignUp такой же reset() работает.
+    navigation.navigate('SignUp');
   };
 
   const onPressLogin = async (email: string, password: string) => {
@@ -38,17 +37,17 @@ export default function Login() {
 
   return (
     <DismissKeyboard>
-      <Style.Main>
+      <S.Main>
         <AuthForm textInButton={'Login'} onPressButton={onPressLogin} />
 
-        <Style.QuestionWrapper>
-          <Style.Question>Not registered yet?</Style.Question>
-        </Style.QuestionWrapper>
+        <S.QuestionWrapper>
+          <S.Question>Not registered yet?</S.Question>
+        </S.QuestionWrapper>
 
-        <Style.LinkWrapper onPress={onPressSignUp}>
-          <Style.Link>Sign up</Style.Link>
-        </Style.LinkWrapper>
-      </Style.Main>
+        <S.LinkWrapper onPress={onPressSignUp}>
+          <S.Link>Sign up</S.Link>
+        </S.LinkWrapper>
+      </S.Main>
     </DismissKeyboard>
   );
 }

@@ -4,9 +4,8 @@ import {
   viewedMonthSelector,
   viewedYearSelector,
 } from '@src/modules/lessons/store/selectors';
-import { Text, View } from 'react-native';
 import { MONTHS } from '@src/modules/core/constants';
-import { MonthSalaryStyle } from '@src/modules/home/components/monthSalary/style';
+import * as S from '@src/modules/home/components/monthSalary/styles';
 
 export default function MonthSalary() {
   const viewedMonth = useAppSelector(viewedMonthSelector);
@@ -26,17 +25,9 @@ export default function MonthSalary() {
   );
 
   return (
-    <View style={MonthSalaryStyle.main}>
-      <View style={MonthSalaryStyle.infoElement}>
-        <View style={MonthSalaryStyle.infoElementTitle}>
-          <Text style={MonthSalaryStyle.infoElementTitleText}>
-            Salary for {currentMonth}:
-          </Text>
-        </View>
-        <View style={MonthSalaryStyle.infoElementTextRight}>
-          <Text>{allSalaryMoney} rubles</Text>
-        </View>
-      </View>
-    </View>
+    <S.Container>
+      <S.Month>Salary for {currentMonth}:</S.Month>
+      <S.Rubles>{allSalaryMoney} rubles</S.Rubles>
+    </S.Container>
   );
 }

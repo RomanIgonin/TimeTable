@@ -1,7 +1,8 @@
 import React from 'react';
-import * as Style from '@src/modules/form/formInput/styles';
+import * as S from '@src/modules/ud-ui/input/styles';
 import { Controller } from 'react-hook-form';
-import { KeyboardTypeOptions } from 'react-native';
+import { KeyboardTypeOptions, Share } from 'react-native';
+import { TextInputStyled, TextStyled } from '@src/modules/ud-ui/input/styles';
 
 interface Props {
   name: string;
@@ -24,11 +25,11 @@ export default function FormInput(props: Props) {
         fieldState: { error },
       }) => (
         <>
-          <Style.TextWrapper>
-            <Style.Text>{name}: </Style.Text>
-            {error && <Style.TextError>{error.message}</Style.TextError>}
-          </Style.TextWrapper>
-          <Style.TextInput
+          <S.TextWrapper>
+            <S.TextStyled>{name}: </S.TextStyled>
+            {error && <S.TextError>{error.message}</S.TextError>}
+          </S.TextWrapper>
+          <S.TextInputStyled
             value={value}
             onChangeText={onChange}
             onBlur={onBlur}
