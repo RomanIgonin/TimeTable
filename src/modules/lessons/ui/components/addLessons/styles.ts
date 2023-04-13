@@ -1,98 +1,21 @@
-import { StyleSheet } from 'react-native';
-import {
-  BLUE,
-  BORDER_RADIUS_BTN,
-  FONT_SIZE_MIN,
-} from '@src/modules/core/constants';
+import { Platform, View } from 'react-native';
+import { BORDER_RADIUS_BTN } from '@src/modules/core/constants';
+import styled from '@emotion/native';
 
-export const AddLessonsStyle = StyleSheet.create({
-  main: {
-    flex: 1,
-  },
+export const Container = styled(View)``;
 
-  mainInputs: {
-    flex: 3,
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-    padding: 15,
-    backgroundColor: 'white',
-    marginHorizontal: 15,
-    marginBottom: 10,
-    borderRadius: BORDER_RADIUS_BTN,
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowRadius: 7,
-    shadowOpacity: 0.2,
-  },
-  AddLessonButton: {
-    flex: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  timeField: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginRight: 15,
-  },
-  timeTextField: {
-    flex: 2,
-    justifyContent: 'center',
-  },
-  timeText: {
-    fontWeight: 'bold',
-  },
-  timeInput: {
-    flex: 3,
-    alignSelf: 'stretch',
-    borderWidth: 1,
-    borderRadius: BORDER_RADIUS_BTN,
-  },
-  nameLessonField: {
-    flex: 2,
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  nameLessonsTextField: {
-    flex: 2,
-    justifyContent: 'center',
-  },
-  nameLessonsText: {
-    fontWeight: 'bold',
-  },
-  nameLessonInput: {
-    flex: 3,
-    alignItems: 'center',
-    alignSelf: 'stretch',
-    justifyContent: 'center',
-    backgroundColor: 'white',
-    borderWidth: 1,
-    borderRadius: BORDER_RADIUS_BTN,
-  },
-  priceField: {
-    flex: 1,
-    flexDirection: 'column',
-    alignItems: 'center',
-    marginLeft: 15,
-  },
-  priceTextField: {
-    flex: 2,
-    justifyContent: 'center',
-  },
-  priceText: {
-    fontWeight: 'bold',
-  },
-  priceInput: {
-    flex: 3,
-    alignSelf: 'stretch',
-    borderWidth: 1,
-    borderRadius: BORDER_RADIUS_BTN,
-  },
-  priceInputText: {
-    marginLeft: 10,
-    fontSize: FONT_SIZE_MIN,
-  },
-});
+export const AllInputsWrapper = styled(View)`
+  flex-direction: row;
+  justify-content: space-between;
+  background: ${props => props.theme.color.white};
+  border-radius: ${() => `${BORDER_RADIUS_BTN}px`};
+  elevation: 5;
+  ${Platform.OS === 'ios' ? `box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);` : ''}
+  padding: 15px;
+  margin-bottom: 15px;
+`;
+
+export const ButtonWrapper = styled(View)`
+  align-items: center;
+  justify-content: center;
+`;

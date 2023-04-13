@@ -1,8 +1,7 @@
 import React from 'react';
 import * as S from '@src/modules/ud-ui/input/styles';
 import { Controller } from 'react-hook-form';
-import { KeyboardTypeOptions, Share } from 'react-native';
-import { TextInputStyled, TextStyled } from '@src/modules/ud-ui/input/styles';
+import { KeyboardTypeOptions } from 'react-native';
 
 interface Props {
   name: string;
@@ -13,8 +12,9 @@ interface Props {
   secureTextEntry?: boolean | undefined;
 }
 
-export default function FormInput(props: Props) {
+export default function UDInput(props: Props) {
   const { name, control, value, ...otherProps } = props;
+
   return (
     <Controller
       control={control}
@@ -26,7 +26,7 @@ export default function FormInput(props: Props) {
       }) => (
         <>
           <S.TextWrapper>
-            <S.TextStyled>{name}: </S.TextStyled>
+            <S.TextStyled>{name}</S.TextStyled>
             {error && <S.TextError>{error.message}</S.TextError>}
           </S.TextWrapper>
           <S.TextInputStyled

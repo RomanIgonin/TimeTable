@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react';
-import { Animated, Pressable, Text } from 'react-native';
-import { ButtonAddLessonStyle } from '@src/modules/lessons/ui/components/addLessons/buttonAddLesson/style';
+import { Animated } from 'react-native';
 import { Lessons } from '@src/store/globalInterface';
 import { nanoid } from '@reduxjs/toolkit';
 import {
@@ -10,6 +9,7 @@ import {
 import { useAppDispatch, useAppSelector } from '@src/hooks';
 import { currentUserSelector } from '@src/modules/users/store/selectors';
 import { datesSelector } from '@src/modules/lessons/store/selectors';
+import * as S from '@src/modules/lessons/ui/components/addLessons/buttonAddLesson/style';
 
 interface Props {
   date: string;
@@ -35,6 +35,7 @@ export const ButtonAddLesson = (props: Props) => {
     AnimationScale();
     if (currentUser) {
       if (currentDate) {
+        // TODO: вынести в сервисы
         const newLesson: Lessons = {
           id: nanoid(),
           time: time,
@@ -44,6 +45,7 @@ export const ButtonAddLesson = (props: Props) => {
         currentDate.lessons = [...currentDate.lessons, newLesson];
         dispatch(postLesson(currentDate));
       } else if (!currentDate) {
+        // TODO: вынести в сервисы
         const newDateAndLesson = {
           id: nanoid(),
           userId: currentUser.id,
@@ -73,12 +75,10 @@ export const ButtonAddLesson = (props: Props) => {
   };
 
   return (
-    <Pressable
-      style={ButtonAddLessonStyle.AddLessonButtonField}
-      onPress={onPressAddLessonButton}>
+    <S.Container onPress={onPressAddLessonButton}>
       <Animated.View style={{ transform: [{ scale: animatedScale }] }}>
-        <Text style={ButtonAddLessonStyle.AddLessonButtonText}>+</Text>
+        <S.ButtonText>+</S.ButtonText>
       </Animated.View>
-    </Pressable>
+    </S.Container>
   );
 };

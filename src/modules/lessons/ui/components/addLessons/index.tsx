@@ -1,10 +1,7 @@
-import { View, Text } from 'react-native';
-import { AddLessonsStyle } from '@src/modules/lessons/ui/components/addLessons/styles';
 import React, { useState } from 'react';
 import { ButtonAddLesson } from '@src/modules/lessons/ui/components/addLessons/buttonAddLesson';
-import { LessonSwitch } from '@src/modules/lessons/ui/components/addLessons/lessonSwitch';
-import { TimeSwitch } from '@src/modules/lessons/ui/components/addLessons/timeSwitch';
-import { PriceSwitch } from '@src/modules/lessons/ui/components/addLessons/priceSwitch';
+import * as S from '@src/modules/lessons/ui/components/addLessons/styles';
+import { ValueSwitcher } from '@src/modules/lessons/ui/components/addLessons/valueSwitcher';
 
 interface Props {
   date: string;
@@ -25,41 +22,25 @@ export const AddLessons: React.FC<Props> = ({ date }) => {
   };
 
   return (
-    <View style={AddLessonsStyle.main}>
-      <View style={AddLessonsStyle.mainInputs}>
-        <View style={AddLessonsStyle.timeField}>
-          <View style={AddLessonsStyle.timeTextField}>
-            <Text style={AddLessonsStyle.timeText}>time</Text>
-          </View>
-          <View style={AddLessonsStyle.timeInput}>
-            <TimeSwitch time={time} getTime={getTime} />
-          </View>
-        </View>
-        <View style={AddLessonsStyle.nameLessonField}>
-          <View style={AddLessonsStyle.nameLessonsTextField}>
-            <Text style={AddLessonsStyle.nameLessonsText}>lesson</Text>
-          </View>
-          <View style={AddLessonsStyle.nameLessonInput}>
-            <LessonSwitch language={language} getLanguage={getLanguage} />
-          </View>
-        </View>
-        <View style={AddLessonsStyle.priceField}>
-          <View style={AddLessonsStyle.priceTextField}>
-            <Text style={AddLessonsStyle.priceText}>price</Text>
-          </View>
-          <View style={AddLessonsStyle.priceInput}>
-            <PriceSwitch price={price} getPrice={getPrice} />
-          </View>
-        </View>
-      </View>
-      <View style={AddLessonsStyle.AddLessonButton}>
+    <S.Container>
+      <S.AllInputsWrapper>
+        <ValueSwitcher type={'time'} value={time} getValue={getTime} />
+        <ValueSwitcher
+          type={'language'}
+          value={language}
+          getValue={getLanguage}
+        />
+        <ValueSwitcher type={'price'} value={price} getValue={getPrice} />
+      </S.AllInputsWrapper>
+
+      <S.ButtonWrapper>
         <ButtonAddLesson
           date={date}
           time={time}
           language={language}
           price={price}
         />
-      </View>
-    </View>
+      </S.ButtonWrapper>
+    </S.Container>
   );
 };

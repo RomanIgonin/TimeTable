@@ -5,7 +5,7 @@ interface Props {
   onPress: () => void;
 }
 
-export default function FormButton(props: Props) {
+export default function UDButton(props: Props) {
   const { label, ...otherProps } = props;
   return (
     <S.ButtonWrapper {...otherProps}>

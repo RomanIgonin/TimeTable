@@ -1,23 +1,18 @@
-import { StyleSheet } from 'react-native';
-import {
-  BLUE,
-  BORDER_RADIUS_BTN,
-  FONT_SIZE_MAX,
-} from '@src/modules/core/constants';
+import { Pressable, Text } from 'react-native';
+import { BORDER_RADIUS_BTN, FONT_SIZE_MAX } from '@src/modules/core/constants';
+import styled from '@emotion/native';
 
-export const ButtonAddLessonStyle = StyleSheet.create({
-  AddLessonButtonField: {
-    flex: 1,
-    backgroundColor: BLUE,
-    width: 120,
-    height: 40,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: BORDER_RADIUS_BTN,
-  },
-  AddLessonButtonText: {
-    fontSize: FONT_SIZE_MAX,
-    fontWeight: 'bold',
-    color: 'white',
-  },
-});
+export const Container = styled(Pressable)`
+  width: 120px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  border-radius: ${() => `${BORDER_RADIUS_BTN}px`};
+  background: ${props => props.theme.color.blue};
+`;
+
+export const ButtonText = styled(Text)`
+  font-size: ${() => `${FONT_SIZE_MAX}px`};
+  color: ${props => props.theme.color.white};
+  font-weight: bold;
+`;

@@ -1,7 +1,7 @@
 import React from 'react';
-import FormInput from '@src/modules/ud-ui/input';
+import UDInput from '@src/modules/ud-ui/input';
 import * as S from '@src/modules/auth/ui/components/authForm/styles';
-import FormButton from '@src/modules/ud-ui/button';
+import UDButton from '@src/modules/ud-ui/button';
 import { FieldValues, useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -11,7 +11,7 @@ interface Props {
   onPressButton: (email: string, password: string) => void;
 }
 
-// Не могу понять как передать свои errors в FormInput
+// Не могу понять как передать свои errors в UDInput
 yup.setLocale({
   mixed: {
     default: 'is required field',
@@ -31,7 +31,7 @@ export const AuthForm = (props: Props) => {
   const {
     handleSubmit, // получит данные формы, если проверка прошла успешно
     control, // содержит методы для регистрации компонентов
-    // Через нее передать свои errors в FormInput?
+    // Через нее передать свои errors в UDInput?
     // formState: { errors }, // содержит информацию обо всем состоянии формы
     reset,
   } = useForm({
@@ -47,15 +47,11 @@ export const AuthForm = (props: Props) => {
 
   return (
     <S.Main>
-      <FormInput
-        name="email"
-        control={control}
-        keyboardType={'email-address'}
-      />
-      <FormInput name="password" control={control} secureTextEntry={true} />
-      <S.FormButtonWrapper>
-        <FormButton label={textInButton} onPress={handleSubmit(onPressAuth)} />
-      </S.FormButtonWrapper>
+      <UDInput name="email" control={control} keyboardType={'email-address'} />
+      <UDInput name="password" control={control} secureTextEntry={true} />
+      <S.UDButtonWrapper>
+        <UDButton label={textInButton} onPress={handleSubmit(onPressAuth)} />
+      </S.UDButtonWrapper>
     </S.Main>
   );
 };
