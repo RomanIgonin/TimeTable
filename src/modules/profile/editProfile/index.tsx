@@ -102,7 +102,7 @@ export default function EditProfile() {
       <ImageBackground
         style={{ width: 110, height: 110 }}
         imageStyle={EditProfileStyle.imageBackground}
-        source={require('@src/assets/icons/profileImageUndefined.png')}>
+        source={require('@src/assets/images/profileImageUndefined.png')}>
         <View style={{ flex: 1, justifyContent: 'center' }}>
           <Image
             style={EditProfileStyle.photoDownload}
@@ -113,6 +113,7 @@ export default function EditProfile() {
     );
   };
 
+  // TODO: вынести в константы
   const profileEditInfo = [
     {
       title: 'First Name:',

@@ -1,5 +1,5 @@
 import { Alert, FlatList, Pressable, Switch, Text, View } from 'react-native';
-import { ProfileStyle } from '@src/modules/profile/profile/styles';
+import { ProfileStyle } from '@src/modules/profile/styles';
 import auth from '@react-native-firebase/auth';
 import { useState } from 'react';
 import { useAppDispatch } from '@src/hooks';
