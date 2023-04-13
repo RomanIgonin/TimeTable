@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationStyle } from '@src/modules/navigation/style';
 
 import Home from '@src/modules/home/screens';
-import Profile from '@src/modules/profile/profile';
+import Profile from '@src/modules/profile';
 import Settings from '@src/modules/settings/ui';
 
 const Tab = createBottomTabNavigator();
