@@ -1,44 +1,33 @@
-import { StyleSheet, Text, View } from 'react-native';
-import { FONT_SIZE_MID, FONT_SIZE_MIN } from '@src/modules/core/constants';
+import { Image, Pressable, Text, View } from 'react-native';
+import { FONT_SIZE_MID } from '@src/constants/index';
 import styled from '@emotion/native';
-
-export const LessonsStyle = StyleSheet.create({
-  main: {
-    flex: 1,
-  },
-  top: {
-    // flex: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  topText: {
-    fontSize: FONT_SIZE_MID,
-    fontWeight: 'bold',
-  },
-  addLessons: {
-    // flex: 6,
-    paddingBottom: 15,
-  },
-  lessonsList: {
-    // flex: 20,
-  },
-});
 
 export const Container = styled(View)`
   flex: 1;
   margin: 0 15px;
-  //background: red;
 `;
 
 export const HeaderWrapper = styled(View)`
+  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   margin: 10px 0;
+`;
+
+export const ArrowWrapper = styled(Pressable)``;
+
+export const ArrowBack = styled(Image)`
+  width: 30px;
+  height: 30px;
 `;
 
 export const HeaderText = styled(Text)`
   color: ${props => props.theme.color.black};
   font-weight: bold;
   font-size: ${() => `${FONT_SIZE_MID}px`};
+  line-height: 30px;
 `;
 
-export const LessonsList = styled(View)``;
+export const EmptyField = styled(View)`
+  width: 30px;
+`;

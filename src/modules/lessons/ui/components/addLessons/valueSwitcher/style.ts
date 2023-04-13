@@ -1,5 +1,5 @@
 import { Pressable, Text, View } from 'react-native';
-import { BORDER_RADIUS_BTN, FONT_SIZE_MIN } from '@src/modules/core/constants';
+import { BORDER_RADIUS_BTN, FONT_SIZE_MIN } from '@src/constants/index';
 import styled from '@emotion/native';
 
 export const Container = styled(Pressable)`

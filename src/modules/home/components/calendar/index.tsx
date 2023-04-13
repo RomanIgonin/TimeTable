@@ -1,5 +1,5 @@
 import { Calendar } from 'react-native-calendars';
-import { BLUE, FONT_SIZE_MIN } from '@src/modules/core/constants';
+import { BLUE, FONT_SIZE_MIN } from '@src/constants';
 import { useEffect } from 'react';
 import { useAppDispatch } from '@src/hooks';
 import { lessonsActions } from '@src/modules/lessons/store';

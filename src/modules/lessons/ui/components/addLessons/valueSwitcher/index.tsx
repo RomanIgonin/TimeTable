@@ -2,7 +2,7 @@ import { Animated } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import DatePicker from 'react-native-date-picker';
 import * as S from '@src/modules/lessons/ui/components/addLessons/valueSwitcher/style';
-import { PRICES } from '@src/modules/core/constants';
+import { PRICES } from '@src/constants/index';
 
 type TypeSwitcher = 'time' | 'language' | 'price';
 

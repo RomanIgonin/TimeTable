@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { URL } from '@src/modules/core/constants';
+import { URL } from '@src/constants/index';
 import { Dates } from '@src/store/globalInterface';
 
 class LessonsServices {

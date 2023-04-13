@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Pressable, Alert } from 'react-native';
+import { FlatList, Alert } from 'react-native';
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '@src/hooks';
 import { currentUserSelector } from '@src/modules/users/store/selectors';
@@ -9,7 +9,7 @@ import {
   getDates,
 } from '@src/modules/lessons/store/action';
 import { Lessons } from '@src/store/globalInterface';
-import { LessonsListStyle } from '@src/modules/lessons/ui/components/lessonsList/styles';
+import * as S from '@src/modules/lessons/ui/components/lessonsList/styles';
 
 interface Props {
   date: string;
@@ -70,32 +70,28 @@ export const LessonsList: React.FC<Props> = ({ date }) => {
   const keyExtractor = (item: Lessons) => item.id;
   const renderItem = ({ item }: any) => {
     return (
-      <Pressable
-        style={LessonsListStyle.lessonField}
-        onLongPress={() => onLongPress(item.id)}>
-        <View style={LessonsListStyle.time}>
-          <Text style={LessonsListStyle.lessonTextTime}>{item.time}</Text>
-        </View>
-        <View style={LessonsListStyle.language}>
-          <Text style={LessonsListStyle.lessonTextLanguage}>
-            {item.language}
-          </Text>
-        </View>
-        <View style={LessonsListStyle.price}>
-          <Text style={LessonsListStyle.lessonTextPrice}>{item.price}</Text>
-        </View>
-      </Pressable>
+      <S.ContainerItem onLongPress={() => onLongPress(item.id)}>
+        <S.ItemText>{item.time}</S.ItemText>
+        <S.ItemText isLanguage={true}>{item.language}</S.ItemText>
+        <S.ItemText>{item.price}</S.ItemText>
+      </S.ContainerItem>
     );
   };
 
   return (
-    <View style={LessonsListStyle.main}>
-      <FlatList
-        data={currentDate ? currentDateLessons : []}
-        keyExtractor={keyExtractor}
-        renderItem={renderItem}
-        scrollEnabled={false}
-      />
-    </View>
+    <S.Container>
+      {currentDate ? (
+        <FlatList
+          data={currentDateLessons}
+          keyExtractor={keyExtractor}
+          renderItem={renderItem}
+          scrollEnabled={false}
+        />
+      ) : (
+        <S.ContainerItem>
+          <S.ItemText isNoLessons={true}>Lessons not scheduled</S.ItemText>
+        </S.ContainerItem>
+      )}
+    </S.Container>
   );
 };

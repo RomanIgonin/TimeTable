@@ -1,4 +1,4 @@
-import { FONT_SIZE_MIN } from '@src/modules/core/constants';
+import { FONT_SIZE_MIN } from '@src/constants/index';
 import { Text, View } from 'react-native';
 import styled from '@emotion/native';
 

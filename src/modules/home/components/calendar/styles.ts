@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { BORDER_RADIUS_BTN } from '@src/modules/core/constants';
+import { BORDER_RADIUS_BTN } from '@src/constants/index';
 
 export const HomeCalendarStyle = StyleSheet.create({
   calendar: {

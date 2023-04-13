@@ -1,5 +1,5 @@
 import { View, Platform } from 'react-native';
-import { BORDER_RADIUS_BTN } from '@src/modules/core/constants';
+import { BORDER_RADIUS_BTN } from '@src/constants/index';
 import styled from '@emotion/native';
 
 export const Container = styled(View)`

@@ -4,7 +4,7 @@ import {
   FONT_SIZE_MID,
   FONT_SIZE_MIN,
   HEIGHT_INPUT,
-} from '@src/modules/core/constants';
+} from '@src/constants/index';
 import { View, Text, TextInput } from 'react-native';
 
 export const TextWrapper = styled(View)`

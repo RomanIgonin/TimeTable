@@ -1,11 +1,11 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import {
   BLUE,
   BORDER_RADIUS_BTN,
   FONT_SIZE_MID,
   FONT_SIZE_MIN,
   GRAY,
-} from '@src/modules/core/constants';
+} from '@src/constants/index';
 
 export const EditProfileStyle = StyleSheet.create({
   main: {

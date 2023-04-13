@@ -1,5 +1,5 @@
 import { Platform, View } from 'react-native';
-import { BORDER_RADIUS_BTN } from '@src/modules/core/constants';
+import { BORDER_RADIUS_BTN } from '@src/constants/index';
 import styled from '@emotion/native';
 
 export const Container = styled(View)``;
@@ -18,4 +18,5 @@ export const AllInputsWrapper = styled(View)`
 export const ButtonWrapper = styled(View)`
   align-items: center;
   justify-content: center;
+  margin-bottom: 15px;
 `;

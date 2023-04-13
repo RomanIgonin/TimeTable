@@ -4,7 +4,7 @@ import {
   viewedMonthSelector,
   viewedYearSelector,
 } from '@src/modules/lessons/store/selectors';
-import { MONTHS } from '@src/modules/core/constants';
+import { MONTHS } from '@src/constants/index';
 import * as S from '@src/modules/home/components/monthSalary/styles';
 
 export default function MonthSalary() {

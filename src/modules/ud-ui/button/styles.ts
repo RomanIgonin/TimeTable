@@ -4,7 +4,7 @@ import {
   FONT_SIZE_MID,
   HEIGHT_BTN,
   WIDTH_BTN,
-} from '@src/modules/core/constants';
+} from '@src/constants/index';
 import { Pressable, Text } from 'react-native';
 
 export const ButtonWrapper = styled(Pressable)`
