@@ -1,138 +1,96 @@
-import { StyleSheet } from 'react-native';
 import {
-  BLUE,
+  Image,
+  ImageBackground,
+  Platform,
+  Pressable,
+  Text,
+  View,
+} from 'react-native';
+import {
   BORDER_RADIUS_BTN,
   FONT_SIZE_MID,
   FONT_SIZE_MIN,
-  GRAY,
 } from '@src/constants/index';
+import styled from '@emotion/native';
 
-export const EditProfileStyle = StyleSheet.create({
-  main: {
-    flex: 1,
-  },
+export const Container = styled(View)`
+  flex: 1;
+  margin: 0 15px;
+`;
 
-  main2: {
-    flex: 30,
-    backgroundColor: 'white',
-    marginHorizontal: 15,
-    marginBottom: 15,
-    borderRadius: BORDER_RADIUS_BTN,
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
-    shadowRadius: 7,
-    shadowOpacity: 0.2,
-  },
+export const Header = styled(Text)`
+  text-align: center;
+  padding: 7px 0;
+  font-size: ${() => `${FONT_SIZE_MID}px`};
+  font-weight: bold;
+  color: ${props => props.theme.color.black};
+`;
 
-  top: {
-    flex: 6,
-  },
-  topTextView: {
-    flex: 2,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  topText: {
-    fontWeight: 'bold',
-    fontSize: FONT_SIZE_MID,
-  },
-  topImage: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  imageBackground: {
-    flex: 1,
-    borderRadius: 60,
-    borderWidth: 5,
-    borderColor: GRAY,
-  },
-  photoDownloadView: {
-    width: 110,
-    height: 110,
-    borderRadius: 50,
-    borderWidth: 5,
-    borderColor: GRAY,
-  },
-  photoDownload: {
-    alignSelf: 'center',
-    width: 30,
-    height: 30,
-    opacity: 0.7,
-  },
+export const BodyContainer = styled(View)`
+  background: ${props => props.theme.color.white};
+  border-radius: ${() => `${BORDER_RADIUS_BTN}px`};
+  elevation: 5;
+  ${Platform.OS === 'ios' ? `box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);` : ''}
+  margin-bottom: 15px;
+`;
 
-  mid: {
-    flex: 14,
-    margin: 10,
-  },
-  midTitleField: {
-    flex: 1,
-    alignItems: 'center',
-    margin: 5,
-    paddingLeft: 5,
-    flexDirection: 'row',
-  },
-  midTitleTextField: {
-    flex: 2,
-  },
-  midTitleText: {
-    justifyContent: 'center',
-    fontSize: FONT_SIZE_MIN,
-    fontWeight: 'bold',
-  },
-  textInput: {
-    flex: 6,
-    borderWidth: 1,
-    borderRadius: BORDER_RADIUS_BTN,
-    padding: 7,
-    paddingLeft: 10,
-    fontSize: FONT_SIZE_MIN,
-  },
+export const PhotoWrapper = styled(Pressable)`
+  margin: 15px 0 15px 0;
+  align-items: center;
+`;
 
-  selected: {
-    borderRadius: BORDER_RADIUS_BTN,
-    backgroundColor: BLUE,
-    padding: 5,
-    paddingHorizontal: 10,
-  },
-  unselected: {
-    padding: 5,
-    paddingHorizontal: 10,
-  },
-  genderTextSelect: {
-    color: 'white',
-  },
-  genderTextUnselect: {
-    color: 'black',
-  },
+export const ImagePhotoWrapper = styled(ImageBackground)`
+  width: 110px;
+  height: 110px;
+`;
 
-  midBottom: {
-    flex: 5,
-  },
+export const ImagePhotoDownload = styled(Image)`
+  align-self: center;
+  width: 45px;
+  height: 45px;
+  opacity: 0.7;
+  margin-top: 32.5px;
+`;
 
-  bottom: {
-    flex: 3,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  bottomPaddingTop: {
-    flex: 1,
-  },
-  bottomPaddingBottom: {
-    flex: 5,
-  },
-  bottomSaveChanges: {
-    flex: 8,
-    justifyContent: 'center',
-    paddingHorizontal: 20,
-    borderRadius: BORDER_RADIUS_BTN,
-    backgroundColor: BLUE,
-  },
-  bottomSaveChangesText: {
-    fontWeight: 'bold',
-    color: 'white',
-    fontSize: FONT_SIZE_MID,
-  },
-});
+export const ItemListWrapper = styled(View)`
+  flex-direction: row;
+  align-items: center;
+  margin: 0 15px 15px 0;
+`;
+
+export const ItemListTitle = styled(Text)`
+  text-align: center;
+  font-size: ${() => `${FONT_SIZE_MIN}px`};
+  font-weight: bold;
+  color: ${props => props.theme.color.black};
+  width: 65px;
+  margin: 0 10px;
+`;
+
+export const ItemListValue = styled(View)`
+  flex: 1;
+`;
+
+export const RadioContainer = styled(View)`
+  flex-direction: row;
+`;
+
+interface GenderProps {
+  isSelectGender?: boolean;
+}
+export const GenderWrapper = styled(Pressable)<GenderProps>`
+  border-radius: ${() => `${BORDER_RADIUS_BTN}px`};
+  background-color: ${props =>
+    props.isSelectGender ? props.theme.color.blue : props.theme.color.white};
+  padding: 10px 10px;
+  margin-right: 15px;
+`;
+
+export const GenderText = styled(Text)<GenderProps>`
+  color: ${props =>
+    props.isSelectGender ? props.theme.color.white : props.theme.color.black};
+`;
+
+export const ButtonWrapper = styled(View)`
+  align-items: center;
+`;

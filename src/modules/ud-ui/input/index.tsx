@@ -10,10 +10,11 @@ interface Props {
   // rules: object; // Использовал до применения yup
   keyboardType?: KeyboardTypeOptions | undefined;
   secureTextEntry?: boolean | undefined;
+  isAuth?: boolean;
 }
 
 export default function UDInput(props: Props) {
-  const { name, control, value, ...otherProps } = props;
+  const { name, control, value, isAuth, ...otherProps } = props;
 
   return (
     <Controller
@@ -25,10 +26,12 @@ export default function UDInput(props: Props) {
         fieldState: { error },
       }) => (
         <>
-          <S.TextWrapper>
-            <S.TextStyled>{name}</S.TextStyled>
-            {error && <S.TextError>{error.message}</S.TextError>}
-          </S.TextWrapper>
+          {isAuth && (
+            <S.TextWrapper>
+              <S.TextStyled>{name}</S.TextStyled>
+              {error && <S.TextError>{error.message}</S.TextError>}
+            </S.TextWrapper>
+          )}
           <S.TextInputStyled
             value={value}
             onChangeText={onChange}
