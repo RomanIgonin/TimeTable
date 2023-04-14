@@ -47,8 +47,18 @@ export const AuthForm = (props: Props) => {
 
   return (
     <S.Main>
-      <UDInput name="email" control={control} keyboardType={'email-address'} />
-      <UDInput name="password" control={control} secureTextEntry={true} />
+      <UDInput
+        name="email"
+        control={control}
+        keyboardType={'email-address'}
+        isAuth={true}
+      />
+      <UDInput
+        name="password"
+        control={control}
+        secureTextEntry={true}
+        isAuth={true}
+      />
       <S.UDButtonWrapper>
         <UDButton label={textInButton} onPress={handleSubmit(onPressAuth)} />
       </S.UDButtonWrapper>

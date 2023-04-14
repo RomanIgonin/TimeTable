@@ -12,7 +12,7 @@ export interface Dates {
   lessons: Lessons[];
 }
 
-type Gender = 'Male' | 'Female' | '';
+export type GenderType = 'Male' | 'Female' | '';
 
 export interface User {
   id: string | undefined;
@@ -20,7 +20,7 @@ export interface User {
   password: string;
   firstName: string;
   lastName: string;
-  gender: Gender;
+  gender: GenderType;
   phoneNumber: string;
   profileImage: any;
 }
@@ -30,7 +30,7 @@ export interface userInitialState {
   isUserLoading: boolean;
 }
 
-// Пока не подключил интерфейс для initialState в lessonsSlice
+// TODO Пока не подключил интерфейс для initialState в lessonsSlice
 // export interface lessonsInitialState {
 //   dates: Dates[];
 //   viewedMonth: string;

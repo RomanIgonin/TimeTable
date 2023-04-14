@@ -1,33 +1,46 @@
-import {
-  Pressable,
-  View,
-  Text,
-  TextInput,
-  Alert,
-  Image,
-  ImageBackground,
-  FlatList,
-} from 'react-native';
-import { EditProfileStyle } from '@src/modules/profile/editProfile/styles';
-import { useState } from 'react';
+import { Alert, FlatList } from 'react-native';
+import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@src/hooks';
 import { currentUserSelector } from '@src/modules/users/store/selectors';
 import { launchCamera, launchImageLibrary } from 'react-native-image-picker';
 import { patchUser } from '@src/modules/users/store/action';
 import { useNavigation } from '@react-navigation/native';
+import * as S from '@src/modules/profile/editProfile/styles';
+import { GRAY } from '@src/constants';
+import { NO_PROFILE_IMAGE, PHOTO_DOWNLOAD } from '@src/constants/imagePaths';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import UDInput from '@src/modules/ud-ui/input';
+import UDButton from '@src/modules/ud-ui/button';
 
 export default function EditProfile() {
+  const EditValidator = yup.object({
+    firstName: yup.string(),
+    lastName: yup.string(),
+    phoneNumber: yup.string(),
+  });
+
+  const { handleSubmit, control, setValue } = useForm({
+    mode: 'onSubmit',
+    resolver: yupResolver(EditValidator),
+  });
+
   const dispatch = useAppDispatch();
   const navigation = useNavigation();
   const currentUser = useAppSelector(currentUserSelector);
-  const [firstName, setFirstName] = useState(currentUser.firstName);
-  const [lastName, setLastName] = useState(currentUser.lastName);
   const [gender, setGender] = useState(currentUser.gender);
-  const [phoneNumber, setPhoneNumber] = useState(currentUser.phoneNumber);
   const [imageResponse, setImageResponse] = useState<any>(
-    currentUser.profileImage,
+    currentUser?.profileImage,
   );
 
+  useEffect(() => {
+    setValue('firstName', currentUser?.firstName);
+    setValue('lastName', currentUser?.lastName);
+    setValue('phoneNumber', currentUser?.phoneNumber);
+  }, []);
+
+  // TODO убрать в другое место
   const onPressDownloadImage = () => {
     Alert.alert('How to upload a photo?', '', [
       {
@@ -71,45 +84,14 @@ export default function EditProfile() {
 
   const uri = imageResponse?.assets && imageResponse.assets[0].uri;
 
-  const onPressSaveChanges = () => {
-    if (currentUser) {
-      currentUser.firstName = firstName;
-      currentUser.lastName = lastName;
-      currentUser.gender = gender;
-      currentUser.phoneNumber = phoneNumber;
-      imageResponse
-        ? (currentUser.profileImage = imageResponse)
-        : (currentUser.profileImage = '');
-      dispatch(patchUser(currentUser));
-    }
-    navigation.goBack();
-  };
-
   const ProfileImage = () => {
-    return imageResponse ? (
-      <ImageBackground
-        style={{ width: 110, height: 110 }}
-        imageStyle={EditProfileStyle.imageBackground}
-        source={{ uri }}>
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-          <Image
-            style={EditProfileStyle.photoDownload}
-            source={require('@src/assets/icons/photoDownloadWhite.png')}
-          />
-        </View>
-      </ImageBackground>
-    ) : (
-      <ImageBackground
-        style={{ width: 110, height: 110 }}
-        imageStyle={EditProfileStyle.imageBackground}
-        source={require('@src/assets/images/profileImageUndefined.png')}>
-        <View style={{ flex: 1, justifyContent: 'center' }}>
-          <Image
-            style={EditProfileStyle.photoDownload}
-            source={require('@src/assets/icons/photoDownloadWhite.png')}
-          />
-        </View>
-      </ImageBackground>
+    const havePhotoProfile = !!uri;
+    return (
+      <S.ImagePhotoWrapper
+        imageStyle={{ borderRadius: 60, borderWidth: 5, borderColor: GRAY }}
+        source={havePhotoProfile ? { uri } : NO_PROFILE_IMAGE}>
+        <S.ImagePhotoDownload source={PHOTO_DOWNLOAD} />
+      </S.ImagePhotoWrapper>
     );
   };
 
@@ -117,126 +99,93 @@ export default function EditProfile() {
   const profileEditInfo = [
     {
       title: 'First Name:',
-      body: currentUser?.firstName,
-      state: setFirstName,
-      value: firstName,
+      name: 'firstName',
       key: '1',
     },
     {
       title: 'Last Name:',
-      body: currentUser?.lastName,
-      state: setLastName,
-      value: lastName,
+      name: 'lastName',
       key: '2',
     },
     {
       title: 'Gender:',
-      body: currentUser?.gender,
-      state: setGender,
-      value: gender,
+      name: 'gender',
       key: '3',
     },
     {
       title: 'Phone number:',
-      body: currentUser?.phoneNumber,
-      state: setPhoneNumber,
-      value: phoneNumber,
+      name: 'phoneNumber',
       key: '4',
     },
   ];
 
+  // TODO локику в сервисы убрать
+  const onPressSaveChanges = (values: any) => {
+    if (currentUser) {
+      currentUser.firstName = values.firstName;
+      currentUser.lastName = values.lastName;
+      currentUser.gender = gender;
+      currentUser.phoneNumber = values.phoneNumber;
+      currentUser.profileImage = values.imageResponse
+        ? values.imageResponse
+        : '';
+      dispatch(patchUser(currentUser));
+    }
+    navigation.goBack();
+  };
+
   const RadioElement = () => {
-    const genderArray = [
-      { gender: 'Male', key: '11' },
-      { gender: 'Female', key: '22' },
-    ];
     return (
-      <View
-        style={{
-          flex: 6,
-          flexDirection: 'row',
-          justifyContent: 'flex-start',
-        }}>
-        {genderArray.map(item => {
-          return (
-            <View key={item.key} style={{ paddingRight: 15 }}>
-              <Pressable
-                style={
-                  gender === item.gender
-                    ? EditProfileStyle.selected
-                    : EditProfileStyle.unselected
-                }
-                onPress={() => setGender(item.gender)}>
-                <Text
-                  style={
-                    gender === item.gender
-                      ? EditProfileStyle.genderTextSelect
-                      : EditProfileStyle.genderTextUnselect
-                  }>
-                  {item.gender}
-                </Text>
-              </Pressable>
-            </View>
-          );
-        })}
-      </View>
+      <S.RadioContainer>
+        <S.GenderWrapper
+          isSelectGender={gender == 'Male'}
+          onPress={() => setGender('Male')}>
+          <S.GenderText isSelectGender={gender == 'Male'}>Male</S.GenderText>
+        </S.GenderWrapper>
+        <S.GenderWrapper
+          isSelectGender={gender == 'Female'}
+          onPress={() => setGender('Female')}>
+          <S.GenderText isSelectGender={gender == 'Female'}>
+            Female
+          </S.GenderText>
+        </S.GenderWrapper>
+      </S.RadioContainer>
     );
   };
 
   const keyExtractor = (item: any) => item.key;
   const renderItem = ({ item }: any) => {
     return (
-      <View style={EditProfileStyle.midTitleField}>
-        <View style={EditProfileStyle.midTitleTextField}>
-          <Text style={EditProfileStyle.midTitleText}>{item.title}</Text>
-        </View>
-        {item.title !== 'Gender:' ? (
-          <TextInput
-            style={EditProfileStyle.textInput}
-            value={item.value}
-            onChangeText={item.state}
-            clearButtonMode={'while-editing'}
-          />
-        ) : (
-          <RadioElement />
-        )}
-      </View>
+      <S.ItemListWrapper>
+        <S.ItemListTitle>{item.title}</S.ItemListTitle>
+        <S.ItemListValue>
+          {item.name == 'gender' ? (
+            <RadioElement />
+          ) : (
+            <UDInput name={item.name} control={control} value={item.value} />
+          )}
+        </S.ItemListValue>
+      </S.ItemListWrapper>
     );
   };
 
   return (
-    <View style={EditProfileStyle.main}>
-      <View style={EditProfileStyle.topTextView}>
-        <Text style={EditProfileStyle.topText}>EDIT PROFILE</Text>
-      </View>
-      <View style={EditProfileStyle.main2}>
-        <View style={EditProfileStyle.top}>
-          <Pressable
-            style={EditProfileStyle.topImage}
-            onPress={onPressDownloadImage}>
-            <ProfileImage />
-          </Pressable>
-        </View>
-        <View style={EditProfileStyle.mid}>
-          <FlatList
-            data={profileEditInfo}
-            keyExtractor={keyExtractor}
-            renderItem={renderItem}
-            scrollEnabled={false}
-          />
-        </View>
-      </View>
-      <View style={EditProfileStyle.bottom}>
-        <View style={EditProfileStyle.bottomPaddingTop}></View>
-        <Pressable
-          style={EditProfileStyle.bottomSaveChanges}
-          onPress={onPressSaveChanges}>
-          <Text style={EditProfileStyle.bottomSaveChangesText}>
-            Save changes
-          </Text>
-        </Pressable>
-        <View style={EditProfileStyle.bottomPaddingBottom}></View>
-      </View>
-    </View>
+    <S.Container>
+      <S.Header>EDIT PROFILE</S.Header>
+      <S.BodyContainer>
+        <S.PhotoWrapper onPress={onPressDownloadImage}>
+          <ProfileImage />
+        </S.PhotoWrapper>
+        <FlatList
+          data={profileEditInfo}
+          keyExtractor={keyExtractor}
+          renderItem={renderItem}
+          scrollEnabled={false}
+        />
+      </S.BodyContainer>
+      <S.ButtonWrapper>
+        <UDButton label={'Save'} onPress={handleSubmit(onPressSaveChanges)} />
+      </S.ButtonWrapper>
+    </S.Container>
   );
 }
