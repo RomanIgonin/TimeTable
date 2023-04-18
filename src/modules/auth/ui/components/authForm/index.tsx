@@ -11,7 +11,6 @@ interface Props {
   onPressButton: (email: string, password: string) => void;
 }
 
-// Не могу понять как передать свои errors в UDInput
 yup.setLocale({
   mixed: {
     default: 'is required field',
@@ -29,9 +28,9 @@ const schema = yup.object().shape({
 
 export const AuthForm = (props: Props) => {
   const {
-    handleSubmit, // получит данные формы, если проверка прошла успешно
-    control, // содержит методы для регистрации компонентов
-    // Через нее передать свои errors в UDInput?
+    handleSubmit,
+    control,
+    // TODO Через нее передать свои errors в UDInput?
     // formState: { errors }, // содержит информацию обо всем состоянии формы
     reset,
   } = useForm({

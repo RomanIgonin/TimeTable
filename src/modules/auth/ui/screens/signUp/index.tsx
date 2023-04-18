@@ -2,13 +2,13 @@ import React from 'react';
 import { TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { AuthForm } from '@src/modules/auth/ui/components/authForm';
 import auth from '@react-native-firebase/auth';
-import authServices from '@src/modules/auth/services/authServices';
+import authServices from '@src/modules/auth/domain/services/authServices';
 import * as Style from '@src/modules/auth/ui/screens/styles/style';
 import { useAppDispatch } from '@src/hooks';
-import { User } from '@src/store/globalInterface';
 import { postUser } from '@src/modules/users/store/action';
 import { useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
+import { User } from '@src/modules/users/domain/interfaces/User';
 
 // Проверить работает ли без нее скрытие клавиатуры
 const DismissKeyboard = ({ children }: any) => (

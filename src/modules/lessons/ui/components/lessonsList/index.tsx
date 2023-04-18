@@ -8,8 +8,8 @@ import {
   deleteLesson,
   getDates,
 } from '@src/modules/lessons/store/action';
-import { Lessons } from '@src/store/globalInterface';
 import * as S from '@src/modules/lessons/ui/components/lessonsList/styles';
+import { Lessons } from '@src/modules/lessons/domain/interfaces/Lessons';
 
 interface Props {
   date: string;

@@ -6,7 +6,7 @@ import {
   isUserLoadingSelector,
 } from '@src/modules/users/store/selectors';
 
-import SplashScreen from '@src/modules/auth/ui/screens/splashScreen';
+import SplashScreen from '@src/modules/auth/ui/components/splashScreen';
 import Login from '@src/modules/auth/ui/screens/login';
 import SignUp from '@src/modules/auth/ui/screens/signUp';
 import Lessons from '@src/modules/lessons/ui/screens';

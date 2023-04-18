@@ -1,6 +1,6 @@
-import * as S from '@src/modules/auth/ui/screens/splashScreen/styles';
+import * as S from '@src/modules/auth/ui/components/splashScreen/styles';
 import { ActivityIndicator } from 'react-native';
-import { BLUE } from '@src/constants/index';
+import { BLUE } from '@src/constants';
 
 export default function SplashScreen() {
   return (

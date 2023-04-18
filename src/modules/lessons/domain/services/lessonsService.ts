@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { URL } from '@src/constants/index';
-import { Dates } from '@src/store/globalInterface';
+import { URL } from '@src/constants';
+import { Dates } from '@src/modules/lessons/domain/interfaces/Dates';
 
 class LessonsServices {
   public async getDates(userId: string | undefined) {

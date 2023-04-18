@@ -1,8 +1,8 @@
 import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getUser, patchUser, postUser } from './action';
-import { userInitialState } from '@src/store/globalInterface';
+import { UserInitialState } from '@src/modules/users/domain/interfaces/UserInitialState';
 
-const initialState: userInitialState = {
+const initialState: UserInitialState = {
   currentUser: undefined,
   isUserLoading: false,
 };

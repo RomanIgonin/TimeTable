@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import lessonsServices from '@src/modules/lessons/services/lessonsService';
-import { Dates } from '@src/store/globalInterface';
+import lessonsServices from '@src/modules/lessons/domain/services/lessonsService';
+import { Dates } from '@src/modules/lessons/domain/interfaces/Dates';
 
 const PREFIX = 'lessons';
 

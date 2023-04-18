@@ -1,5 +1,5 @@
 import styled from '@emotion/native';
-import { FONT_SIZE_MIN } from '@src/constants/index';
+import { FONT_SIZE_MIN } from '@src/constants';
 
 export const Main = styled.View`
   flex: 1;

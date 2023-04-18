@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { URL } from '@src/constants/index';
+import { URL } from '@src/constants';
 import { User } from '@src/store/globalInterface';
 
 class UsersServices {

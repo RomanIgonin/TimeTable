@@ -2,7 +2,7 @@ import React from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { AuthForm } from '@src/modules/auth/ui/components/authForm';
 import auth from '@react-native-firebase/auth';
-import authServices from '@src/modules/auth/services/authServices';
+import authServices from '@src/modules/auth/domain/services/authServices';
 import { useAppDispatch } from '@src/hooks';
 import { useForm } from 'react-hook-form';
 import { getUser } from '@src/modules/users/store/action';

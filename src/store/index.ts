@@ -1,12 +1,19 @@
-import { configureStore } from '@reduxjs/toolkit';
-import usersSlice from '@src/modules/users/store';
-import lessonsSlice from '@src/modules/lessons/store';
+import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import reducers from '@src/store/reducers';
+
+export const rootReducer = combineReducers(reducers);
+
+const middlewares: any = [];
+
+if (__DEV__) {
+  const createDebugger = require('redux-flipper').default;
+  middlewares.push(createDebugger());
+}
 
 export const store = configureStore({
-  reducer: {
-    users: usersSlice,
-    lessons: lessonsSlice,
-  },
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat([...middlewares]),
 });
 
 export type RootState = ReturnType<typeof store.getState>;
