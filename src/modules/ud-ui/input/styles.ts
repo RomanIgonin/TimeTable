@@ -8,13 +8,16 @@ import {
 import { View, Text, TextInput } from 'react-native';
 
 export const TextWrapper = styled(View)`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   margin: 0 15px;
 `;
 
 export const TextError = styled(Text)`
   color: rgba(255, 0, 0, 0.74);
   font-size: ${() => `${FONT_SIZE_MIN}px`};
-  margin: 0 0 5px 0;
+  margin: 3px 0 0 0;
 `;
 
 export const TextStyled = styled(Text)`
