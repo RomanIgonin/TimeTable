@@ -21,18 +21,17 @@ export default function Login() {
   const dispatch = useAppDispatch();
   const { reset } = useForm();
 
+  // TODO Не очищает инпуты. При этом в SignUp такой же reset() работает.
   const onPressSignUp = () => {
-    reset(); // Не очищает инпуты. При этом в SignUp такой же reset() работает.
+    reset();
     navigation.navigate('SignUp');
   };
 
   const onPressLogin = async (email: string, password: string) => {
-    await authServices.loginAuthService(email, password);
-    const authUserId = auth().currentUser?.uid;
-    if (authUserId) {
-      dispatch(getUser(authUserId));
-      dispatch(getDates(authUserId));
-    }
+    await authServices.login(email, password);
+    const authUserId = authServices.getCurrentUserUid();
+    dispatch(getUser(authUserId));
+    dispatch(getDates(authUserId));
   };
 
   return (

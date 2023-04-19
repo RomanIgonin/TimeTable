@@ -22,7 +22,6 @@ const usersSlice = createSlice({
     builder.addCase(getUser.fulfilled, (state, { payload }) => {
       state.currentUser = payload;
       state.isUserLoading = false;
-      console.log('currentUser in state: ' + state.currentUser?.email);
     });
 
     builder.addCase(postUser.pending, state => {

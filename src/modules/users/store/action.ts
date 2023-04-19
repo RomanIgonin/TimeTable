@@ -4,7 +4,7 @@ import { User } from '@src/modules/users/domain/interfaces/User';
 
 const PREFIX = 'users';
 
-export const getUser = createAsyncThunk<User, string>(
+export const getUser = createAsyncThunk<User, string | undefined>(
   `${PREFIX}/getUser`,
   async id => {
     return await usersServices.getUser(id);
@@ -13,7 +13,11 @@ export const getUser = createAsyncThunk<User, string>(
 export const postUser = createAsyncThunk<User, User>(
   `${PREFIX}/postUser`,
   async newUser => {
-    return await usersServices.postUser(newUser);
+    try {
+      return await usersServices.postUser(newUser);
+    } catch (error: any) {
+      console.warn(error);
+    }
   },
 );
 export const patchUser = createAsyncThunk<User, User>(

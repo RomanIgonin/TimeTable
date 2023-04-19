@@ -3,7 +3,7 @@ import Config from 'react-native-config';
 import { User } from '@src/modules/users/domain/interfaces/User';
 
 class UsersServices {
-  public async getUser(id: string) {
+  public async getUser(id: string | undefined) {
     return axios
       .get(Config.API_URL + 'users/' + `${id}`)
       .then(response => response.data)

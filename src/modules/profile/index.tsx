@@ -4,21 +4,20 @@ import { currentUserSelector } from '@src/modules/users/store/selectors';
 import { useNavigation } from '@react-navigation/native';
 import * as S from '@src/modules/profile/styles';
 import { EDIT, NO_PROFILE_IMAGE } from '@src/constants/imagePaths';
+import profileService from '@src/modules/profile/domain/services/profileService';
 
 export default function Profile() {
   const navigation = useNavigation<any>();
   const currentUser = useAppSelector(currentUserSelector);
 
-  const name =
-    currentUser?.firstName && currentUser?.lastName
-      ? currentUser?.firstName + ' ' + currentUser?.lastName
-      : 'No name';
+  const name = profileService.getName(currentUser);
+  const profileInfoList = profileService.createProfileInfoList(currentUser);
+  const imageResponse = currentUser?.profileImage;
+  const uri = imageResponse ? imageResponse.assets[0].uri : null;
 
   const onPressEdit = () => {
     navigation.navigate('EditProfile');
   };
-  const imageResponse = currentUser?.profileImage;
-  const uri = imageResponse ? imageResponse.assets[0].uri : null;
 
   const ProfileImage = () => {
     return imageResponse ? (
@@ -27,11 +26,6 @@ export default function Profile() {
       <S.PhotoProfile source={NO_PROFILE_IMAGE} />
     );
   };
-
-  const profileInfo = [
-    { title: 'Phone number:', body: currentUser?.phoneNumber, key: '1' },
-    { title: 'Gender:', body: currentUser?.gender, key: '2' },
-  ];
 
   const keyExtractor = (item: any) => item.key;
   const renderItem = ({ item }: any) => {
@@ -63,7 +57,7 @@ export default function Profile() {
 
       <S.BottomInfoContainer>
         <FlatList
-          data={profileInfo}
+          data={profileInfoList}
           keyExtractor={keyExtractor}
           renderItem={renderItem}
           scrollEnabled={false}

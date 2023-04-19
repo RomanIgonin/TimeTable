@@ -20,9 +20,6 @@ export default function Navigate() {
   const currentUser = useAppSelector(currentUserSelector);
   const isUserLoading = useAppSelector(isUserLoadingSelector);
 
-  // Render Navigation происходит 2 раза, при этом isUserLoading оба раза false
-  console.log('render in navigation: ', currentUser, isUserLoading);
-
   if (isUserLoading) {
     return <LoaderScreen />;
   }

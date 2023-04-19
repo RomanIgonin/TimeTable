@@ -6,6 +6,7 @@ import { NavigationStyle } from '@src/modules/navigation/style';
 import Home from '@src/modules/home/screens';
 import Profile from '@src/modules/profile';
 import Settings from '@src/modules/settings/ui';
+import { CALENDAR, PROFILE, SETTINGS } from '@src/constants/imagePaths';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,7 +25,7 @@ export default function HomeTabs() {
           tabBarIcon: () => (
             <View>
               <Image
-                source={require('@src/assets/icons/profile.png')}
+                source={PROFILE}
                 style={NavigationStyle.iconTabNavigator}
               />
             </View>
@@ -38,7 +39,7 @@ export default function HomeTabs() {
           tabBarIcon: () => (
             <View>
               <Image
-                source={require('@src/assets/icons/calendar.png')}
+                source={CALENDAR}
                 style={NavigationStyle.iconTabNavigator}
               />
             </View>
@@ -52,7 +53,7 @@ export default function HomeTabs() {
           tabBarIcon: () => (
             <View>
               <Image
-                source={require('@src/assets/icons/settings.png')}
+                source={SETTINGS}
                 style={NavigationStyle.iconTabNavigator}
               />
             </View>
