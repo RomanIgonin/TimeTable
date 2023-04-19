@@ -6,13 +6,13 @@ import {
   isUserLoadingSelector,
 } from '@src/modules/users/store/selectors';
 
-import SplashScreen from '@src/modules/auth/ui/components/splashScreen';
 import Login from '@src/modules/auth/ui/screens/login';
 import SignUp from '@src/modules/auth/ui/screens/signUp';
 import Lessons from '@src/modules/lessons/ui/screens';
 import EditProfile from '@src/modules/profile/editProfile';
 import HomeTabs from '@src/modules/navigation/bottomTabNavigation';
 import { useAppSelector } from '@src/hooks';
+import LoaderScreen from '@src/modules/auth/ui/components/loaderScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,7 +24,7 @@ export default function Navigate() {
   console.log('render in navigation: ', currentUser, isUserLoading);
 
   if (isUserLoading) {
-    return <SplashScreen />;
+    return <LoaderScreen />;
   }
   return (
     <NavigationContainer>

@@ -1,8 +1,8 @@
-import * as S from '@src/modules/auth/ui/components/splashScreen/styles';
+import * as S from '@src/modules/auth/ui/components/loaderScreen/styles';
 import { ActivityIndicator } from 'react-native';
 import { BLUE } from '@src/constants';
 
-export default function SplashScreen() {
+export default function LoaderScreen() {
   return (
     <S.Main>
       <ActivityIndicator size={'large'} color={BLUE} />

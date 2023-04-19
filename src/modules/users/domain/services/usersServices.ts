@@ -1,29 +1,29 @@
 import axios from 'axios';
-import { URL } from '@src/constants';
-import { User } from '@src/store/globalInterface';
+import Config from 'react-native-config';
+import { User } from '@src/modules/users/domain/interfaces/User';
 
 class UsersServices {
   public async getUser(id: string) {
     return axios
-      .get(URL + 'users/' + `${id}`)
+      .get(Config.API_URL + 'users/' + `${id}`)
       .then(response => response.data)
       .catch(error => console.error('getUser: ' + error));
   }
   public async postUser(newUser: User) {
     return axios
-      .post(URL + 'users/', newUser)
+      .post(Config.API_URL + 'users/', newUser)
       .then(response => response.data)
       .catch(error => console.error('postUsers: ' + error));
   }
   public async patchUser(currentUser: User) {
     return axios
-      .patch(URL + 'users/' + `${currentUser.id}`, currentUser)
+      .patch(Config.API_URL + 'users/' + `${currentUser.id}`, currentUser)
       .then(response => response.data)
       .catch(error => console.error('patchUser: ' + error));
   }
   public async deleteUser(currentUserId: string) {
     return axios
-      .delete(URL + 'users/' + `${currentUserId}`)
+      .delete(Config.API_URL + 'users/' + `${currentUserId}`)
       .then(response => response.data)
       .catch(error => console.error('deleteUser: ' + error));
   }

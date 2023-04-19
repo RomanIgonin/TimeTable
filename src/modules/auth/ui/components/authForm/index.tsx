@@ -21,7 +21,7 @@ yup.setLocale({
   },
 });
 
-const schema = yup.object().shape({
+const AuthSchema = yup.object().shape({
   email: yup.string().email().required(),
   password: yup.string().min(6).max(32).required(),
 });
@@ -35,7 +35,7 @@ export const AuthForm = (props: Props) => {
     reset,
   } = useForm({
     mode: 'onSubmit',
-    resolver: yupResolver(schema),
+    resolver: yupResolver(AuthSchema),
   });
   const { textInButton, onPressButton } = props;
 
