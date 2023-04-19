@@ -1,16 +1,13 @@
 import React from 'react';
 import { TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { AuthForm } from '@src/modules/auth/ui/components/authForm';
-import auth from '@react-native-firebase/auth';
 import authServices from '@src/modules/auth/domain/services/authServices';
 import * as Style from '@src/modules/auth/ui/screens/styles/style';
 import { useAppDispatch } from '@src/hooks';
 import { postUser } from '@src/modules/users/store/action';
 import { useForm } from 'react-hook-form';
 import { useNavigation } from '@react-navigation/native';
-import { User } from '@src/modules/users/domain/interfaces/User';
 
-// Проверить работает ли без нее скрытие клавиатуры
 const DismissKeyboard = ({ children }: any) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
     {children}
@@ -23,25 +20,13 @@ export default function SignUp() {
   const { reset } = useForm();
   const onPressLogin = () => {
     navigation.navigate('Login');
-    reset(); // Не очищает инпуты в Login screen
+    reset();
   };
 
   const onPressSignUp = async (email: string, password: string) => {
-    await authServices.signUpAuthService(email, password);
-    const authUser = auth().currentUser;
-    if (authUser) {
-      const newUser: User = {
-        id: auth().currentUser?.uid,
-        email: email,
-        password: password,
-        firstName: '',
-        lastName: '',
-        gender: '',
-        phoneNumber: '-',
-        profileImage: '',
-      };
-      dispatch(postUser(newUser));
-    }
+    await authServices.signUp(email, password);
+    const newUser = await authServices.createNewUser(email, password);
+    dispatch(postUser(newUser));
   };
 
   return (

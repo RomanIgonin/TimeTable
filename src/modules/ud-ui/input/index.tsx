@@ -7,9 +7,8 @@ interface Props {
   name: string;
   control: any;
   value?: string;
-  // rules: object; // Использовал до применения yup
-  keyboardType?: KeyboardTypeOptions | undefined;
-  secureTextEntry?: boolean | undefined;
+  keyboardType?: KeyboardTypeOptions;
+  secureTextEntry?: boolean;
   isAuth?: boolean;
 }
 
@@ -20,7 +19,6 @@ export default function UDInput(props: Props) {
     <Controller
       control={control}
       name={name}
-      // rules={rules} // Использовал до применения yup
       render={({
         field: { value, onChange, onBlur },
         fieldState: { error },

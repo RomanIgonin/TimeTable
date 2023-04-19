@@ -161,6 +161,13 @@ export default function EditProfile() {
         <S.ItemListValue>
           {item.name == 'gender' ? (
             <RadioElement />
+          ) : item.name == 'phoneNumber' ? (
+            <UDInput
+              name={item.name}
+              control={control}
+              value={item.value}
+              mask={'+7 [000] [000] [00] [00]'}
+            />
           ) : (
             <UDInput name={item.name} control={control} value={item.value} />
           )}

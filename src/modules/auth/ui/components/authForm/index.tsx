@@ -3,39 +3,18 @@ import UDInput from '@src/modules/ud-ui/input';
 import * as S from '@src/modules/auth/ui/components/authForm/styles';
 import UDButton from '@src/modules/ud-ui/button';
 import { FieldValues, useForm } from 'react-hook-form';
-import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { AuthSchema } from '@src/modules/auth/ui/components/authForm/authScheme';
 
 interface Props {
   textInButton: string;
   onPressButton: (email: string, password: string) => void;
 }
 
-yup.setLocale({
-  mixed: {
-    default: 'is required field',
-  },
-  string: {
-    min: 'min ${min} symbols',
-    max: 'max ${min} symbols',
-  },
-});
-
-const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().min(6).max(32).required(),
-});
-
 export const AuthForm = (props: Props) => {
-  const {
-    handleSubmit,
-    control,
-    // TODO Через нее передать свои errors в UDInput?
-    // formState: { errors }, // содержит информацию обо всем состоянии формы
-    reset,
-  } = useForm({
+  const { handleSubmit, control, reset } = useForm({
     mode: 'onSubmit',
-    resolver: yupResolver(schema),
+    resolver: yupResolver(AuthSchema),
   });
   const { textInButton, onPressButton } = props;
 

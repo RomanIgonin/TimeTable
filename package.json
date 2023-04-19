@@ -32,6 +32,7 @@
     "react-hook-form": "^7.42.1",
     "react-native": "0.70.6",
     "react-native-calendars": "^1.1292.0",
+    "react-native-config": "^1.5.0",
     "react-native-date-picker": "^4.2.6",
     "react-native-image-picker": "^4.10.2",
     "react-native-paper": "^5.1.0",
